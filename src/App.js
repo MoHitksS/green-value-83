@@ -1,12 +1,10 @@
 import './App.css';
-import SinglePage from './Components/SinglePage';
-import ProductCard from './Components/Product-Page-Component/ProductCard';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <SinglePage/>
-      <ProductCard/>
+     <Navbar/>
     </div>
   );
 }

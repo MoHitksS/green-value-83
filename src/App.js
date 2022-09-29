@@ -6,7 +6,7 @@ import Cart from './Components/Pages/Cart';
 function App() {
   return (
     <div className="App">
-   <Cart />
+   {/* <Cart /> */}
     </div>
   );
 }

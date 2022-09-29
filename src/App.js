@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <AllRoutes/>
-      <LogIn/>
+      {/* <LogIn/> */}
     </div>
   )
 }

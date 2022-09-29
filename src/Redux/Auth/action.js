@@ -5,21 +5,21 @@ import axios from "axios";
 
 
 const GetProducts=()=>(dispatch)=>{
-    dispatch({type:types.GET_PRODUCTS_REQUEST})
+    dispatch({type:types.ADD_Signup_REQUEST})
    return axios.get("  http://localhost:8080/products").
     then((res)=>{
       dispatch({
-        type:types.GET_PRODUCTS_SUCCESS,
+        type:types.ADD_Signup_SUCCESS,
         payload:res.data
       })
     }).catch(()=>{
        return  dispatch({
-             type:types.GET_PRODUCTS_FAILURE
+             type:types.ADD_Signup_FAILURE
         })
     })
 }
 
-const AddProducts=(payload)=>(dispatch)=>{
+const AddData=(payload)=>(dispatch)=>{
     dispatch({type:types.ADD_Signup_REQUEST})
     return axios.post("https://zara-mock-server.herokuapp.com/users",payload)
     .then((res)=>{
@@ -30,5 +30,5 @@ const AddProducts=(payload)=>(dispatch)=>{
  }
 
  export {
-    GetProducts,AddProducts
+    GetProducts,AddData
   }

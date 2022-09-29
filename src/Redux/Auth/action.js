@@ -1,30 +1,34 @@
 
-import * as types from "./actiontype";
+import * as types from "./actionTypes";
 import axios from "axios";
 
-const login=(payload)=>(dispatch)=>{
-    dispatch({type:types.USER_LOGIN_REQUEST});
-    return axios
-        .post("https://reqres.in/api/login", payload)
-        .then((r)=>{
-            // return {name : "Masai School"}
-            return dispatch({
-                type: types.USER_LOGIN_SUCCESS,
-                 payload: r.data.token
-                });
-            })
-        .catch((e)=>
-        dispatch({type:types.USER_LOGIN_FAILUARE, payload:e })
-        );
-}
-export {login};
 
-// const AddProducts=(payload)=>(dispatch)=>{
-//     dispatch({type:types.ADD_PRODUCT_REQUEST})
-//     return axios.post("http://localhost:8080/products",payload)
-//     .then((res)=>{
-//         dispatch({type:types.ADD_PRODUCT_SUCCESS})
-//     }).catch(()=>{
-//         dispatch({type:types.ADD_PRODUCT_FAILURE})
-//     })
-//  }
+
+const GetProducts=()=>(dispatch)=>{
+    dispatch({type:types.GET_PRODUCTS_REQUEST})
+   return axios.get("  http://localhost:8080/products").
+    then((res)=>{
+      dispatch({
+        type:types.GET_PRODUCTS_SUCCESS,
+        payload:res.data
+      })
+    }).catch(()=>{
+       return  dispatch({
+             type:types.GET_PRODUCTS_FAILURE
+        })
+    })
+}
+
+const AddProducts=(payload)=>(dispatch)=>{
+    dispatch({type:types.ADD_Signup_REQUEST})
+    return axios.post("https://zara-mock-server.herokuapp.com/users",payload)
+    .then((res)=>{
+        dispatch({type:types.ADD_Signup_SUCCESS})
+    }).catch(()=>{
+        dispatch({type:types.ADD_Signup_FAILURE})
+    })
+ }
+
+ export {
+    GetProducts,AddProducts
+  }

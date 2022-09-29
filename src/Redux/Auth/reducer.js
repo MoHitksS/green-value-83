@@ -10,19 +10,19 @@ const initialState ={
 const reducer = (oldstate = initialState, action)=>{
     const {type, payload} = action;
     switch(type){
-        case types.USER_LOGIN_REQUEST:
+        case types.GET_PRODUCTS_REQUEST:
             return{
                 ...oldstate,
                 isAuthLoading: false,
             };
-        case types.USER_LOGIN_SUCCESS:
+        case types.GET_PRODUCTS_SUCCESS:
             return{
                 ...oldstate,
                 isAuthLoading:false,
                 isAuth: true,
                 token: payload,
             };
-        case types.USER_LOGIN_FAILUARE:
+        case types.GET_PRODUCTS_FAILURE:
             return {
                 ...oldstate,
                 isAuthLoading: false,

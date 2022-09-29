@@ -80,6 +80,7 @@ const Homepage = () => {
     const category = ['Women', 'Men', 'Kids'];
     return (
         <Container>
+            <Navbar style={{display:"none"}} activeIndex={activeIndex}/>
             <Swiper
                 direction={'vertical'}
                 slidesPerView={1}
@@ -87,8 +88,8 @@ const Homepage = () => {
                 pagination={{
                     "clickable": true,
                 }}
-                onScroll={(e) => setactiveIndex(e.activeIndex)}
                 className="mySwiper"
+                onScroll={(e)=>setactiveIndex(e.activeIndex)}
             >
                 {eval(category[indexNo])?.map((ele, index) => (
                     <SwiperSlide className="swiper-slide" key={index}>
@@ -117,7 +118,7 @@ const Homepage = () => {
                     }
                 </div>
             </Swiper>
-            <Navbar style={{display:"none"}} activeIndex={activeIndex}/>
+            
         </Container >
     );
 }
@@ -125,7 +126,7 @@ const Homepage = () => {
 const Container = styled.div`
     width: 100%;
     height: 100vh;
-    position:relative;
+    position:absolute;
     cursor:pointer;
     .mySwiper {
         width: 100%;
@@ -134,11 +135,13 @@ const Container = styled.div`
     .swiper-slide{
         width:100%;
         height:100vh;
+        
     }
     .swiper-slide>img{
         width:100%;
         height:100vh;
         object-fit:fill;
+        
     }
     .swiper-slide>video{
         width:100%;

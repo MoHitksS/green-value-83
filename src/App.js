@@ -5,7 +5,6 @@ import ProductCard from './Components/Product-Page-Component/ProductCard';
 function App() {
   return (
     <div className="App">
-      <ProductCard/>
     </div>
   );
 }

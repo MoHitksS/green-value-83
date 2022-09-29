@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import Navbar from './Navbar'
 
 const Help = () => {
   return (
+    <>
+    <Navbar/>
     <div style={{width:"75%",margin:"auto",marginTop:"50px"}}>
       <h3>HELP</h3>
       <div className="helppage1">
@@ -40,6 +43,7 @@ const Help = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

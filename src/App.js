@@ -1,10 +1,13 @@
 import './App.css';
+import Navbar from './Components/Navbar';
+import AllRoutes from './Routes/AllRoutes';
 import SinglePage from './Components/SinglePage';
-import Navbar from './Components/Navbar'; 
+import "swiper/css/bundle";
 function App() {
   return (
     <div className="App">
-      <Navbar/>  
+      <Navbar/>
+      <AllRoutes/>
       <SinglePage/>
     </div>
   );

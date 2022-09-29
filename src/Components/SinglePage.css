@@ -1,0 +1,86 @@
+.main{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+/* .leftall,.rightall,.middleall{
+    border: 1px solid black;
+} */
+.leftall{
+    width: 33%;
+}
+.middleall{
+    width: 37%;
+}
+.rightall{
+    width: 30%;
+}
+.leftdiv{
+    width: 50%;
+    margin-top: 100px;
+}
+.middlediv{
+    margin: auto;
+}
+
+.middlediv1{
+    height: 560px;
+    overflow: auto;
+    padding-right: 15px;
+    width: 85%;
+}
+.middlediv1>img{
+    width: 100%;
+}
+.middlediv1::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  .middlediv1::-webkit-scrollbar-track {
+    background-color: rgb(209, 209, 209);
+  }
+  
+  .middlediv1::-webkit-scrollbar-thumb {
+    background-color: rgb(40, 39, 39);
+  }
+.middlediv2{
+    width: 15%;
+    text-align: center;
+}
+.middlediv2>img{
+    width: 80%;
+}
+.rightdiv{
+    width: 60%;
+    margin: auto;
+}
+#size{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.addbutton{
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: white;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bag2btn{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 50%;
+}
+.similaritem{
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}

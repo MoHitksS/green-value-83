@@ -1,13 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import Login from './Components/loginsign/Login';
+import React from 'react'
+import LogIn from "./Pages/LogIn"
+import AllRoutes from './Routes/AllRoutes'
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <Login/>
+    <div>
+      <AllRoutes/>
+      <LogIn/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

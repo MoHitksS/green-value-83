@@ -32,11 +32,11 @@ export default function AddCart() {
         open={open}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'top',
+          vertical: 'centre',
+          horizontal: 'centre',
         }}
         transformOrigin={{
-          vertical: 'bottom',
+          vertical: 'centre',
           horizontal: 'centre',
         }}
         sx={{
@@ -44,19 +44,19 @@ export default function AddCart() {
          width:"355px"}}
       >
         <MenuItem
-        sx={{fontSize:"10px", width:"355px"}}
+        sx={{fontSize:"10px", minWidth:"220px"}}
         onClick={handleClose}>XS (UK XS)</MenuItem>
         <MenuItem
-        sx={{fontSize:"10px", width:"355px"}}
+        sx={{fontSize:"10px", minWidth:"220px"}}
          onClick={handleClose}>S (UK S)</MenuItem>
         <MenuItem
-        sx={{fontSize:"10px", width:"355px"}}
+        sx={{fontSize:"10px", minWidth:"220px"}}
          onClick={handleClose}>M (UK M)</MenuItem>
         <MenuItem
-        sx={{fontSize:"10px", width:"355px"}}
+        sx={{fontSize:"10px", minWidth:"220px"}}
          onClick={handleClose}>L (UK L)</MenuItem>
         <MenuItem
-        sx={{fontSize:"10px", width:"355px"}}
+        sx={{fontSize:"10px", minWidth:"220px"}}
          onClick={handleClose}>XL (UK XL)</MenuItem>
         <Divider/>
         <div style={{display:"flex", justifyContent:"space-between", padding:"2px 15px"}}>

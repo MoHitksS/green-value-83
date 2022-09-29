@@ -1,12 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import Checkout from './Components/Pages/Checkout';
-import Cart from './Components/Pages/Cart';
-
+import Navbar from './Components/Navbar';
+import AllRoutes from './Routes/AllRoutes';
+import "swiper/css/bundle";
 function App() {
   return (
     <div className="App">
-   {/* <Cart /> */}
+      <Navbar/>
+      <AllRoutes/>
     </div>
   );
 }

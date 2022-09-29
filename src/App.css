@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Neue-Helvetica", "Helvetica", "Arial", sans-serif;
 }
 
 .App-logo {
@@ -35,4 +36,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
 }

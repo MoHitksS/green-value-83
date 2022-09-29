@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-scroll'
 import styled from 'styled-components'
-const Navbar = () => {
-    const [color, setColor] = useState('')
+const Navbar = ({ activeIndex }) => {
+    const [colorB, setColor] = useState('');
+    const [theme, setTheme] = useState("white")
     const handleChange = (e) => {
         if (e.target.checked) {
             setColor('white')
@@ -10,12 +11,20 @@ const Navbar = () => {
             setColor('')
         }
     }
-    console.log(color)
+    console.log(activeIndex)
+    useEffect(() => {
+        if (activeIndex === undefined || activeIndex % 2 === 0) {
+            setTheme("white")
+        } else {
+            setTheme("white")
+        }
+    }, [activeIndex]);
+    console.log(theme)
     const menuItem = ["NEW", "BEST SELLERS", "BASICS", "JACKETS | OVERSHIRTS", "DRESSES | JUMPSUITS", "BLAZERS", "SHIRTS", "TROUSERS", "TOPS", "JEANS", "KNITWEAR", "SWEATSHIRTS", "T-SHIRTS", "WAISTCOATS | GILETS", "SHORTS | SKORTS", "SKIRTS", "CO-ORD SETS", "SUITS", "COATS | PUFFER JACKETS", "ACCESSORIES", "SHOES", "BAGS", "PERFUMES", "Special Prices", "WEAR TO WORK", "SPECIAL EDITION"]
     return (
-        <Container>
-            <div className='menuContainer' style={{ backgroundColor: color }}>
-                <header className="header" style={{ backgroundColor: color }}>
+        <Container theme={theme} >
+            <div className='menuContainer' style={{ backgroundColor: colorB }}>
+                <header className="header" style={{ backgroundColor: colorB }}>
                     <input className="menu-btn" type="checkbox" id="menu-btn" onChange={(e) => handleChange(e)} />
                     <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
                     <div className='menuLogo'>
@@ -290,27 +299,27 @@ const Container = styled.div`
         }
     }
     .logo{
-        fill:white;
+        fill: ${props => props.theme};
     }
 
     .navRightSection>div:first-child>input{
-        border-color:white;
+        border-color:${(props) => props.theme};
     }
 
    .navRightSection>div:first-child>input::placeholder{
-        color:white;
+    color:${(props) => props.theme};
     }
 
     .menuContainer .header .menu-btn{
-        color:white;
+        color:${(props) => `${props.theme}`};
     }
 
     .navRightSection{
-        color:white;
+        color:${(props) => props.theme};
     }
 
     .navRightSection>div>svg{
-        fill:white;
+        fill:${(props) =>(props.theme)};
     }
     
 `

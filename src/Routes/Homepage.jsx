@@ -13,7 +13,6 @@ import { useState } from "react";
 import Navbar from "../Components/Navbar";
 import { Link } from "react-router-dom";
 SwiperCore.use([Mousewheel, Pagination]);
-
 const Homepage = () => {
     const Women = [
         {
@@ -77,12 +76,12 @@ const Homepage = () => {
             img: 'https://static.zara.net/photos///contents/mkt/spots/aw22-north-kids-join-life/subhome-xmedia-38//w/1922/IMAGE-landscape-fill-4e354fe1-c38f-4d4b-8e9c-d58f5718aefa-default_0.jpg?ts=1663763505030'
         }
     ];
-    const [activeIndex, setactiveIndex] = useState(0);
+    const [activeIndexs, setactiveIndex] = useState(0);
     const [indexNo, setIndex] = useState(0);
     const category = ['Women', 'Men', 'Kids'];
     return (
         <Container>
-            <Navbar style={{ display: "none" }} activeIndex={activeIndex} />
+            <Navbar style={{ display: "none" }} activeIndexs={activeIndexs} />
             <Swiper
                 direction={'vertical'}
                 slidesPerView={1}
@@ -123,7 +122,6 @@ const Homepage = () => {
                     }
                 </div>
             </Swiper>
-
         </Container >
     );
 }
@@ -133,6 +131,8 @@ const Container = styled.div`
     height: 100vh;
     position:absolute;
     cursor:pointer;
+    z-index:-5;
+
     .mySwiper {
         width: 100%;
         height: 100%;

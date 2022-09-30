@@ -16,7 +16,6 @@ const ProductPage = () => {
   return (
     <ProdContainer>
         <div className="gridlayout">
-
             {products.map((item)=>{
                 return ( <ProductCard key={item.id} item={item}/> )
             })}

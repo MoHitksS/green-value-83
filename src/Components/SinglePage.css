@@ -1,5 +1,6 @@
 .main{
-    display: flex;
+    display: grid;
+    grid-template-columns: 33% 37% 30%;
     width: 80%;
     margin: auto;
     margin-top: 40px;
@@ -8,7 +9,7 @@
 /* .leftall,.rightall,.middleall{
     border: 1px solid black;
 } */
-.leftall{
+/* .leftall{
     width: 33%;
 }
 .middleall{
@@ -16,7 +17,7 @@
 }
 .rightall{
     width: 30%;
-}
+} */
 .leftdiv{
     width: 50%;
     margin-top: 100px;
@@ -24,9 +25,8 @@
 .middlediv{
     margin: auto;
 }
-
 .middlediv1{
-    height: 560px;
+    height: 470px;
     overflow: auto;
     padding-right: 15px;
     width: 85%;
@@ -57,8 +57,20 @@
     margin: auto;
 }
 #size{
+    /* border-top: 1px solid black;
+    border-bottom: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.selectsize{
+    border: none;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    padding: 25px 20px;
+    width: 100%;
 }
 .addbutton{
     padding-top: 7px;
@@ -109,3 +121,77 @@
 .helppage2>img{
     width: 50%;
 }
+.mw1{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .leftall{
+        display: none;
+    }
+    .main{
+        display: grid;
+        grid-template-columns: 43% 57%;
+        width: 90%;
+        margin: auto;
+    }
+    .rightdiv{
+        width: 70%;
+        margin: auto;
+    }
+    .helppage1{
+        display: grid;
+        width: 100%;
+        margin: auto;
+        grid-template-columns: repeat(4,1fr);
+        gap: 15px;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .leftall{
+        display: none;
+    }
+    .main{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        width: 90%;
+        margin: auto;
+    }
+    .rightdiv{
+        width: 70%;
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .mw1{
+        width:200px;
+    }
+    .helppage1{
+        display: grid;
+        width: 100%;
+        margin: auto;
+        grid-template-columns: repeat(3,1fr);
+        gap: 25px;
+    }
+  }
+  @media only screen and (max-width: 330px) {
+    .matchwith{
+        width: 90%;
+    }
+    .matchwith div{
+        width:200px;
+    }
+    .rightdiv{
+        margin-top: -50px;
+    }
+    .helppage1{
+        display: grid;
+        width: 100%;
+        margin: auto;
+        grid-template-columns: repeat(2,1fr);
+        gap: 25px;
+    }
+  }

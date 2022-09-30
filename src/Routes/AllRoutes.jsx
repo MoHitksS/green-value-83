@@ -7,7 +7,6 @@ import SinglePage from '../Components/SinglePage'
 import ProductPage from '../Pages/ProductPage'
 import Homepage from './Homepage'
 
-
 const AllRoutes = () => {
   return (
     <Routes>

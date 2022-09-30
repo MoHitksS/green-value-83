@@ -6,6 +6,8 @@ import SignIn from '../Pages/SignIn'
 import SinglePage from '../Components/SinglePage'
 import ProductPage from '../Pages/ProductPage'
 import Homepage from './Homepage'
+import Cart from '../Components/Pages/Cart'
+import Checkout from '../Components/Pages/Checkout'
 
 
 const AllRoutes = () => {
@@ -17,6 +19,8 @@ const AllRoutes = () => {
       <Route path='/login' element={<LogIn />} />
       <Route path='/signin' element={<SignIn />} />
       <Route path='/products/men1' element={<ProductPage />}></Route>
+      <Route path='/cart' element={<Cart />}></Route>
+      <Route path='/checkout' element={<Checkout />}></Route>
     </Routes>
   )
 }

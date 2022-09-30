@@ -75,6 +75,7 @@ const Container = styled.div`
     height: 100vh;
     position:relative;
     cursor:pointer;
+    padding-top:120px;
 .layout-content{
     width:90%;
     height:100vh;

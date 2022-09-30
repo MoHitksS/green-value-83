@@ -11,6 +11,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState } from "react";
 import Navbar from "../Components/Navbar";
+import { Link } from "react-router-dom";
 SwiperCore.use([Mousewheel, Pagination]);
 
 const Homepage = () => {
@@ -39,6 +40,7 @@ const Homepage = () => {
     ];
     const Men = [
         {
+            path: 'men1',
             img: 'https://static.zara.net/photos///contents/mkt/spots/aw22-north-man-origins/subhome-xmedia-34//w/1294/IMAGE-landscape-1-fill-23c9012f-bdc9-45c1-af3c-8f7c07f86626-default_0.jpg?ts=1664366171420'
         },
         {
@@ -54,7 +56,7 @@ const Homepage = () => {
     const Kids = [
         {
             video: kidsVideo,
-            cat:'kids'
+            cat: 'kids'
         },
         {
             img: 'https://static.zara.net/photos///contents/mkt/spots/aw22-north-kids-boy/subhome-xmedia-38-2//w/1922/IMAGE-landscape-fill-aa8667a5-4747-421a-8c66-2dba3d7b3afc-default_0.jpg?ts=1663870203073'
@@ -75,12 +77,12 @@ const Homepage = () => {
             img: 'https://static.zara.net/photos///contents/mkt/spots/aw22-north-kids-join-life/subhome-xmedia-38//w/1922/IMAGE-landscape-fill-4e354fe1-c38f-4d4b-8e9c-d58f5718aefa-default_0.jpg?ts=1663763505030'
         }
     ];
-    const [activeIndex,setactiveIndex] = useState(0);
+    const [activeIndex, setactiveIndex] = useState(0);
     const [indexNo, setIndex] = useState(0);
     const category = ['Women', 'Men', 'Kids'];
     return (
         <Container>
-            <Navbar style={{display:"none"}} activeIndex={activeIndex}/>
+            <Navbar style={{ display: "none" }} activeIndex={activeIndex} />
             <Swiper
                 direction={'vertical'}
                 slidesPerView={1}
@@ -89,16 +91,19 @@ const Homepage = () => {
                     "clickable": true,
                 }}
                 className="mySwiper"
-                onScroll={(e)=>setactiveIndex(e.activeIndex)}
+                onScroll={(e) => setactiveIndex(e.activeIndex)}
             >
                 {eval(category[indexNo])?.map((ele, index) => (
                     <SwiperSlide className="swiper-slide" key={index}>
-                        {ele.img ?
-                            <img src={ele.img} alt={ele.img} />
-                            :
-                            <video autoPlay loop muted controls={ele.cat === 'kids'?false:true} >
-                                <source src={ele.video} type="video/mp4" />
-                            </video>}
+                        <Link to={`/products/${ele.path}`}>
+                            {ele.img ?
+                                <img src={ele.img} alt={ele.img} />
+                                :
+                                <video autoPlay loop muted controls={ele.cat === 'kids' ? false : true} >
+                                    <source src={ele.video} type="video/mp4" />
+                                </video>
+                            }
+                        </Link>
                     </SwiperSlide>
                 ))};
                 <div className="nextPrevButtons">
@@ -118,7 +123,7 @@ const Homepage = () => {
                     }
                 </div>
             </Swiper>
-            
+
         </Container >
     );
 }
@@ -137,13 +142,13 @@ const Container = styled.div`
         height:100vh;
         
     }
-    .swiper-slide>img{
+    .swiper-slide img{
         width:100%;
         height:100vh;
         object-fit:fill;
         
     }
-    .swiper-slide>video{
+    .swiper-slide video{
         width:100%;
         height:100vh;
         object-fit:cover;

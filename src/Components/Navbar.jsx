@@ -15,7 +15,6 @@ const Navbar = ({ activeIndexs }) => {
             setColor('');
         }
     }
-    console.log(location.pathname)
     const changeVal = () => {
         setVal(!val)
     }

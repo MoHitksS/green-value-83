@@ -4,7 +4,7 @@ import {Menu} from '@mui/material';
 import {MenuItem} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
-export default function AddCart() {
+export default function AddCart({data}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -32,36 +32,37 @@ export default function AddCart() {
         open={open}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'top',
+          vertical: 'bottom',
+          horizontal: 'center',
         }}
         transformOrigin={{
           vertical: 'bottom',
-          horizontal: 'centre',
+          horizontal: 'center',
         }}
-        sx={{
-         fontSize:"10px",
-         width:"355px"}}
       >
         <MenuItem
-        sx={{fontSize:"10px", width:"355px"}}
+        sx={{fontSize:"10px", minWidth:"220px"}}
         onClick={handleClose}>XS (UK XS)</MenuItem>
         <MenuItem
-        sx={{fontSize:"10px", width:"355px"}}
+        sx={{fontSize:"10px", minWidth:"220px"}}
          onClick={handleClose}>S (UK S)</MenuItem>
         <MenuItem
-        sx={{fontSize:"10px", width:"355px"}}
+        sx={{fontSize:"10px", minWidth:"220px"}}
          onClick={handleClose}>M (UK M)</MenuItem>
         <MenuItem
-        sx={{fontSize:"10px", width:"355px"}}
+        sx={{fontSize:"10px", minWidth:"220px"}}
          onClick={handleClose}>L (UK L)</MenuItem>
         <MenuItem
-        sx={{fontSize:"10px", width:"355px"}}
+        sx={{fontSize:"10px", minWidth:"220px"}}
          onClick={handleClose}>XL (UK XL)</MenuItem>
         <Divider/>
-        <div style={{display:"flex", justifyContent:"space-between", padding:"2px 15px"}}>
-          <div> FIND YOUR SIZE</div>
-          <div>SIZE GUIDE</div>
+        <div style={{display:"flex", justifyContent:"space-between"}}>
+        <MenuItem
+        sx={{fontSize:"10px"}}
+         onClick={handleClose}>FIND YOUR SIZE</MenuItem><div> </div>
+         <MenuItem
+        sx={{fontSize:"10px"}}
+         onClick={handleClose}>SIZE GUIDE</MenuItem>
         </div>
       </Menu>
     </div>

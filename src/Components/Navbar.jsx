@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-scroll';
+// import { Link } from 'react-scroll';
 import styled from 'styled-components';
 
 const Navbar = ({ activeIndex}) => {
@@ -38,9 +38,9 @@ const Navbar = ({ activeIndex}) => {
                         <span>ZARA ORIGINS</span>
                     </div>
                     <ul className="menu">
-                        {menuItem.map((ele, index) => (
+                        {/* {menuItem.map((ele, index) => (
                             <li key={index}><Link activeClass="active" to={ele} style={ele === 'Special Prices' ? { color: 'rgb(245, 57, 147)' } : {}}>{ele}</Link></li>
-                        ))}
+                        ))} */}
                     </ul>
                 </header>
                 <div className='logo' >

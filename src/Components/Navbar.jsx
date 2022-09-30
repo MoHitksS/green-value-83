@@ -230,7 +230,7 @@ const Container = styled.div`
     }
 
     .header .menu-btn:checked ~ .menu {
-        margin-top:70px;
+        margin-top:40px;
         max-height:100vh;
         padding-bottom:90px;
         overflow:auto;

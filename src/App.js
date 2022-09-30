@@ -1,16 +1,15 @@
-import './App.css';
-import Navbar from './Components/Navbar';
-import AllRoutes from './Routes/AllRoutes';
-import "swiper/css/bundle";
-import ProductPage from "./Pages/ProductPage"
-function App() {
+import React from 'react'
+import Navbar from './Components/Navbar'
+import AllRoutes from './Routes/AllRoutes'
+
+
+const App = () => {
   return (
-    <div className="App">
+    <div>
       <Navbar/>
       <AllRoutes/>
-      <ProductPage />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -27,26 +27,38 @@ const ProductCtard = ({ item }) => {
             alt={item.name}
           />
         </div>
+        </Link>
         <div style={{ marginTop: "-50px" }}>
           {" "}
           <AddCart data={item} />
         </div>
         {/* details */}
         <div className="flexStyling">
+
           <div className="nameStyling">
-            <div>{item.name}</div>{" "}
+          <Link className="linkstylings" to={`/product/${item.id}`}>
+            <div>{item.name}</div>
+            </Link>
+            {" "}
             <div className="iconStyling">
               <CircleIcon sx={{ fontSize: "10px" }} />
             </div>
           </div>
           <div className="priceS">{item.price}</div>
         </div>
-      </Link>
+
     </ProductCardContainer>
   );
 };
 const ProductCardContainer = styled.div`
   max-width: 354px;
+  .linkstylings{
+    color: black;
+    text-decoration: none;
+}
+.linkstylings:hover{
+  text-decoration: underline;
+}
 
   .nameStyling {
     display: flex;

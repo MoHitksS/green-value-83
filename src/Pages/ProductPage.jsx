@@ -30,7 +30,9 @@ export default ProductPage
 
 const ProdContainer = styled.div`
     width: 90%;
+    padding-top: 150px;
     margin: auto;
+
 
 
 

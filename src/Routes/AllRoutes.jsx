@@ -1,10 +1,10 @@
-import LogIn from '../Pages/LogIn'
+import LogIn from '../Routes/LogIn'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Help from '../Components/Help'
-import SignIn from '../Pages/SignIn'
+import SignIn from '../Routes/SignIn'
 import SinglePage from '../Components/SinglePage'
-import ProductPage from '../Pages/ProductPage'
+import ProductPage from '../Routes/ProductPage'
 import Homepage from './Homepage'
 
 

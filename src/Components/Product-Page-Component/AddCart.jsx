@@ -10,8 +10,6 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import DrawerBody from './DrawerBody';
 import { useDispatch } from 'react-redux';
-import { setCart } from '../../Redux/App/action';
-import { positions } from '@mui/system';
 
 const drawerWidth = 382;
 
@@ -21,10 +19,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-  justifyContent: 'flex-start',
+  justifyContent: 'flex-end',
 }));
 
-export default function AddCart({data,id}) {
+export default function AddCart({data}) {
 
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,7 +33,6 @@ export default function AddCart({data,id}) {
   const handleClose = () => {
     setAnchorEl(null);
     setOpend(true);
-    dispatch(setCart(data,id));
   };
   const theme = useTheme();
   const [opend, setOpend] = React.useState(false);
@@ -133,16 +130,15 @@ export default function AddCart({data,id}) {
             width: drawerWidth,
           },
         }}
-        variant="persistent"
+        variant="temporary"
         anchor="right"
         open={opend}
+        onClose ={ handleDrawerClose}
       >
       <DrawerHeader>
-           <Box justifyContent={"right"}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <CloseIcon /> : <CloseIcon />}
           </IconButton>
-          </Box>
         </DrawerHeader>
         <List>
           <DrawerBody/>

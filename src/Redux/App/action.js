@@ -11,11 +11,16 @@ const getProduct = (payload) => (dispatch) => {
         dispatch({type: types.GET_PRODUCTS_FAILURE,payload: e});
     })
 }
-const setCart = (payload,id) =>{
-    return{
-        type:types.ADD_To_CART,
-        payload,
-        id
-    }
+const getCart = () => (dispatch) => {
+    dispatch({ type: types.GET_CART_REQUEST });
+    return axios
+    .post("https://zara-mock-server.herokuapp.com/cart")
+    .then((r)=>{
+        dispatch({type: types.GET_CART_SUCCESS, payload: r.data});
+    })
+    .catch((e)=>{
+        dispatch({type: types.GET_PRODUCTS_FAILURE,payload: e});
+    })
 }
-export {getProduct,setCart}
+
+export {getProduct,getCart}

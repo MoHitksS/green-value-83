@@ -1,6 +1,6 @@
 .container{
     /* border: 1px solid black; */
-padding-top: 120px;
+padding-top: 140px;
     width: 90%;
     margin: auto;
 }
@@ -24,7 +24,7 @@ padding-top: 120px;
 }
 .cart-item-flex{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,max-content));
+    grid-template-columns: repeat(auto-fit,minmax(250px,max-content));
     gap: 30px;
  
 }
@@ -46,7 +46,7 @@ padding-top: 120px;
     
 } */
 .cart-item-container>div>img{
-    width: 100%; 
+    max-width: 222px;
 }
 .cart-item-details{
     display: flex;
@@ -84,6 +84,7 @@ padding:10px;
 }
 .checkout-btn{
     font-size:small;
+    padding:15px;
     width:200px;
     background:black;
     color:white;

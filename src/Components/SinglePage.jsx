@@ -1,5 +1,5 @@
 import React from 'react'
-import './SinglePage.css'
+import '../CSS/SinglePage.css'
 import { useEffect, useState } from 'react'
 const SinglePage = () => {
   const [colorB, setColor] = useState('white');

@@ -7,24 +7,29 @@ const initialState = {
   isError: false,
 };
 
-export const reducer = (state = initialState,action) => {
-  const {type , payload} = action;
+export const reducer = (state = initialState, action) => {
+  const { type, payload } = action;
   switch (type) {
     case types.GET_PRODUCTS_REQUEST:
-      return {...state, isLoading: true};
+      return { ...state, isLoading: true };
 
     case types.GET_PRODUCTS_SUCCESS:
-      return {...state,isLoading:false, products: payload};
+      return { ...state, isLoading: false, products: payload };
 
     case types.GET_PRODUCTS_FAILURE:
-      return {...state, isLoading:false, isError: true} ;
+      return { ...state, isLoading: false, isError: true };
 
-    case types.ADD_To_CART:{
-      return {...state, cart : [...state.cart,payload]}
-    }
+    case types.GET_CART_REQUEST:
+      return { ...state, isLoading: true };
 
-      default:
-        return state;
+    case types.GET_CART_SUCCESS:
+      return { ...state, isLoading: false, cart: payload };
+
+    case types.GET_CART_FAILURE:
+      return { ...state, isLoading: false, isError: true, cart:[]};
+
+    default:
+      return state;
   }
 
 };

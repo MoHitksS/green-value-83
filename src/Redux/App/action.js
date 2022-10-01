@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as types from "./actionTypes";
-const getProduct = (payload)=>(dispatch)=>{
-    dispatch({type: types.GET_PRODUCTS_REQUEST});
+const getProduct = (payload) => (dispatch) => {
+    dispatch({ type: types.GET_PRODUCTS_REQUEST });
     return axios
     .get(`https://zara-mock-server.herokuapp.com/${payload}`)
     .then((r)=>{

@@ -1,24 +1,24 @@
 import * as types from "./actionTypes";
 
-const initialState ={
+const initialState = {
     isAuth: false,
     token: '',
     isAuthLoging: false,
     isAuthError: false
 }
 
-const reducer = (oldstate = initialState, action)=>{
-    const {type, payload} = action;
-    switch(type){
+const reducer = (oldstate = initialState, action) => {
+    const { type, payload } = action;
+    switch (type) {
         case types.GET_Login_REQUEST:
-            return{
+            return {
                 ...oldstate,
                 isAuthLoading: false,
             };
         case types.GET_Login_SUCCESS:
-            return{
+            return {
                 ...oldstate,
-                isAuthLoading:false,
+                isAuthLoading: false,
                 isAuth: true,
                 token: payload,
             };
@@ -30,8 +30,8 @@ const reducer = (oldstate = initialState, action)=>{
                 isAuth: false,
                 token: "",
             };
-            default:
-                return oldstate;
+        default:
+            return oldstate;
     }
 };
-export { reducer}
+export { reducer }

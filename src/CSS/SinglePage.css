@@ -1,66 +1,79 @@
-.main{
+.main {
     display: flex;
     width: 80%;
     margin: auto;
     margin-bottom: 50px;
-    padding-top: 100px;;
+    padding-top: 100px;
+    ;
 }
+
 /* .leftall,.rightall,.middleall{
     border: 1px solid black;
 } */
-.leftall{
+.leftall {
     width: 33%;
 }
-.middleall{
+
+.middleall {
     width: 37%;
 }
-.rightall{
+
+.rightall {
     width: 30%;
 }
-.leftdiv{
+
+.leftdiv {
     width: 50%;
     margin-top: 100px;
 }
-.middlediv{
+
+.middlediv {
     margin: auto;
 }
 
-.middlediv1{
+.middlediv1 {
     height: 560px;
     overflow: auto;
     padding-right: 15px;
     width: 85%;
 }
-.middlediv1>img{
+
+.middlediv1>img {
     width: 100%;
 }
+
 .middlediv1::-webkit-scrollbar {
     width: 3px;
-  }
-  
-  .middlediv1::-webkit-scrollbar-track {
+}
+
+.middlediv1::-webkit-scrollbar-track {
     background-color: rgb(209, 209, 209);
-  }
-  
-  .middlediv1::-webkit-scrollbar-thumb {
+}
+
+.middlediv1::-webkit-scrollbar-thumb {
     background-color: rgb(40, 39, 39);
-  }
-.middlediv2{
+}
+
+.middlediv2 {
     width: 15%;
     text-align: center;
 }
-.middlediv2>img{
+
+.middlediv2>img {
     width: 80%;
 }
-.rightdiv{
+
+.rightdiv {
     width: 60%;
     margin: auto;
 }
-#size{
+
+#size {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
-.addbutton{
+
+.addbutton {
     padding-top: 7px;
     padding-bottom: 7px;
     color: white;
@@ -70,7 +83,8 @@
     align-items: center;
     justify-content: center;
 }
-.bag2btn{
+
+.bag2btn {
     padding-top: 5px;
     padding-bottom: 5px;
     display: flex;
@@ -78,39 +92,44 @@
     justify-content: center;
     width: 50%;
 }
-.similaritem{
+
+.similaritem {
     width: 90%;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-.header .menu-btn:checked ~ .menu-icon .navicon {
+.header .menu-btn:checked~.menu-icon .navicon {
     background: transparent;
 }
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
+
+.header .menu-btn:checked~.menu-icon .navicon:before {
     transform: rotate(-45deg);
-    background:#333;
+    background: #333;
 }
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
+
+.header .menu-btn:checked~.menu-icon .navicon:after {
     transform: rotate(45deg);
-    background:#333;
+    background: #333;
 }
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
     top: 0;
 }
 
 /* helpPage  */
 
-.helppage1{
+.helppage1 {
     display: grid;
     width: 100%;
     margin: auto;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 25px;
 }
-.helppage2{
+
+.helppage2 {
     height: 100px;
     width: 100px;
     display: flex;
@@ -122,6 +141,7 @@
     font-size: 14px;
     margin: 20px;
 }
-.helppage2>img{
+
+.helppage2>img {
     width: 50%;
 }

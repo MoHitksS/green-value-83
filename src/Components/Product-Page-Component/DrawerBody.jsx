@@ -1,6 +1,7 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { getCart } from '../../Redux/App/action'
 
 
 const Addcartbody = styled.div`
@@ -41,8 +42,7 @@ const Addcart = styled.div`
     padding: 16px 20px 40px;
 `
 
-const Addcartscroll =styled.div`
-
+const Addcartscroll = styled.div`
     height: 450px;
     overflow: auto;
     width: 382px;
@@ -62,34 +62,37 @@ const Addcartscroll =styled.div`
 `
 
 const DrawerBody = () => {
-    const cartdata = useSelector((store)=>store.AppReducer.cart);
-  return (
+    const dispatch = useDispatch();
+    const cartdata = useSelector((store) => store.AppReducer.cart);
+    console.log(cartdata)
+    useEffect(() => {
+        dispatch(getCart())
+    }, [dispatch]);
+    return (
 
-    <div>
-    <Addcart>CART</Addcart>
-    <Addcartscroll>
-    {cartdata.map((cart)=>{
-        return (
-            <Addcartbody key ={cart.id}>
-    <div className='addcartname'>{cart.name}</div>
-
-    <div className='addcartflex'>
-        <div className='addcartimage'>
-       <img style={{width:"90%",height:"305px"}} src={cart.image} alt={cart.name} />
+        <div>
+            <Addcart>CART</Addcart>
+            <Addcartscroll>
+                {cartdata?.map((cart) => {
+                    return (
+                        <Addcartbody key={cart.id}>
+                            <div className='addcartname'>{cart.producttitle}</div>
+                            <div className='addcartflex'>
+                                <div className='addcartimage'>
+                                    <img style={{ width: "90%", height: "305px" }} src={cart.image} alt={cart.producttitle} />
+                                </div>
+                                <div className='addcartrightflex'>
+                                    <div style={{ paddingTop: "30px" }}>{cart.color}</div>
+                                    <div>size</div>
+                                    <div style={{ paddingTop: "100px" }}>{cart.price}</div>
+                                </div>
+                            </div>
+                        </Addcartbody>
+                    )
+                })}
+            </Addcartscroll>
         </div>
-        <div className='addcartrightflex'>
-        <div style={{paddingTop:"30px"}}>{cart.color}</div>
-        <div>size</div>
-        <div style={{paddingTop:"100px"}}>{cart.price}</div>
-        </div>
-    </div>
-
-    </Addcartbody>
-        )
-    })}
-    </Addcartscroll>
-    </div>
-  )
+    )
 }
 
 export default DrawerBody;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box, Button, Divider} from '@mui/material';
+import {Button, Divider} from '@mui/material';
 import {Menu} from '@mui/material';
 import {MenuItem} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -10,6 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import DrawerBody from './DrawerBody';
 import { useDispatch } from 'react-redux';
+import { getCart, postCart } from '../../Redux/App/action';
 
 const drawerWidth = 382;
 
@@ -23,7 +24,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function AddCart({data}) {
-
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -33,6 +33,9 @@ export default function AddCart({data}) {
   const handleClose = () => {
     setAnchorEl(null);
     setOpend(true);
+    dispatch(postCart(data)).then(()=>{
+      dispatch(getCart())
+    })
   };
   const theme = useTheme();
   const [opend, setOpend] = React.useState(false);

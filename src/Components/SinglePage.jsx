@@ -10,6 +10,7 @@ import { styled, useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import CloseIcon from '@mui/icons-material/Close';
 import DrawerBody from './Product-Page-Component/DrawerBody';
+import ProductPage from '../Routes/ProductPage';
 
 //------------------drawer components------------//
 const drawerWidth = 382;
@@ -127,14 +128,8 @@ const handleDrawerClose = () => {
       </div>
       {/* matchwith section  */}
       <div className='matchwith' style={{ width: "95%", margin: "auto" }}>
-        <h3>MATCH WITH</h3>
-        <div className="mw1">
-          <div><img src="https://static.zara.net/photos///2022/I/1/1/p/3012/910/107/2/w/377/3012910107_6_1_1.jpg?ts=1661933664998" alt="" style={{ width: "100%" }} /></div>
-          <p>SPLIT SUEDE COWBOY BOOTS</p>
-          <p>₹ 9,990.00</p>
-          <p>MRP incl. of all taxes</p>
-          <input type="button" className="bag2btn" value='ADD TO BAG' />
-        </div>
+        <h3 style={{marginBottom:'-150px'}}>MATCH WITH</h3>
+        <ProductPage limit={6} />
       </div>
       <Drawer
         sx={{

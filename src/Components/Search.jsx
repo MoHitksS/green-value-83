@@ -14,7 +14,7 @@ const Search = () => {
             }
         }
     }
-    console.log(products)
+
     return (
         <>
             <Container>
@@ -22,7 +22,6 @@ const Search = () => {
                     <input type="text" placeholder='Enter Search Term' value={text} onChange={(e) => setText(e.target.value)} onKeyUp={(e) => handleSearch(e)} />
                     {products.length > 0 && <p style={{ textAlign: "left" }}>{products.length} Result Shown</p>}
                 </div>
-
                 <div className='productSection'>
                     <ProductPage />
                 </div>

@@ -31,7 +31,7 @@ export default ProductPage
 const ProdContainer = styled.div`
     width: 90%;
     margin: auto;
-    padding-top: 110px;
+    padding-top: 150px;
 
 
  ${'' /* @media (min-width: 480px) {

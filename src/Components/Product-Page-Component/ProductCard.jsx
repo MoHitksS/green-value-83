@@ -17,7 +17,7 @@ const ProductCtard = ({ item,id }) => {
           />
         </div>
         </Link>
-        <div style={{ marginTop: "-50px" }}>
+        <div style={{ marginTop: "-50px",textAlign:'center' }}>
           {" "}
           <AddCart id = {id} data={item} />
         </div>

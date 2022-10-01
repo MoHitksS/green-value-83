@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const ProductCtard = ({ item,id }) => {
+
   return (
-    <ProductCardContainer>
+    <ProductCardContainer key={id}>
       {/* image */}
       <Link to={`/product/${item.id}`}>
         <div>
@@ -16,7 +17,7 @@ const ProductCtard = ({ item,id }) => {
           />
         </div>
         </Link>
-        <div style={{ marginTop: "-50px" }}>
+        <div style={{ marginTop: "-50px",textAlign: "center" }}>
           {" "}
           <AddCart id = {id} data={item} />
         </div>
@@ -24,7 +25,7 @@ const ProductCtard = ({ item,id }) => {
         <div className="flexStyling">
           <div className="nameStyling">
           <Link to={`/product/${item.id}`}>
-            <div>{item.name || item.producttitle}</div>
+            <div>{item.producttitle}</div>
           </Link>
             {" "}
             {/* <div className="iconStyling">

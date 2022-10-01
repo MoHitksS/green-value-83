@@ -3,7 +3,7 @@ import '../CSS/SinglePage.css'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import Footer from './Footer';
-import { getSingleProduct } from '../Redux/App/action';
+import { getCart, getSingleProduct, postCart } from '../Redux/App/action';
 import { useDispatch, useSelector } from 'react-redux';
 const SinglePage = () => {
   const dispatch = useDispatch();
@@ -12,14 +12,17 @@ const SinglePage = () => {
   const [size, setSize] = useState(false);
   const [sizeval, setSizeval] = useState("");
   const { single } = useSelector((store) => store.AppReducer);
-  console.log(single)
   const handleClick = () => {
     if (sizeval === "") {
       alert("Please Select A size")
     }
     else {
       alert("Product is added to cart")
-      setSize(true)
+      setSize(true);
+      console.log("a")
+      dispatch(postCart(single)).then(()=>{
+        dispatch(getCart())
+      })
     }
   }
   const handleProcess = () => {
@@ -80,7 +83,7 @@ const SinglePage = () => {
             </div>
             <input type="button" className='addbutton menu-btn' value='ADD TO BAG' style={{ marginButtom: "50px" }} onClick={handleClick} />
             <input type="button" className='addbutton menu-btn' value='PROCESS ORDER'
-              style={(size == true) ? { visibility: 'visible', marginTop: "25px" } : { visibility: 'hidden' }} onClick={handleProcess} />
+              style={(size === true) ? { visibility: 'visible', marginTop: "25px" } : { visibility: 'hidden' }} onClick={handleProcess} />
             <p style={{ marginButtom: "40px", fontSize: "12px" }}>CHECK IN-STORE AVAILABILITY</p>
             <p style={{ marginButtom: "40px", fontSize: "12px" }}>DELIVERY,EXCHANGES AND RETURNS</p>
           </div>

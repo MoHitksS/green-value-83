@@ -25,6 +25,7 @@ const getSingleProduct = (payload) => (dispatch) => {
 }
 
 const postCart = (payload) => (dispatch) => {
+    console.log(payload)
     dispatch({ type: types.POST_CART_REQUEST });
     return axios
         .post("https://zara-mock-server.herokuapp.com/cart", payload)

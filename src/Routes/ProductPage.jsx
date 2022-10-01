@@ -32,6 +32,7 @@ const ProdContainer = styled.div`
     width: 90%;
     margin: auto;
     padding-top: 150px;
+    margin-bottom:50px;
 
 
  ${'' /* @media (min-width: 480px) {

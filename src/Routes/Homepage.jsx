@@ -90,7 +90,7 @@ const Homepage = () => {
     const [indexNo, setIndex] = useState(0);
     const category = ['Women', 'Men', 'Kids'];
     return (
-        <Container>
+        <Container activeIndexs={activeIndexs}>
             <Navbar style={{ display: "none" }} activeIndexs={activeIndexs} />
             <Swiper
                 direction={'vertical'}
@@ -189,12 +189,12 @@ const Container = styled.div`
        display:flex;
        align-items:center;
        font-weight:200;
-       color:white;
+       color:${(props)=>(props.activeIndexs % 2 === 0?"white":"black")};
     }
 
     .nextPrevButtons>button svg{
         font-size:30px;
-        fill:white;
+        fill:${(props)=>(props.activeIndexs % 2 === 0?"white":"black")};
      }
 `
 

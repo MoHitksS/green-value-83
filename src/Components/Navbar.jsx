@@ -15,7 +15,7 @@ const Navbar = ({ activeIndexs }) => {
             setColor('');
         }
     }
-    
+
     const changeVal = () => {
         setVal(!val)
     }

@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import "./Cart.css";
+import "../CSS/Cart.css";
 const data = [
   {
     id: 11,
@@ -88,7 +88,6 @@ const data = [
   },
 ];
 const Cart = () => {
-  // console.log(data[0])
   return (
     <>
       <div className="container">
@@ -142,7 +141,7 @@ const Cart = () => {
             <div>INCLUDING GST</div>
             <div>* EXCL SHIPPING COST</div>
           </p>
-         <Link to="/checkout"><button className="checkout-btn">CONTINUE</button></Link> 
+          <Link to="/checkout"><button className="checkout-btn">CONTINUE</button></Link>
         </div>
       </div>
     </>

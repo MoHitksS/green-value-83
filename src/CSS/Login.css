@@ -1,32 +1,37 @@
-.navbar_space{
+.navbar_space {
     /* border: 1px solid black; */
     height: 200px;
 }
-.Login_main_box{
+
+.Login_main_box {
     /* border: 1px solid black; */
     width: 75%;
     margin: auto;
 }
-.Login_second_box{
+
+.Login_second_box {
     margin-top: 100px;
     /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
 }
-.Login_second_box>div:nth-child(2){
+
+.Login_second_box>div:nth-child(2) {
     /* border: 1px solid red; */
     width: 530px;
     text-align: left;
-    /* margin: auto; */    
+    /* margin: auto; */
 }
-.Login_second_box>div:nth-child(1){
+
+.Login_second_box>div:nth-child(1) {
     /* border: 1px solid red; */
     width: 530px;
     text-align: left;
-   width: 200px;
+    width: 200px;
 }
-.Login_second_box>div:nth-child(2)>button{
-    background-color: #0c0c0c; 
+
+.Login_second_box>div:nth-child(2)>button {
+    background-color: #0c0c0c;
     border: none;
     color: white;
     padding: 8px 15px;
@@ -38,8 +43,9 @@
     cursor: pointer;
     margin-top: 30px;
 }
-.Login_second_box>div>form>button{
-    background-color: #0c0c0c; 
+
+.Login_second_box>div>form>button {
+    background-color: #0c0c0c;
     border: none;
     color: white;
     padding: 8px 69px;
@@ -50,11 +56,13 @@
     margin: 4px 2px;
     cursor: pointer;
 }
-.Login_second_box>div>form>input{
+
+.Login_second_box>div>form>input {
     border: none;
     outline: none;
 }
-.Login_second_box>div>form>hr{
+
+.Login_second_box>div>form>hr {
     margin-top: -18px;
-    
+
 }

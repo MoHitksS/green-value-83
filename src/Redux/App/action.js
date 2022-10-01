@@ -36,10 +36,12 @@ const getCart = (payload) => (dispatch) => {
         })
 }
 
-const deleteCart = (payload) => (dispatch) => {
+const deleteCart = (id) => (dispatch) => {
+    console.log(id)
     dispatch({ type: types.DELETE_CART_REQUEST });
+
     return axios
-        .delete("https://zara-mock-server.herokuapp.com/cart")
+        .delete(`https://zara-mock-server.herokuapp.com/cart/${id}`)
         .then((r) => {
             return dispatch({ type: types.DELETE_CART_SUCCESS });
         })

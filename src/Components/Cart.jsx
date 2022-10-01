@@ -1,18 +1,26 @@
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../CSS/Cart.css";
+import { deleteCart, getCart } from "../Redux/App/action";
 import Footer from "./Footer";
 
 
 const Cart = () => {
   const cartData = useSelector(state=>state.AppReducer.cart)
   console.log(cartData)
+  const dispatch=useDispatch()
+  const deletehandle=(id)=>{
+// console.log(id)
+dispatch(deleteCart(id)).then((res)=>{
+  dispatch(getCart())
+})
+  }
   return (
     <>
       <div className="container">
         <div className="heading">
-          <span>CART(1)</span>
+          <span>CART({cartData.length})</span>
           <span>WISHLIST</span>
         </div>
         <div className="shoping-cart-msg">
@@ -25,7 +33,7 @@ const Cart = () => {
             <div className="cart-item">
               <div className="cart-item-header">
                 {" "}
-                <b>{item.name} </b>{" "}
+                <b>{item.producttitle} </b>{" "}
               </div>
               <div className="cart-item-container">
                 <div >
@@ -33,8 +41,8 @@ const Cart = () => {
                 </div>
                 <div className="cart-item-details">
                   <div className="cart-item-description">
-                    <div>REF. | 1023/30</div>
-                    <div>ORANGE</div>
+                    <div>REF. | {item.color ? item.color.split("|")[1] : "453/2"}</div>
+                    <div style={{textTransform:"uppercase"}}>{item.color ? item.color.split("|")[0] : "orange"}</div>
                     <div>M (UK M)</div>
                     <div>
                       {" "}
@@ -47,7 +55,7 @@ const Cart = () => {
                     <div>{item.price}</div>
                   </div>
                   <div>
-                    <button>Delete</button>
+                    <button onClick={()=>{deletehandle(item.id)}}>Delete</button>
                   </div>
                 </div>
               </div>

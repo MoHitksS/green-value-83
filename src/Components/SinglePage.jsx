@@ -59,6 +59,7 @@ const handleDrawerClose = () => {
     navigate("/cart")
   }
 
+  console.log(single)
   useEffect(() => {
     if (id) {
       let payload = id;
@@ -72,30 +73,30 @@ const handleDrawerClose = () => {
           <div className='leftdiv'>
             <h4 style={{ marginButtom: "30px" }}>MATERIALS, CARE AND ORIGIN</h4>
             <h5 style={{ marginButtom: "30px" }}>MATERIALS</h5>
-            <p style={{ marginButtom: "30px" }}>{single.materialdesc}</p>
+            <p style={{ marginButtom: "30px" }}>{single?.materialdesc}</p>
             <p style={{ marginButtom: "30px" }}>To assess compliance, we have developed a programme of audits and continuous improvement plans.</p>
             <h5>{single.materialshell}</h5>
-            <p style={{ marginButtom: "30px" }}>{single.materialtype}</p>
+            <p style={{ marginButtom: "30px" }}>{single?.materialtype}</p>
             <h5 style={{ marginButtom: "30px" }}>CARE</h5>
-            <p style={{ marginButtom: "30px" }}>{single.care}</p>
+            <p style={{ marginButtom: "30px" }}>{single?.care}</p>
             <h5 style={{ marginButtom: "30px" }}>ORIGIN</h5>
-            <p style={{ marginButtom: "30px" }}>{single.origin}</p>
+            <p style={{ marginButtom: "30px" }}>{single?.origin}</p>
           </div>
         </div>
         <div className='middleall' style={{ display: "flex", justifyContent: "space-between" }}>
           <div className='middlediv1'>
-            <img src={single.image} alt="" />
+            <img src={single?.image} alt="" />
           </div>
           <div className='middlediv2'>
-            <img src={single.image} alt="" />
+            <img src={single?.image} alt="" />
           </div>
         </div>
         <div className='rightall'>
           <div className='rightdiv'>
-            <h4 style={{ marginButtom: "40px" }}>{single.name}</h4>
-            <p style={{ marginButtom: "40px" }}>{single.desc}</p>
-            <p style={{ marginButtom: "40px" }}>{single.color}</p>
-            <p>{single.price}</p>
+            <h4 style={{ marginButtom: "40px" }}>{single?.name || single?.producttitle}</h4>
+            <p style={{ marginButtom: "40px" }}>{single?.desc}</p>
+            <p style={{ marginButtom: "40px" }}>{single?.color}</p>
+            <p>{single?.price}</p>
             <p style={{ marginButtom: "40px" }}>MRP incl. of all taxes</p>
             <div id="size">
               <select className='selectsize' value={sizeval} onChange={(e) => setSizeval(e.target.value)}>

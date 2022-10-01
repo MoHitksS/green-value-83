@@ -13,6 +13,10 @@
     height: 400px;
     overflow: auto;
     padding-right: 25px;
+    font-size:14px;
+}
+.leftdiv>p{
+    font-size:12px;
 }
 .leftdiv::-webkit-scrollbar {
     width: 1.5px;
@@ -31,25 +35,12 @@
     margin: auto;
 }
 .middlediv1{
-    height: 470px;
-    overflow: auto;
     padding-right: 15px;
     width: 85%;
 }
 .middlediv1>img{
     width: 100%;
 }
-.middlediv1::-webkit-scrollbar {
-    width: 3px;
-  }
-  
-  .middlediv1::-webkit-scrollbar-track {
-    background-color: rgb(209, 209, 209);
-  }
-  
-  .middlediv1::-webkit-scrollbar-thumb {
-    background-color: rgb(40, 39, 39);
-  }
 .middlediv2{
     width: 15%;
     text-align: center;
@@ -60,6 +51,9 @@
 .rightdiv{
     width: 60%;
     margin: auto;
+}
+.rightdiv>p{
+    font-size:13px;
 }
 #size{
     /* border-top: 1px solid black;
@@ -189,9 +183,7 @@
     .matchwith div{
         width:200px;
     }
-    .rightdiv{
-        margin-top: -50px;
-    }
+   
     .helppage1{
         display: grid;
         width: 100%;
@@ -199,4 +191,12 @@
         grid-template-columns: repeat(2,1fr);
         gap: 25px;
     }
+
+    .middlediv1{
+        padding:20px;
+    }
+    .middlediv2{
+        display:none;
+    }
+    
   }

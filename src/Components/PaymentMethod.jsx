@@ -3,67 +3,67 @@ import styled from "styled-components";
 import Footer from './Footer';
 
 const PaymentMethod = () => {
-  return (
-    <>
-    <Container>
-   <div className='layout-content'>
-   <h4>CHOOSE A PAYMENT METHOD</h4>
-   <p>Please note that only cards that use 3D Secure are accepted. Contact your bank to activate it or for further instructions.</p>
-   <div className="card-description">
-    <div className="card-item">
-        <img src="https://static.zara.net/static/images/payment/payment/icon-payment-visa.svg" alt="" />
-        <p>VISA</p>
-    </div>
-    <div className="card-item">
-        <img src="https://static.zara.net/static/images/payment/payment/icon-payment-mastercard.svg" alt="" />
-        <p>MASTERCARD</p>
-    </div>
-    <div className="card-item">
-        <img src="https://static.zara.net/static/images/payment/payment/icon-payment-amex_2.svg" alt="" />
-        <p>AMERICAN EXPESS</p>
-    </div>
-    <div className="card-item">
-        <img src="https://static.zara.net/static/images/payment/payment/ru-pay.svg" alt="" />
-        <p>RUPAY</p>
-    </div>
-    <div className="card-item">
-        <img src="https://static.zara.net/static/images/payment/payment/net-banking.svg" alt="" />
-        <p>NETBANKING</p>
-    </div>
-    <div className="card-item">
-        <img src="https://static.zara.net/static/images/payment/payment/upi.svg" alt="" />
-        <p>UNIFIED PAYMENT INTERFACE</p>
-    </div>
-   </div>
-   <div className="bottom-card">
-   <div className="bottom-card-item">
-        <img src="https://static.zara.net/static/images/payment/payment/IcoBank-GiftCard.svg" alt="" />
-        <p>GIFT CARD</p>
-    </div>
-    <div className="bottom-card-item">
-        <img src="https://static.zara.net/static/images/payment/payment/co-djpen.svg" alt="" />
-        <p>CASH ON DILIVERY</p>
-    </div>
-    <div className="bottom-card-item">
-        <img src="https://static.zara.net/static/images/payment/payment/in.svg" alt="" />
-        <p>IN CARD</p>
-    </div>
-   </div>
-   <div className="bottom-btn">
-          <p>
-            <div>
-              <b>TOTAL $399.00</b>
-            </div>
-            <div>INCLUDING GST</div>
-            <div>* EXCL SHIPPING COST</div>
-          </p>
-          <button className="checkout-btn">CONTINUE</button>
-        </div>
-   </div>
-    </Container>
-    <Footer/>
-    </>
-  )
+    return (
+        <>
+            <Container>
+                <div className='layout-content'>
+                    <h4>CHOOSE A PAYMENT METHOD</h4>
+                    <p>Please note that only cards that use 3D Secure are accepted. Contact your bank to activate it or for further instructions.</p>
+                    <div className="card-description">
+                        <div className="card-item">
+                            <img src="https://static.zara.net/static/images/payment/payment/icon-payment-visa.svg" alt="" />
+                            <p>VISA</p>
+                        </div>
+                        <div className="card-item">
+                            <img src="https://static.zara.net/static/images/payment/payment/icon-payment-mastercard.svg" alt="" />
+                            <p>MASTERCARD</p>
+                        </div>
+                        <div className="card-item">
+                            <img src="https://static.zara.net/static/images/payment/payment/icon-payment-amex_2.svg" alt="" />
+                            <p>AMERICAN EXPESS</p>
+                        </div>
+                        <div className="card-item">
+                            <img src="https://static.zara.net/static/images/payment/payment/ru-pay.svg" alt="" />
+                            <p>RUPAY</p>
+                        </div>
+                        <div className="card-item">
+                            <img src="https://static.zara.net/static/images/payment/payment/net-banking.svg" alt="" />
+                            <p>NETBANKING</p>
+                        </div>
+                        <div className="card-item">
+                            <img src="https://static.zara.net/static/images/payment/payment/upi.svg" alt="" />
+                            <p>UNIFIED PAYMENT INTERFACE</p>
+                        </div>
+                    </div>
+                    <div className="bottom-card">
+                        <div className="bottom-card-item">
+                            <img src="https://static.zara.net/static/images/payment/payment/IcoBank-GiftCard.svg" alt="" />
+                            <p>GIFT CARD</p>
+                        </div>
+                        <div className="bottom-card-item">
+                            <img src="https://static.zara.net/static/images/payment/payment/co-djpen.svg" alt="" />
+                            <p>CASH ON DILIVERY</p>
+                        </div>
+                        <div className="bottom-card-item">
+                            <img src="https://static.zara.net/static/images/payment/payment/in.svg" alt="" />
+                            <p>IN CARD</p>
+                        </div>
+                    </div>
+                    <div className="bottom-btn">
+                        <p>
+                            <div>
+                                <b>TOTAL $399.00</b>
+                            </div>
+                            <div>INCLUDING GST</div>
+                            <div>* EXCL SHIPPING COST</div>
+                        </p>
+                        <button className="checkout-btn">CONTINUE</button>
+                    </div>
+                </div>
+            </Container>
+            <Footer />
+        </>
+    )
 }
 const Container = styled.div`
  width: 100%;

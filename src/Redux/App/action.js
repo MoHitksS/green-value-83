@@ -12,6 +12,18 @@ const getProduct = (payload) => (dispatch) => {
         })
 }
 
+const getSingleProduct = (payload) => (dispatch) => {
+    dispatch({ type: types.GET_SINGLE_REQUEST });
+    return axios
+        .get(`https://zara-mock-server.herokuapp.com/products/${payload}`)
+        .then((r) => {
+           return dispatch({ type: types.GET_SINGLE_SUCCESS, payload: r.data });
+        })
+        .catch((e) => {
+            dispatch({ type: types.GET_SINGLE_FAILURE});
+        })
+}
+
 const postCart = (payload) => (dispatch) => {
     dispatch({ type: types.POST_CART_REQUEST });
     return axios
@@ -48,4 +60,4 @@ const deleteCart = (payload) => (dispatch) => {
         })
 }
 
-export { getProduct, getCart, postCart, deleteCart }
+export { getProduct, getCart, postCart, deleteCart,getSingleProduct }

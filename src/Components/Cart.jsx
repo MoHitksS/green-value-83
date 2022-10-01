@@ -30,7 +30,7 @@ const total = ()=>{
         </div>
 
         <div className="cart-item-flex">
-          {cartData.length === 0 ?
+          {cartData && cartData.length === 0 ?
            <div>cart data is empty</div> 
            :
            cartData?.map((item) => (

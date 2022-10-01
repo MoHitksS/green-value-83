@@ -1,9 +1,9 @@
 import axios from "axios";
 import * as types from "./actionTypes";
-const getProduct = (payload) => (dispatch) => {
+const getProduct = (payload = 'products',limit='') => (dispatch) => {
     dispatch({ type: types.GET_PRODUCTS_REQUEST });
     return axios
-        .get(`https://zara-mock-server.herokuapp.com/${payload}`)
+        .get(`https://zara-mock-server.herokuapp.com/${payload}?_limit=${limit}`)
         .then((r) => {
            return dispatch({ type: types.GET_PRODUCTS_SUCCESS, payload: r.data });
         })
@@ -25,7 +25,6 @@ const getSingleProduct = (payload) => (dispatch) => {
 }
 
 const postCart = (payload) => (dispatch) => {
-    console.log(payload)
     dispatch({ type: types.POST_CART_REQUEST });
     return axios
         .post("https://zara-mock-server.herokuapp.com/cart", payload)

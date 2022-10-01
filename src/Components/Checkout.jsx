@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 const Checkout = () => {
     return (
         <>
@@ -58,7 +59,7 @@ const Checkout = () => {
                         </div>
                         <div className="bottom-btn">
                             <p>SHIPPING FREE</p>
-                            <button>CONTINUE</button>
+                            <Link to="/paymentMethod"><button className="bottom-btn-link">CONTINUE</button></Link>
                         </div>
                     </div>
                 </div>
@@ -154,7 +155,7 @@ const Container = styled.div`
     padding-top:-10px;
     font-size:smaller;
 }
-.bottom-btn>button{
+.bottom-btn-link{
     font-size:small;
     width:200px;
     background:black;

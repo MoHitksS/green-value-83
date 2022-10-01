@@ -9,6 +9,7 @@ import Homepage from './Homepage'
 import Cart from '../Components/Cart'
 import Checkout from '../Components/Checkout'
 import Companylogin from './Company'
+import PaymentMethod from '../Components/PaymentMethod'
 
 
 const AllRoutes = () => {
@@ -22,6 +23,7 @@ const AllRoutes = () => {
       <Route path='/signin' element={<SignIn />} />
       <Route path='/cart' element={<Cart />}></Route>
       <Route path='/checkout' element={<Checkout />}></Route>
+      <Route path='/paymentMethod' element={<PaymentMethod />}></Route>
       <Route path='/products' element={<ProductPage />}></Route>
     </Routes>
   )

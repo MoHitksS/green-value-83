@@ -26,7 +26,25 @@ export const reducer = (state = initialState, action) => {
       return { ...state, isLoading: false, cart: payload };
 
     case types.GET_CART_FAILURE:
-      return { ...state, isLoading: false, isError: true, cart:[]};
+      return { ...state, isLoading: false, isError: true, cart: [] };
+      
+    case types.DELETE_CART_REQUEST:
+      return { ...state, isLoading: true };
+
+    case types.DELETE_CART_SUCCESS:
+      return { ...state, isLoading: false, cart: payload };
+
+    case types.DELETE_CART_FAILURE:
+      return { ...state, isLoading: false, isError: true, cart: [] };
+
+    case types.POST_CART_REQUEST:
+      return { ...state, isLoading: true };
+
+    case types.POST_CART_SUCCESS:
+      return { ...state, isLoading: false, cart: payload };
+
+    case types.POST_CART_FAILURE:
+      return { ...state, isLoading: false, isError: true, cart: [] };
 
     default:
       return state;

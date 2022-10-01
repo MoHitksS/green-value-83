@@ -1,11 +1,9 @@
 import React from 'react'
-import Navbar from './Navbar'
 
 const Help = () => {
   return (
     <>
-      <Navbar />
-      <div style={{ width: "75%", margin: "auto", marginTop: "50px" }}>
+      <div style={{ width: "75%", margin: "auto", paddingTop: "120px", cursor: 'pointer' }}>
         <h3>HELP</h3>
         <div className="helppage1">
           <div className="helppage2">

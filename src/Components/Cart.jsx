@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import "../CSS/Cart.css";
+import Footer from "./Footer";
 const data = [
   {
     id: 11,
@@ -144,6 +145,7 @@ const Cart = () => {
           <Link to="/checkout"><button className="checkout-btn">CONTINUE</button></Link>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

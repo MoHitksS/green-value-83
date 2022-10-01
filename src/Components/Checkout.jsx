@@ -1,67 +1,71 @@
 import styled from "styled-components";
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import Footer from "./Footer";
 const Checkout = () => {
     return (
-        <Container>
-            <div className="layout-content">
-                <div className="main-content">
-                    <span>WHERE DO YOU WANT TO RECEIVE YOUR ORDER?</span>
-                    <div className="delivery-group-head">
-                        <div>
-                            <p><AccountBalanceIcon /></p>
-                            <div>Home</div>
-                        </div>
-                        <div>
-                            <p><AccountBalanceIcon /></p>
-                            <div>Zara Store
+        <>
+
+            <Container>
+                <div className="layout-content">
+                    <div className="main-content">
+                        <span>WHERE DO YOU WANT TO RECEIVE YOUR ORDER?</span>
+                        <div className="delivery-group-head">
+                            <div>
+                                <p><AccountBalanceIcon /></p>
+                                <div>Home</div>
+                            </div>
+                            <div>
+                                <p><AccountBalanceIcon /></p>
+                                <div>Zara Store
+
+                                </div>
 
                             </div>
+                        </div>
+                        <div className="delivery-address">
+                            <span>Address</span>
+                            <span>EDIT</span>
 
                         </div>
-                    </div>
-                    <div className="delivery-address">
-                        <span>Address</span>
-                        <span>EDIT</span>
+                        <div className="delivery-group">
+                            <h2>ITEMS</h2>
+                            <img src="https://static.zara.net/photos///2022/I/0/1/p/1023/302/615/32/w/91/1023302615_1_1_1.jpg?ts=1664205140763" alt="" />
 
-                    </div>
-                    <div className="delivery-group">
-                        <h2>ITEMS</h2>
-                        <img src="https://static.zara.net/photos///2022/I/0/1/p/1023/302/615/32/w/91/1023302615_1_1_1.jpg?ts=1664205140763" alt="" />
-
-                    </div>
-                    <div className="delivery-details">
-                        <hr />
-                        <div>
+                        </div>
+                        <div className="delivery-details">
+                            <hr />
                             <div>
+                                <div>
 
-                                <div className="delivery-details-address">
-                                    <div> <b>
-                                        THURSDAY 06, OCTOBER - FRIDAY 07, OCTOBER</b>
-                                    </div>
-                                    <div>
-                                        FREE SHIPPING FOR ORDERS OVER ₹ 2,990
-                                    </div>
-                                    <br />
-                                    <div>
-                                        DELIVERY TIME FRAMES
+                                    <div className="delivery-details-address">
+                                        <div> <b>
+                                            THURSDAY 06, OCTOBER - FRIDAY 07, OCTOBER</b>
+                                        </div>
+                                        <div>
+                                            FREE SHIPPING FOR ORDERS OVER ₹ 2,990
+                                        </div>
+                                        <br />
+                                        <div>
+                                            DELIVERY TIME FRAMES
+                                        </div>
                                     </div>
                                 </div>
+                                <div className="delivery-free">
+                                    FREE
+                                </div>
                             </div>
-                            <div className="delivery-free">
-                                FREE
-                            </div>
+                            <hr />
                         </div>
-                        <hr />
-                    </div>
-                    <div className="bottom-btn">
-                        <p>SHIPPING FREE</p>
-                        <button>CONTINUE</button>
+                        <div className="bottom-btn">
+                            <p>SHIPPING FREE</p>
+                            <button>CONTINUE</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Container>
+            <Footer/>
+        </>
 
-
-        </Container>
     )
 }
 const Container = styled.div`

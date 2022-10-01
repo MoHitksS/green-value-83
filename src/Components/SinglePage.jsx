@@ -34,10 +34,6 @@ const [opend, setOpend] = React.useState(false);
 
 
 
-// const handleDrawerOpen = () => {
-//   setOpend(true);
-// };
-
 const handleDrawerClose = () => {
   setOpend(false);
 };

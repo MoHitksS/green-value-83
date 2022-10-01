@@ -5,9 +5,42 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Footer from './Footer';
 import { getCart, getSingleProduct, postCart } from '../Redux/App/action';
 import { useDispatch, useSelector } from 'react-redux';
+import { IconButton, List } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
+import Drawer from '@mui/material/Drawer';
+import CloseIcon from '@mui/icons-material/Close';
+import DrawerBody from './Product-Page-Component/DrawerBody';
+
+//------------------drawer components------------//
+const drawerWidth = 382;
+
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: 'flex-end',
+}));
+//------------------^------------//
+
 const SinglePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
+//------------------drawer components------------//
+const theme = useTheme();
+const [opend, setOpend] = React.useState(false);
+
+
+
+// const handleDrawerOpen = () => {
+//   setOpend(true);
+// };
+
+const handleDrawerClose = () => {
+  setOpend(false);
+};
+//-----------------------------------------------------//
   const { id } = useParams();
   const [size, setSize] = useState(false);
   const [sizeval, setSizeval] = useState("");
@@ -19,6 +52,7 @@ const SinglePage = () => {
     else {
       alert("Product is added to cart")
       setSize(true);
+      setOpend(true);
       console.log("a")
       dispatch(postCart(single)).then(()=>{
         dispatch(getCart())
@@ -101,6 +135,29 @@ const SinglePage = () => {
           <input type="button" className="bag2btn" value='ADD TO BAG' />
         </div>
       </div>
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+          },
+        }}
+        variant="temporary"
+        anchor="right"
+        open={opend}
+        onClose ={ handleDrawerClose}
+      >
+      <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <CloseIcon /> : <CloseIcon />}
+          </IconButton>
+        </DrawerHeader>
+        <List>
+          <DrawerBody/>
+        </List>
+
+      </Drawer>
       <Footer />
     </>
   )

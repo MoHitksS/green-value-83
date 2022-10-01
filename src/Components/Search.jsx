@@ -25,6 +25,7 @@ const Search = () => {
                     <input type="text" placeholder='Enter Search Term' value={text} onChange={(e) => setText(e.target.value)} onKeyUp={(e) => handleSearch(e)} />
                     {val && <p style={{ textAlign: "left" }}>{products.length} Result Shown</p>}
                 </div>
+
                 {val && <div className='productSection'>
                     <ProductPage />
                 </div>}

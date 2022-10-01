@@ -3,8 +3,8 @@
     grid-template-columns: 33% 37% 30%;
     width: 80%;
     margin: auto;
-    margin-top: 40px;
     margin-bottom: 50px;
+    padding-top: 100px;;
 }
 /* .leftall,.rightall,.middleall{
     border: 1px solid black;
@@ -95,6 +95,22 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 20px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+}
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+    background:#333;
+}
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+    background:#333;
+}
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
 }
 
 /* helpPage  */

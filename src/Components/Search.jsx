@@ -6,26 +6,28 @@ import ProductPage from '../Routes/ProductPage';
 const Search = () => {
     const [text, setText] = useState('');
     const dispatch = useDispatch();
+    const [val,setVal] = useState(false);
     const { products } = useSelector((store) => (store.AppReducer))
     const handleSearch = (e) => {
         if (e.key === 'Enter') {
             if (text) {
-                dispatch(getProduct(`products?q=${text}`))
+                dispatch(getProduct(`products?q=${text}`)).then(()=>{
+                    setVal(true)
+                })
             }
         }
     }
-    console.log(products)
+
     return (
         <>
             <Container>
                 <div className='searchBox'>
                     <input type="text" placeholder='Enter Search Term' value={text} onChange={(e) => setText(e.target.value)} onKeyUp={(e) => handleSearch(e)} />
-                    {products.length > 0 && <p style={{ textAlign: "left" }}>{products.length} Result Shown</p>}
+                    {val && <p style={{ textAlign: "left" }}>{products.length} Result Shown</p>}
                 </div>
-
-                <div className='productSection'>
+                {val && <div className='productSection'>
                     <ProductPage />
-                </div>
+                </div>}
             </Container>
 
         </>
@@ -67,7 +69,7 @@ const Container = styled.div`
     }
 
     .productSection{
-        margin-top:80px;
+        margin-top:-40px;
         margin-bottom:100px;
     }
 

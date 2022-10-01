@@ -1,12 +1,12 @@
 import React from "react";
-import CircleIcon from "@mui/icons-material/Circle";
 import AddCart from "./AddCart";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const ProductCtard = ({ item,id }) => {
+
   return (
-    <ProductCardContainer>
+    <ProductCardContainer key={id}>
       {/* image */}
       <Link to={`/product/${item.id}`}>
         <div>
@@ -25,7 +25,7 @@ const ProductCtard = ({ item,id }) => {
         <div className="flexStyling">
           <div className="nameStyling">
           <Link to={`/product/${item.id}`}>
-            <div>{item.name || item.producttitle}</div>
+            <div>{item.producttitle}</div>
           </Link>
             {" "}
             {/* <div className="iconStyling">

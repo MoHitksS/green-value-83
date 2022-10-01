@@ -1,4 +1,3 @@
-/* eslint-disable no-eval */
 import "swiper/css";
 import "swiper/css/pagination"
 import styled from "styled-components";
@@ -142,7 +141,6 @@ const Container = styled.div`
     position:absolute;
     cursor:pointer;
     z-index:-5;
-
     .mySwiper {
         width: 100%;
         height: 100%;
@@ -163,16 +161,12 @@ const Container = styled.div`
         height:100vh;
         object-fit:cover;
     }
-
     .swiper-pagination-bullet-active {
         background-color: #000 !important;
     }
-
     .swiper-pagination {
         margin-top: 250px !important;
-
     }
-
     .nextPrevButtons{
         width:100%;
         position:absolute;
@@ -182,7 +176,6 @@ const Container = styled.div`
         z-index:5;
         top:45vh;
     }
-
     .nextPrevButtons>button{
        background-color:transparent;
        border:none;
@@ -191,7 +184,6 @@ const Container = styled.div`
        font-weight:200;
        color:${(props)=>(props.activeIndexs % 2 === 0?"white":"black")};
     }
-
     .nextPrevButtons>button svg{
         font-size:30px;
         fill:${(props)=>(props.activeIndexs % 2 === 0?"white":"black")};

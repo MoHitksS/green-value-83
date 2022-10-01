@@ -90,7 +90,7 @@ const Homepage = () => {
     const category = ['Women', 'Men', 'Kids'];
     return (
         <Container activeIndexs={activeIndexs}>
-            <Navbar style={{ display: "none" }} activeIndexs={activeIndexs} />
+            <Navbar style={{ display: "none" }} activeIndexs={activeIndexs} setIndex={setIndex}/>
             <Swiper
                 direction={'vertical'}
                 slidesPerView={1}
@@ -144,6 +144,7 @@ const Container = styled.div`
     .mySwiper {
         width: 100%;
         height: 100%;
+        
     }
     .swiper-slide{
         width:100%;
@@ -184,10 +185,36 @@ const Container = styled.div`
        font-weight:200;
        color:${(props)=>(props.activeIndexs % 2 === 0?"white":"black")};
     }
+
     .nextPrevButtons>button svg{
         font-size:30px;
         fill:${(props)=>(props.activeIndexs % 2 === 0?"white":"black")};
-     }
+    }
+
+    @media only screen and (min-width: 769px) and (max-width:1110px){
+        .swiper-slide img{
+            object-fit:cover;
+            
+        }
+    }
+
+    @media only screen and (min-width: 481px) and (max-width:768px){
+        .swiper-slide img{
+            object-fit:cover;
+        }
+    }
+    
+    @media only screen and (min-width:320px) and (max-width:480px){
+        .swiper-slide img{
+            object-fit:cover;
+        }
+    }
+
+    @media only screen and (max-width: 320px){
+        .swiper-slide img{
+            object-fit:cover;
+        }
+    }
 `
 
 

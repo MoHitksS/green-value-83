@@ -4,7 +4,7 @@ import AddCart from "./AddCart";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const ProductCtard = ({ item }) => {
+const ProductCtard = ({ item,id }) => {
   return (
     <ProductCardContainer>
       {/* image */}
@@ -16,21 +16,25 @@ const ProductCtard = ({ item }) => {
             alt={item.name}
           />
         </div>
+        </Link>
         <div style={{ marginTop: "-50px" }}>
           {" "}
-          <AddCart data={item} />
+          <AddCart id = {id} data={item} />
         </div>
         {/* details */}
         <div className="flexStyling">
           <div className="nameStyling">
-            <div>{item.name}</div>{" "}
-            <div className="iconStyling">
+          <Link to={`/product/${item.id}`}>
+            <div>{item.name || item.producttitle}</div>
+          </Link>
+            {" "}
+            {/* <div className="iconStyling">
               <CircleIcon sx={{ fontSize: "10px" }} />
-            </div>
+            </div> */}
           </div>
           <div className="priceS">{item.price}</div>
         </div>
-      </Link>
+
     </ProductCardContainer>
   );
 };
@@ -42,6 +46,13 @@ const ProductCardContainer = styled.div`
     overflow: hidden;
     height: 13px;
     width: 70%;
+  }
+  .nameStyling a{
+    text-decoration: none;
+    color: black;
+  }
+  .nameStyling a:hover{
+    text-decoration: underline;
   }
   .flexStyling {
     display: flex;

@@ -18,7 +18,7 @@ const ProductPage = () => {
         <ProdContainer>
             <div className="gridlayout">
                 {products.map((item) => {
-                    return (<ProductCard key={item.id} item={item} />)
+                    return (<ProductCard key={item.id} id={item.id} item={item} />)
                 })}
             </div>
 
@@ -31,7 +31,7 @@ export default ProductPage
 const ProdContainer = styled.div`
     width: 90%;
     margin: auto;
-
+    padding-top: 110px;
 
 
  ${'' /* @media (min-width: 480px) {

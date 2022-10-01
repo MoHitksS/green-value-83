@@ -11,5 +11,11 @@ const getProduct = (payload)=>(dispatch)=>{
         dispatch({type: types.GET_PRODUCTS_FAILURE,payload: e});
     })
 }
-
-export {getProduct}
+const setCart = (payload,id) =>{
+    return{
+        type:types.ADD_To_CART,
+        payload,
+        id
+    }
+}
+export {getProduct,setCart}

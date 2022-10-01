@@ -47,8 +47,9 @@ const Addcartscroll =styled.div`
     overflow: auto;
     width: 382px;
 
+
 .addcartname::-webkit-scrollbar {
-    width: 3px;
+    width: 1px;
   }
 
  .addcartname::-webkit-scrollbar-track {

@@ -1,5 +1,4 @@
 import React from "react";
-import CircleIcon from "@mui/icons-material/Circle";
 import AddCart from "./AddCart";
 import styled from "styled-components";
 import { Link } from "react-router-dom";

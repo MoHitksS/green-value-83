@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { getCart } from '../Redux/App/action';
 
 const Navbar = ({ activeIndexs }) => {
+    const dispatch = useDispatch();
     const [colorB, setColor] = useState('');
     const [theme, setTheme] = useState("black");
     const [val, setVal] = useState(true)
-    const location = useLocation()
+    const location = useLocation();
+    const { cart } = useSelector((store)=>(store.AppReducer));
     const handleChange = (e) => {
         changeVal()
         if (e.target.checked) {
@@ -35,10 +39,14 @@ const Navbar = ({ activeIndexs }) => {
             setTheme("black")
         }
     }, [activeIndexs, val, location]);
+
+    useEffect(()=>{
+        dispatch(getCart())
+    },[])
     const menuItem = ["NEW", "BEST SELLERS", "BASICS", "JACKETS | OVERSHIRTS", "DRESSES | JUMPSUITS", "BLAZERS", "SHIRTS", "TROUSERS", "TOPS", "JEANS", "KNITWEAR", "SWEATSHIRTS", "T-SHIRTS", "WAISTCOATS | GILETS", "SHORTS | SKORTS", "SKIRTS", "CO-ORD SETS", "SUITS", "COATS | PUFFER JACKETS", "ACCESSORIES", "SHOES", "BAGS", "PERFUMES", "Special Prices", "WEAR TO WORK", "SPECIAL EDITION"]
     return (
         <>
-            <Container theme={theme}>
+            <Container theme={theme} style={{ backgroundColor: location.pathname === '/' ? 'transparent' : 'white' }}>
                 <div className='menuContainer' style={{ backgroundColor: colorB }}>
                     <header className="header" style={{ backgroundColor: colorB }}>
                         <input className="menu-btn" type="checkbox" id="menu-btn" onClick={(e) => handleChange(e)} />
@@ -68,16 +76,19 @@ const Navbar = ({ activeIndexs }) => {
                     </div>
                 </div>
                 <div className='navRightSection'>
-                    <div>
-                        <input type="text" placeholder='SEARCH' />
-                    </div>
+                    <Link to="/search" style={{ visibility: location.pathname === '/search' ? 'hidden' : 'visible' }}>
+                        <div>
+                            <input type="text" placeholder='SEARCH' />
+                        </div>
+                    </Link>
                     <div>
                         <Link to='/login'> <span>LOGIN</span></Link>
                         <Link to="/help">
                             <span>HELP</span>
                         </Link>
                         <Link to="/cart">
-                            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="inherit" stroke="inherit"><path fillRule="evenodd" clipRule="evenodd" d="M8.5 4.9V3.3a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.6h4.8V12h-1V5.9H4.7v14H15v1H3.7v-16h4.8zm1-1.6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1.6h-5V3.3z"></path><path fillRule="evenodd" clipRule="evenodd" d="M17.4 23.4v-9h5.4v9l-2.705-2.673L17.4 23.4zm2.694-3.798L22 21.485V15.2h-3.8v6.28l1.894-1.878z"></path></svg>
+                            <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="inherit" stroke="inherit"><path fillRule="evenodd" clipRule="evenodd" d="M8.5 4.9V3.3a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.6h4.8V12h-1V5.9H4.7v14H15v1H3.7v-16h4.8zm1-1.6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1.6h-5V3.3z"></path><path fillRule="evenodd" clipRule="evenodd" d="M17.4 23.4v-9h5.4v9l-2.705-2.673L17.4 23.4zm2.694-3.798L22 21.485V15.2h-3.8v6.28l1.894-1.878z"></path></svg>
+                            <span style={{position:'fixed',right:cart.length>9?'32px':'35px',top:"27px",fontSize:'12px'}}>{cart.length}</span>
                         </Link>
                     </div>
                 </div>
@@ -88,6 +99,7 @@ const Navbar = ({ activeIndexs }) => {
 
 const Container = styled.div`
     width:100%;
+    height:150px;
     display:flex;
     align-content:center;
     justify-content:space-between;
@@ -106,19 +118,19 @@ const Container = styled.div`
         padding:0px 10px;
     }
 
-    .navRightSection>div:first-child{
+    .navRightSection>a>div:first-child{
         width:100px;
         overflow:hidden;
     }
 
-    .navRightSection>div:first-child>input{
+    .navRightSection>a>div:first-child>input{
         border:0px;
         border-bottom:1px solid black;
         outline:none;
         background-color:transparent;
     }
 
-    .navRightSection>div:first-child>input::placeholder{
+    .navRightSection>a>div:first-child>input::placeholder{
         color:black;
     }
 
@@ -294,10 +306,8 @@ const Container = styled.div`
 
     .logo{
         width:250px;
-        height:250px;
         padding-left:90px;
         padding-top:20px;
-        
     }
 
     /* 48em = 768px */
@@ -322,11 +332,11 @@ const Container = styled.div`
         }
     }
 
-    .navRightSection>div:first-child>input{
+    .navRightSection>a>div:first-child>input{
         border-color:${(props) => (props.theme)};
     }
 
-   .navRightSection>div:first-child>input::placeholder{
+   .navRightSection>a>div:first-child>input::placeholder{
         color:${(props) => (props.theme)};
     }
 
@@ -348,6 +358,7 @@ const Container = styled.div`
     .navRightSection svg{
         fill:${(props) => (props.theme)};
     }
+
 `
 
 export default Navbar

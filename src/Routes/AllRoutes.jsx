@@ -10,7 +10,7 @@ import Cart from '../Components/Cart'
 import Checkout from '../Components/Checkout'
 import Companylogin from './Company'
 import PaymentMethod from '../Components/PaymentMethod'
-
+import Search from '../Components/Search'
 
 const AllRoutes = () => {
   return (
@@ -25,6 +25,7 @@ const AllRoutes = () => {
       <Route path='/checkout' element={<Checkout />}></Route>
       <Route path='/paymentMethod' element={<PaymentMethod />}></Route>
       <Route path='/products' element={<ProductPage />}></Route>
+      <Route path='/search' element={<Search />}></Route>
     </Routes>
   )
 }

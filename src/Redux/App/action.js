@@ -37,7 +37,7 @@ const getCart = (payload) => (dispatch) => {
 }
 
 const deleteCart = (id) => (dispatch) => {
-    console.log(id)
+    // console.log(id)
     dispatch({ type: types.DELETE_CART_REQUEST });
 
     return axios

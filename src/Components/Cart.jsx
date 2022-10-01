@@ -8,19 +8,21 @@ import Footer from "./Footer";
 
 const Cart = () => {
   const cartData = useSelector(state=>state.AppReducer.cart)
-  console.log(cartData)
   const dispatch=useDispatch()
   const deletehandle=(id)=>{
-// console.log(id)
+console.log(id)
 dispatch(deleteCart(id)).then((res)=>{
   dispatch(getCart())
 })
+const total = ()=>{
+  
+}
   }
   return (
     <>
       <div className="container">
         <div className="heading">
-          <span>CART({cartData.length})</span>
+          <span>CART({cartData && cartData.length})</span>
           <span>WISHLIST</span>
         </div>
         <div className="shoping-cart-msg">
@@ -28,9 +30,11 @@ dispatch(deleteCart(id)).then((res)=>{
         </div>
 
         <div className="cart-item-flex">
-          
-          {cartData.map((item) => (
-            <div className="cart-item">
+          {cartData.length === 0 ?
+           <div>cart data is empty</div> 
+           :
+           cartData?.map((item) => (
+            <div className="cart-item" key={item.id}>
               <div className="cart-item-header">
                 {" "}
                 <b>{item.producttitle} </b>{" "}
@@ -61,7 +65,6 @@ dispatch(deleteCart(id)).then((res)=>{
               </div>
             </div>
           ))}
-          
         </div>
         <div className="bottom-btn">
           <p>

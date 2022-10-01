@@ -1,9 +1,9 @@
 import axios from "axios";
 import * as types from "./actionTypes";
-const getProduct = ()=>(dispatch)=>{
+const getProduct = (payload)=>(dispatch)=>{
     dispatch({type: types.GET_PRODUCTS_REQUEST});
     return axios
-    .get("http://localhost:3004/men1")
+    .get(`https://zara-mock-server.herokuapp.com/${payload}`)
     .then((r)=>{
         dispatch({type: types.GET_PRODUCTS_SUCCESS, payload: r.data});
     })

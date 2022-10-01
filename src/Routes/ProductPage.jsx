@@ -1,29 +1,29 @@
 import React from 'react';
 import { useEffect } from "react";
-import { useDispatch , useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../Redux/App/action";
 import ProductCard from '../Components/Product-Page-Component/ProductCard';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 const ProductPage = () => {
+    const location = useLocation();
+    const term = location.state?.query;
     const products = useSelector((state) => state.AppReducer.products)
-//console.log(products)
     const dispatch = useDispatch();
-    useEffect(() =>{
-      dispatch(getProduct())
+    useEffect(() => {
+        dispatch(getProduct(term))
+    }, [dispatch, term]);
+    return (
+        <ProdContainer>
+            <div className="gridlayout">
+                {products.map((item) => {
+                    return (<ProductCard key={item.id} item={item} />)
+                })}
+            </div>
 
-  },[dispatch]);
-  return (
-    <ProdContainer>
-        <div className="gridlayout">
-
-            {products.map((item)=>{
-                return ( <ProductCard key={item.id} item={item}/> )
-            })}
-        </div>
-
-    </ProdContainer>
-  )
+        </ProdContainer>
+    )
 }
 
 export default ProductPage

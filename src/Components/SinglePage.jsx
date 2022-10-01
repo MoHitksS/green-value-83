@@ -33,10 +33,6 @@ const [opend, setOpend] = React.useState(false);
 
 
 
-// const handleDrawerOpen = () => {
-//   setOpend(true);
-// };
-
 const handleDrawerClose = () => {
   setOpend(false);
 };
@@ -74,7 +70,7 @@ const handleDrawerClose = () => {
       <div className='main'>
         <div className='leftall'>
           <div className='leftdiv'>
-            <h4 style={{ marginButtom: "30px" }}>{single.heading}</h4>
+            <h4 style={{ marginButtom: "30px" }}>MATERIALS, CARE AND ORIGIN</h4>
             <h5 style={{ marginButtom: "30px" }}>MATERIALS</h5>
             <p style={{ marginButtom: "30px" }}>{single.materialdesc}</p>
             <p style={{ marginButtom: "30px" }}>To assess compliance, we have developed a programme of audits and continuous improvement plans.</p>

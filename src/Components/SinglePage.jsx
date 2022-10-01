@@ -1,20 +1,29 @@
 import React from 'react'
-import './SinglePage.css'
+import '../CSS/SinglePage.css'
 import { useEffect, useState } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 const SinglePage = () => {
     const [size,setSize] = useState(false);
     const [sizeval,setSizeval] = useState("")
+    const navigate = useNavigate()
     const handleClick = () => {
       if(sizeval==""){
         alert("Please Select A size")
       }
       else{
         alert("Product is added to cart")
+        setSize(true)
       }
     }
-    console.log(sizeval)
+    const handleProcess = () =>{
+      navigate("/cart")
+    }
+    // console.log(sizeval)
+    // console.log(size)
     let data = [
       {
+        "id":"11",
        "image": "https://static.zara.net/photos///2022/I/0/2/p/8491/501/401/2/w/219/8491501401_6_1_1.jpg?ts=1663862015692",
        "name": "WOOL DOUBLE-FACED JACKET",
        "name_url": "https://www.zara.com/in/en/wool-double-faced-jacket-p08491501.html",
@@ -32,34 +41,6 @@ const SinglePage = () => {
       }]
   return (
     <>
-    {/* <div className='menuContainer' >
-              <header className="header" 
-              style={{
-                isActive: true ? {position:"fixed"}:{display:"none"},
-                isActive: true ? {width:"25%"}:{display:"none"},
-                isActive: true ? {paddingTop:"10px"}:{display:"none"},
-                isActive: true ? {textAlign:"right"}:{display:"none"},
-                isActive: true ? {position:"fixed"}:{display:"none"},
-                isActive: true ? {position:"fixed"}:{display:"none"},
-                isActive: true ? {position:"fixed"}:{display:"none"},
-                // width: isActive ? "25%":'',
-                // paddingTop: isActive ? "10px":'',
-                // paddingBottom: isActive ? "15px":'',
-                // textAlign: isActive ? "right":'',
-                // float: isActive ? "right":'',
-                // fontSize: isActive ? "2em":'',
-                // paddingLeft: isActive ? "15px":''
-              }}>
-                  <input className="menu-btn" type="checkbox" id="menu-btn" onChange={(e) => handleChange(e)} />
-                  <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
-                  <div className='menuTop'>
-                      <span>WOMAN</span>
-                      <span>MENS</span>
-                      <span>KIDS</span>
-                      <span>ZARA ORIGINS</span>
-                  </div>
-              </header>
-              </div> */}
     {data.map((item) => {return (
 
     <div className='main'>
@@ -70,7 +51,11 @@ const SinglePage = () => {
             <p style={{marginButtom:"30px"}}>{item.materialdesc}</p>
             <p style={{marginButtom:"30px"}}>To assess compliance, we have developed a programme of audits and continuous improvement plans.</p>
             <h5>{item.materialshell}</h5>
-            <p>{item.materialtype}</p>
+            <p style={{marginButtom:"30px"}}>{item.materialtype}</p>
+            <h5 style={{marginButtom:"30px"}}>CARE</h5>
+            <p style={{marginButtom:"30px"}}>{item.care}</p>
+            <h5 style={{marginButtom:"30px"}}>ORIGIN</h5>
+            <p style={{marginButtom:"30px"}}>{item.origin}</p>
         </div>
       </div>
       <div className='middleall' style={{display:"flex",justifyContent:"space-between"}}>
@@ -110,11 +95,13 @@ const SinglePage = () => {
                 <p>SIZE GUIDE</p>
             </div>
             <input type="button" className='addbutton menu-btn' value='ADD TO BAG' style={{marginButtom:"50px"}} onClick={handleClick}/>
+            <input type="button" className='addbutton menu-btn' value='PROCESS ORDER' 
+            style={(size==true) ? {visibility:'visible',marginTop:"25px"} :{visibility:'hidden'}} onClick={handleProcess}/>
             <p style={{marginButtom:"40px",fontSize:"12px"}}>CHECK IN-STORE AVAILABILITY</p>
             <p style={{marginButtom:"40px",fontSize:"12px"}}>DELIVERY,EXCHANGES AND RETURNS</p>
         </div>
       </div>
-      
+
     </div>
     )
     })}
@@ -132,33 +119,7 @@ const SinglePage = () => {
         </div>
     </div>
     {/* similar items section  */}
-
-    {/* <div style={{width:"95%",margin:"auto",marginTop:"50px"}}>
-    <h3>SIMILAR ITEMS</h3>
-    <div className="similaritem">
-        <div style={{width:"300px"}}>
-            <div><img src="https://static.zara.net/photos///2022/I/0/1/p/9878/170/251/2/w/377/9878170251_6_1_1.jpg?ts=1662113384160" alt="" style={{width:"100%"}}/></div>
-            <p>SPLIT SUEDE COWBOY BOOTS</p>
-            <p>₹ 9,990.00</p>
-            <p>MRP incl. of all taxes</p>
-            <button className="bag2btn">ADD TO BAG</button>
-        </div>
-        <div style={{width:"300px"}}>
-            <div><img src="https://static.zara.net/photos///2022/I/0/1/p/3564/215/250/2/w/377/3564215250_6_1_1.jpg?ts=1661499545877" alt="" style={{width:"100%"}}/></div>
-            <p>SPLIT SUEDE COWBOY BOOTS</p>
-            <p>₹ 9,990.00</p>
-            <p>MRP incl. of all taxes</p>
-            <button className="bag2btn">ADD TO BAG</button>
-        </div>
-        <div style={{width:"300px"}}>
-            <div><img src="https://static.zara.net/photos///2022/I/0/1/p/8619/707/250/2/w/377/8619707250_6_1_1.jpg?ts=1661850689731" alt="" style={{width:"100%"}}/></div>
-            <p>SPLIT SUEDE COWBOY BOOTS</p>
-            <p>₹ 9,990.00</p>
-            <p>MRP incl. of all taxes</p>
-            <button className="bag2btn">ADD TO BAG</button>
-        </div>
-    </div> 
-    </div>*/}
+    <Footer/>
     </>
   )
 }

@@ -1,59 +1,68 @@
-.navbar_space{
+.navbar_space {
     border: 1px solid black;
     height: 200px;
 }
-.signin_main_box{
+
+.signin_main_box {
     border: 1px solid black;
     width: 75%;
     margin: auto;
 }
-.signin_main_box>h3{
+
+.signin_main_box>h3 {
     text-align: left;
     margin-bottom: 30px;
 }
-.personal_company_toggle{
+
+.personal_company_toggle {
     display: grid;
-    grid-template-columns: repeat(8,1fr);
+    grid-template-columns: repeat(8, 1fr);
     /* border: 1px solid red; */
     text-align: left;
     font-size: 13px;
 }
-.signin_second_box{
+
+.signin_second_box {
     margin-top: 30px;
     border: 1px solid black;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
-.signin_second_box>div:nth-child(1){
+
+.signin_second_box>div:nth-child(1) {
     /* border: 1px solid red; */
     width: 530px;
     text-align: left;
-   width: 400px;
+    width: 400px;
 }
 
-.signin_second_box>div>form>input{
+.signin_second_box>div>form>input {
     border: none;
     outline: none;
     font-size: 10px;
     letter-spacing: 1px;
 }
-.signin_second_box>div>form>label{
+
+.signin_second_box>div>form>label {
     border: none;
     outline: none;
     font-size: 10px;
 }
-.signin_second_box>div>form>select{
+
+.signin_second_box>div>form>select {
     border: none;
     outline: none;
     width: 400px;
 }
-.signin_second_box>div>form>hr{
+
+.signin_second_box>div>form>hr {
     margin-top: -21px;
-    
+
 }
-.signin_second_box>div>form>button{
-    background-color: #0c0c0c; 
+
+.signin_second_box>div>form>button {
+    background-color: #0c0c0c;
     border: none;
     color: white;
     padding: 5px 129px;
@@ -65,51 +74,58 @@
     cursor: pointer;
     margin-top: 30px;
 }
-.prefix_telephone{
+
+.prefix_telephone {
     display: flex;
     /* border: 1px solid red; */
     font-size: 10px;
     margin-bottom: 10px;
 }
-.prefix_telephone>:nth-child(1){
+
+.prefix_telephone>:nth-child(1) {
     width: 100px;
     /* border: 1px solid blue; */
 
 }
-.prefix_telephone>:nth-child(2)>input{
+
+.prefix_telephone>:nth-child(2)>input {
     border: none;
     outline: none;
 
 }
-.prefix_telephone>:nth-child(2)>label{
+
+.prefix_telephone>:nth-child(2)>label {
     /* border: none;
     outline: none; */
     font-size: 10px;
 }
 
-.prefix_telephone>:nth-child(2)>hr{
+.prefix_telephone>:nth-child(2)>hr {
     margin-top: -1px;
     border: 1px solid black;
 }
 
 /* ***************box2********* */
 
-.signin_second_box>div:nth-child(2){
+.signin_second_box>div:nth-child(2) {
     /* border: 1px solid red; */
     width: 530px;
     text-align: left;
-   width: 400px;
+    width: 400px;
 }
-.signin_second_box>div:nth-child(2)>input{
+
+.signin_second_box>div:nth-child(2)>input {
     border: none;
     outline: none;
     font-size: 10px;
     letter-spacing: 1px;
 }
-.signin_second_box>div:nth-child(2)>hr{
+
+.signin_second_box>div:nth-child(2)>hr {
     margin-top: -21px;
 }
-.signin_second_box>div:nth-child(2)>label{
-    
+
+.signin_second_box>div:nth-child(2)>label {
+
     font-size: 10px;
 }

@@ -1,10 +1,10 @@
 .navbar_space {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 200px;
 }
 
 .signin_main_box {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 75%;
     margin: auto;
 }
@@ -24,7 +24,7 @@
 
 .signin_second_box {
     margin-top: 30px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -42,6 +42,7 @@
     outline: none;
     font-size: 10px;
     letter-spacing: 1px;
+    width: 100%;
 }
 
 .signin_second_box>div>form>label {
@@ -57,7 +58,7 @@
 }
 
 .signin_second_box>div>form>hr {
-    margin-top: -21px;
+    margin-top: -18px;
 
 }
 
@@ -119,13 +120,20 @@
     outline: none;
     font-size: 10px;
     letter-spacing: 1px;
+    width: 100%;
+}
+.invisiblehr{
+    border: 1px solid white;
 }
 
 .signin_second_box>div:nth-child(2)>hr {
-    margin-top: -21px;
+    margin-top: -18px;
 }
 
 .signin_second_box>div:nth-child(2)>label {
 
     font-size: 10px;
+}
+.checkbox_input{
+    font-size: 13px;
 }

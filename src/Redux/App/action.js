@@ -75,5 +75,5 @@ const patchcart = ({id,quantity}) => (dispatch) => {
             dispatch({ type: types.PATCH_CART_FAILURE });
         })
 }
-
 export { getProduct, getCart, postCart, deleteCart,getSingleProduct,patchcart }
+

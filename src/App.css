@@ -1,6 +1,8 @@
 .App {
-  font-family: "Neue-Helvetica", "Helvetica", "Arial", sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight:400;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -32,13 +34,14 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-body{
+body {
   box-sizing: border-box;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }

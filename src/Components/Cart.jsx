@@ -14,8 +14,9 @@ console.log(id)
 dispatch(deleteCart(id)).then((res)=>{
   dispatch(getCart())
 })
+
 const total = ()=>{
-  
+
 }
   }
   return (
@@ -31,7 +32,7 @@ const total = ()=>{
 
         <div className="cart-item-flex">
           {cartData.length === 0 ?
-           <div>cart data is empty</div> 
+           <div>cart data is empty</div>
            :
            cartData?.map((item) => (
             <div className="cart-item" key={item.id}>

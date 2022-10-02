@@ -8,25 +8,19 @@ import Footer from "./Footer";
 
 
 const Cart = () => {
-  // const [quantity,setQuantity] = useState({
-  //   quantity:0
-
-  // })
-  const cartData = useSelector(state=>state.AppReducer.cart)
-  const dispatch=useDispatch()
- 
-
-  const deletehandle=(id)=>{
-    dispatch(deleteCart(id)).then((res)=>{
+  const cartData = useSelector(state => state.AppReducer.cart);
+  const dispatch = useDispatch()
+  const deletehandle = (id) => {
+    dispatch(deleteCart(id)).then((res) => {
       dispatch(getCart())
     })
-      }
-    
-        const handleAdd = (id)=>{
-        //   dispatch(patchCart(id)).then((res)=>{
-        //     dispatch(getCart())
-        // })
-      }
+  }
+  
+  let sum = 0;
+  cartData && cartData.forEach(element => {
+    sum+= element.pricenum;
+  });
+
 
   return (
     <>
@@ -40,8 +34,7 @@ const Cart = () => {
         </div>
 
         <div className="cart-item-flex">
-          {
-          cartData && cartData.length === 0 ?
+          {cartData && cartData.length === 0 ?
            <div>cart data is empty</div> 
            :
            cartData?.map((item) => (
@@ -65,31 +58,23 @@ const Cart = () => {
                       <span onClick={handleAdd(item.id)}>+</span>
                     </div>
                   </div>
-                  <div className="item-quantity" style={{fontSize:'12px'}}>
-                    <div>{item.price}</div>
-                  </div>
-                  <div>
-                    <button onClick={()=>{deletehandle(item.id)}}>Delete</button>
-                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
         <div className="bottom-btn">
-          <p>
+          <div>
             <div>
-              <b>TOTAL ₹{cartData.reduce((acc, el) => {
-      return acc + el.pricenum;
-    }, 0)}.00 </b>
+              <b>TOTAL ₹{sum}.00 </b>
             </div>
             <div>INCLUDING GST</div>
             <div>* EXCL SHIPPING COST</div>
-          </p>
-          <Link to="/checkout"><button className="checkout-btn">CONTINUE</button></Link>
+          </div>
+          <Link to="/checkout">
+            <button className="checkout-btn">CONTINUE</button></Link>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };

@@ -1,33 +1,28 @@
-
 import * as types from "./actionTypes";
-import axios from "axios";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
-
-
-const Getlogin = () => (dispatch) => {
-  dispatch({ type: types.GET_Login_REQUEST })
-  return axios.get("https://zara-mock-server.herokuapp.com/users").then((res) => {
-    dispatch({
-      type: types.GET_Login_SUCCESS,
-      payload: res.data
+export const login = (email, password) => (dispatch) => {
+  dispatch({ type: types.GET_LOGIN_REQUEST })
+  const auth = getAuth();
+  return signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+     return  dispatch({ type: types.GET_LOGIN_SUCCESS })
     })
-  }).catch(() => {
-    return dispatch({
-      type: types.GET_Login_FAILURE
-    })
-  })
+    .catch((error) => {
+      dispatch({ type: types.GET_LOGIN_FAILURE })
+    });
 }
 
-const AddData = (payload) => (dispatch) => {
-  dispatch({ type: types.ADD_Signup_REQUEST })
-  return axios.post("https://zara-mock-server.herokuapp.com/users", payload)
-    .then((res) => {
-      dispatch({ type: types.ADD_Signup_SUCCESS })
-    }).catch(() => {
-      dispatch({ type: types.ADD_Signup_FAILURE })
+export const signin = (email, password) => (dispatch) => {
+  dispatch({ type: types.ADD_SIGNUP_REQUEST })
+  const auth = getAuth();
+  return createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      return dispatch({ type: types.ADD_SIGNUP_SUCCESS })
     })
-}
-
-export {
-  Getlogin, AddData
+    .catch((error) => {
+      dispatch({ type: types.ADD_SIGNUP_FAILURE, payload:error.message })
+    });
 }

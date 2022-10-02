@@ -1,33 +1,26 @@
-.navbar_space {
-    /* border: 1px solid black; */
-    height: 200px;
-}
+
 
 .Login_main_box {
-    /* border: 1px solid black; */
-    width: 75%;
+    width: 80%;
     margin: auto;
+    font-size:12px;
+}
+.Login_second_box {
+    width: 100%;
+    display:flex;
+    align-items:flex-start;
+    
 }
 
 .Login_second_box {
     margin-top: 100px;
-    /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
 }
 
 .Login_second_box>div:nth-child(2) {
-    /* border: 1px solid red; */
     width: 530px;
     text-align: left;
-    /* margin: auto; */
-}
-
-.Login_second_box>div:nth-child(1) {
-    /* border: 1px solid red; */
-    width: 530px;
-    text-align: left;
-    width: 200px;
 }
 
 .Login_second_box>div:nth-child(2)>button {
@@ -60,9 +53,160 @@
 .Login_second_box>div>form>input {
     border: none;
     outline: none;
+    border-bottom:1px solid gray;
+    width:95%;
 }
 
 .Login_second_box>div>form>hr {
     margin-top: -18px;
 
+}
+.siginIn{
+    display: none;
+    
+}
+
+@media only screen and (min-width: 769px) and (max-width:948px){
+    .Login_main_box {
+        width: 90%;
+        margin: auto;
+    }
+   .Login_second_box{
+        flex-direction:column;
+        margin-top: 0px;
+   }
+   .Login_second_box1{
+       width:100%;
+       font-size: 20px;
+       
+    }
+
+    .Login_second_box2{
+        width:100%;
+        font-size: 15px;
+        margin-top:50px;
+     }
+    
+}
+
+@media only screen and (min-width: 769px) and (max-width:845px){
+    .Login_main_box {
+        width: 90%;
+        margin: auto;
+    }
+   .Login_second_box{
+        flex-direction:column;
+        margin-top: 0px;
+   }
+   .Login_second_box1{
+       width:100%;
+       font-size: 20px;
+       
+    }
+    .Login_second_box2{
+        display: none;
+     }
+
+     .siginIn{
+        display:block;
+     }
+
+     .Login_second_box1{
+        width:100%;
+        font-size: 20px;
+        margin-bottom:50px;
+        
+     }
+}
+
+@media only screen and (min-width: 481px) and (max-width:768px){
+    .Login_main_box {
+        width: 90%;
+        margin: auto;
+    }
+   .Login_second_box{
+        flex-direction:column;
+        margin-top: 0px;
+   }
+   .Login_second_box1{
+       width:100%;
+       font-size: 20px;
+       
+    }
+    .Login_second_box2{
+        display: none;
+     }
+
+     .siginIn{
+        display:block;
+     }
+
+     .Login_second_box1{
+        width:100%;
+        font-size: 20px;
+        margin-bottom:50px;
+        
+     }
+}
+
+@media only screen and (min-width:320px) and (max-width:480px){
+   
+    .Login_main_box {
+        width: 90%;
+        margin: auto;
+    }
+   .Login_second_box{
+        flex-direction:column;
+        margin-top: 0px;
+   }
+   .Login_second_box1{
+       width:100%;
+       font-size: 20px;
+       
+    }
+    .Login_second_box2{
+        display: none;
+     }
+
+     .siginIn{
+        display:block;
+     }
+
+     .Login_second_box1{
+        width:100%;
+        font-size: 20px;
+        margin-bottom:50px;
+        
+     }
+
+}
+
+@media only screen and (max-width: 320px){
+    .Login_main_box {
+        width: 90%;
+        margin: auto;
+    }
+   .Login_second_box{
+        flex-direction:column;
+        margin-top: 0px;
+   }
+   .Login_second_box1{
+       width:100%;
+       font-size: 20px;
+       
+    }
+    .Login_second_box2{
+        display: none;
+     }
+
+     .siginIn{
+        display:block;
+     }
+
+     .Login_second_box1{
+        width:100%;
+        font-size: 20px;
+        margin-bottom:50px;
+        
+     }
 }

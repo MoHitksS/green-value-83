@@ -15,10 +15,20 @@ const Cart = () => {
       dispatch(getCart())
     })
   }
-  
+  const addHandler =({qnty,id})=>{
+    dispatch(patchcart({qnty,id})).then((res)=> {
+      dispatch(getCart())
+    })
+  }
+  const reduceHandler =({qnty,id})=>{
+    dispatch(patchcart({qnty,id})).then((res)=> {
+      dispatch(getCart())
+    })
+  }
+
   let sum = 0;
   cartData && cartData.forEach(element => {
-    sum+= element.pricenum;
+    sum+= element.pricenum * element.quantity;
   });
 
   return (
@@ -53,9 +63,9 @@ const Cart = () => {
                       <div>M (UK M)</div>
                       <div>
                         {" "}
-                        <span>-</span>
-                        <span>1</span>
-                        <span>+</span>
+                        <span style={{ cursor: "pointer" }} onClick={()=>{reduceHandler({qnty:item.quantity-1,id:item.id})}} >-</span>
+                        <span>{item.quantity}</span>
+                        <span style={{ cursor: "pointer" }} onClick={()=>{addHandler({qnty:item.quantity+1,id:item.id})}}>+</span>
                       </div>
                     </div>
                     <div className="item-quantity" style={{ fontSize: '12px' }}>
@@ -63,9 +73,6 @@ const Cart = () => {
                     </div>
                     <div>
                       {" "}
-                      <span >-</span>
-                      <span>{item.quantity}</span>
-                      <span style={{ cursor: "pointer" }}>+</span>
                       <button onClick={() => { deletehandle(item.id) }}>Delete</button>
                     </div>
                   </div>
@@ -74,13 +81,13 @@ const Cart = () => {
             ))}
         </div>
         <div className="bottom-btn">
-          <p>
+          <div>
             <div>
               <b>TOTAL ₹{sum}.00 </b>
             </div>
             <div>INCLUDING GST</div>
             <div>* EXCL SHIPPING COST</div>
-          </p>
+          </div>
           <Link to="/checkout"><button className="checkout-btn">CONTINUE</button></Link>
         </div>
       </div>

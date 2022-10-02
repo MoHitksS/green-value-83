@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../CSS/Cart.css";
-import { deleteCart, getCart } from "../Redux/App/action";
+import { deleteCart, getCart, patchcart } from "../Redux/App/action";
 import Footer from "./Footer";
 
 
@@ -62,6 +62,10 @@ const Cart = () => {
                       <div>{item.price}</div>
                     </div>
                     <div>
+                      {" "}
+                      <span >-</span>
+                      <span>{item.quantity}</span>
+                      <span style={{ cursor: "pointer" }}>+</span>
                       <button onClick={() => { deletehandle(item.id) }}>Delete</button>
                     </div>
                   </div>

@@ -23,13 +23,13 @@ const AllRoutes = () => {
       <Route path='/company' element={<Companylogin/>}></Route>
       <Route path='/login' element={<LogIn />} />
       <Route path='/signin' element={<SignIn />} />
-      <Route path='/cart' element={<Cart />}></Route>
+      <Route path='/cart' element={<ProtectedRoute><Cart /></ProtectedRoute>}></Route>
       <Route path='/checkout' element={<ProtectedRoute><Checkout /></ProtectedRoute>}></Route>
-      <Route path='/paymentMethod' element={<PaymentMethod />}></Route>
+      <Route path='/paymentMethod' element={ <ProtectedRoute><PaymentMethod /></ProtectedRoute>}></Route>
       <Route path='/products' element={<ProductPage />}></Route>
       <Route path='/search' element={<Search />}></Route>
-      <Route path='/fillcarddetail' element={<CardDetail />}></Route>
-      <Route path='/otp' element={<OTP />}></Route>
+      <Route path='/fillcarddetail' element={<ProtectedRoute><CardDetail /></ProtectedRoute>}></Route>
+      <Route path='/otp' element={<ProtectedRoute><OTP /></ProtectedRoute>}></Route>
     </Routes>
   )
 }

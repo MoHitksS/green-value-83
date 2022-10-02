@@ -295,7 +295,6 @@ const Container = styled.div`
         -ms-animation: fadeIn 2s;
     }
     .header .menu-btn:checked ~ .menuTop a{
-        
         text-decoration:none;
     }
 

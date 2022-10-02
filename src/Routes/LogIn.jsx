@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import { useDispatch } from 'react-redux';
 import { login } from '../Redux/Auth/action'
 import Footer from '../Components/Footer';
+import styled from 'styled-components';
 const LogIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
@@ -57,9 +58,9 @@ const LogIn = () => {
             }} >CREATE ACCOUNT</button>
           </div>
 
-          <div classname='siginIn'>
+          <Container classname='signbox'>
             <p >DONT HAVE AN ACCOUNT? <Link to={`/signin`}>REGISTER</Link></p>
-          </div>
+          </Container>
           <div></div>
         </div>
       </div>
@@ -67,5 +68,31 @@ const LogIn = () => {
     </>
   )
 }
+
+const Container = styled.div`
+  display: none;
+
+
+@media only screen and (min-width: 769px) and (max-width:845px){
+      display:block;
+}
+
+@media only screen and (min-width: 481px) and (max-width:768px){
+ 
+      display:block;
+  
+}
+
+@media only screen and (min-width:320px) and (max-width:480px){
+ 
+      display:block;
+  
+}
+
+@media only screen and (max-width: 320px){
+ 
+      display:block;
+   
+`
 
 export default LogIn;

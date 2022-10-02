@@ -63,9 +63,6 @@ const Cart = () => {
                     </div>
                     <div>
                       {" "}
-                      <span >-</span>
-                      <span>{item.quantity}</span>
-                      <span style={{ cursor: "pointer" }}>+</span>
                       <button onClick={() => { deletehandle(item.id) }}>Delete</button>
                     </div>
                   </div>
@@ -74,14 +71,15 @@ const Cart = () => {
             ))}
         </div>
         <div className="bottom-btn">
-          <p>
+          <div>
             <div>
               <b>TOTAL ₹{sum}.00 </b>
             </div>
             <div>INCLUDING GST</div>
             <div>* EXCL SHIPPING COST</div>
-          </p>
-          <Link to="/checkout"><button className="checkout-btn">CONTINUE</button></Link>
+          </div>
+          <Link to="/checkout">
+            <button className="checkout-btn">CONTINUE</button></Link>
         </div>
       </div>
       <Footer />

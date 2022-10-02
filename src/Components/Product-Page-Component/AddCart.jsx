@@ -141,7 +141,7 @@ export default function AddCart({data}) {
           </IconButton>
         </DrawerHeader>
         <List>
-          <DrawerBody/>
+          <DrawerBody key={data.id}/>
         </List>
 
       </Drawer>

@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../CSS/Cart.css";
-import { deleteCart, getCart } from "../Redux/App/action";
+import { deleteCart, getCart, patchcart } from "../Redux/App/action";
 import Footer from "./Footer";
 
 
@@ -11,13 +11,15 @@ const Cart = () => {
   const dispatch=useDispatch()
   const deletehandle=(id)=>{
 console.log(id)
-dispatch(deleteCart(id)).then((res)=>{
+return dispatch(deleteCart(id)).then((res)=>{
   dispatch(getCart())
 })
-
-const total = ()=>{
-
 }
+  const addhandle =({id,quantity})=>{
+    console.log(quantity,id)
+return dispatch(patchcart({quantity,id})).then((res)=>{
+      dispatch(getCart())
+    })
   }
   return (
     <>
@@ -51,9 +53,9 @@ const total = ()=>{
                     <div>M (UK M)</div>
                     <div>
                       {" "}
-                      <span>-</span>
-                      <span>1</span>
-                      <span>+</span>
+                      <span >-</span>
+                      <span>{item.quantity}</span>
+                      <span style={{ cursor: "pointer" }} onClick={()=>{addhandle({id: item.id, quantity:item.quantity+1})}}>+</span>
                     </div>
                   </div>
                   <div className="item-quantity" style={{fontSize:'12px'}}>

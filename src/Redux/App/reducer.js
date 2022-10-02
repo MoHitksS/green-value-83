@@ -58,7 +58,7 @@ export const reducer = (state = initialState, action) => {
 
       case types.PATCH_CART_REQUEST:
         return { ...state, isLoading: true };
-
+        
       case types.PATCH_CART_SUCCESS:
         return { ...state, isLoading: false, cart: payload };
 

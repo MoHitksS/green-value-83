@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../CSS/Cart.css";
-import { deleteCart, getCart, patchcart } from "../Redux/App/action";
+import { deleteCart, getCart, patchCart } from "../Redux/App/action";
 import Footer from "./Footer";
 
 
@@ -21,6 +21,7 @@ const Cart = () => {
     sum+= element.pricenum;
   });
 
+
   return (
     <>
       <div className="container">
@@ -34,36 +35,27 @@ const Cart = () => {
 
         <div className="cart-item-flex">
           {cartData && cartData.length === 0 ?
-            <div style={{marginTop:'10px', fontWeight:'600'}}>CART DATA IS EMPTY</div>
-            :
-            cartData?.map((item,index) => (
-              <div className="cart-item" key={item.id}>
-                <div className="cart-item-header" style={{ fontSize: '13px', paddingBottom: '10px' }}>
-                  {" "}
-                  <b >{item.producttitle} </b>{" "}
+           <div>cart data is empty</div> 
+           :
+           cartData?.map((item) => (
+            <div className="cart-item" key={item.id}>
+              <div className="cart-item-header" style={{fontSize:'13px',paddingBottom:'10px'}}>
+                {" "}
+                <b >{item.producttitle} </b>{" "}
+              </div>
+              <div className="cart-item-container">
+                <div >
+                  <img src={item.image} alt="" />
                 </div>
-                <div className="cart-item-container">
-                  <div >
-                    <img src={item.image} alt="" />
-                  </div>
-                  <div className="cart-item-details">
-                    <div className="cart-item-description">
-                      <div>REF. | {item.color ? item.color.split("|")[1] : "453/2"}</div>
-                      <div style={{ textTransform: "uppercase" }}>{item.color ? item.color.split("|")[0] : "orange"}</div>
-                      <div>M (UK M)</div>
-                      <div>
-                        {" "}
-                        <span>-</span>
-                        <span>1</span>
-                        <span>+</span>
-                      </div>
-                    </div>
-                    <div className="item-quantity" style={{ fontSize: '12px' }}>
-                      <div>{item.price}</div>
-                    </div>
-                    <div>
-                      {" "}
-                      <button onClick={() => { deletehandle(item.id) }}>Delete</button>
+                <div className="cart-item-details">
+                  <div className="cart-item-description">
+                    <div>REF. | {item.color ? item.color.split("|")[1] : "453/2"}</div>
+                    <div style={{textTransform:"uppercase"}}>{item.color ? item.color.split("|")[0] : "orange"}</div>
+                    <div>M (UK M)</div>
+                    <div>               
+                      <span onClick={handleAdd(item.id)}>-</span>
+                      <span>{item.quantity}</span>
+                      <span onClick={handleAdd(item.id)}>+</span>
                     </div>
                   </div>
                 </div>

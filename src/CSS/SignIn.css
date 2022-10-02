@@ -34,7 +34,6 @@
     /* border: 1px solid red; */
     width: 530px;
     text-align: left;
-    width: 400px;
 }
 
 .signin_second_box>div>form>input {
@@ -67,10 +66,6 @@
     border: none;
     color: white;
     padding: 5px 129px;
-    /* text-align: center; */
-    /* text-decoration: none; */
-    /* display: inline-block; */
-    /* font-size: 16px; */
     margin: 4px 2px;
     cursor: pointer;
     margin-top: 30px;
@@ -96,8 +91,6 @@
 }
 
 .prefix_telephone>:nth-child(2)>label {
-    /* border: none;
-    outline: none; */
     font-size: 10px;
 }
 

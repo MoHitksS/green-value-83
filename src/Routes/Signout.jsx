@@ -3,7 +3,9 @@ import { getAuth, signOut } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import * as types from "../Redux/Auth/actionTypes";
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 const Signout = () => {
+    const navigate = useNavigate()
     const dispatch = useDispatch();
     const firebaseConfig = {
         apiKey: "AIzaSyDCHvdgABXgjtj6C3-55D2colSpVF05NTI",
@@ -19,6 +21,7 @@ const Signout = () => {
         const auth = getAuth();
         signOut(auth).then(() => {
             dispatch({ type: types.GET_SIGNOUT_SUCCESS })
+            navigate('/');
         }).catch((error) => {
             console.log(error)
         });

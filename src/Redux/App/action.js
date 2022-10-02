@@ -49,7 +49,6 @@ const getCart = (payload) => (dispatch) => {
 }
 
 const deleteCart = (id) => (dispatch) => {
-    // console.log(id)
     dispatch({ type: types.DELETE_CART_REQUEST });
 
     return axios
@@ -62,8 +61,6 @@ const deleteCart = (id) => (dispatch) => {
         })
 }
 const patchcart = ({qnty,id}) => (dispatch) => {
-    // console.log(id)
-    console.log(qnty);
     dispatch({ type: types.PATCH_CART_REQUEST });
 
     return axios
@@ -71,7 +68,6 @@ const patchcart = ({qnty,id}) => (dispatch) => {
             quantity : qnty
         })
         .then((r) => {
-            console.log(r.data.quantity)
             return dispatch({ type: types.PATCH_CART_SUCCESS}
             );
         })

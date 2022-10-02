@@ -1,19 +1,22 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import "../CSS/Login.css"
 import { useState } from 'react';
 import { initializeApp } from "firebase/app";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../Redux/Auth/action'
 import Footer from '../Components/Footer';
 import styled from 'styled-components';
 const LogIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
+  const location = useLocation()
+  const {isAuth} = useSelector((store)=>(store.AuthReducer))
+  const path = location.state?.path;
   const [data, setData] = useState({
     email: '',
     password: ''
   })
-  console.log(data)
+
   const firebaseConfig = {
     apiKey: "AIzaSyDCHvdgABXgjtj6C3-55D2colSpVF05NTI",
     authDomain: "zara-project-adec4.firebaseapp.com",
@@ -23,13 +26,17 @@ const LogIn = () => {
     appId: "1:1083442232261:web:24d99e9bc4f6e92e49e9ac",
     measurementId: "G-JLT9HVM9BX"
   };
-  const app = initializeApp(firebaseConfig);
 
+  const app = initializeApp(firebaseConfig);
   const handleLogin = (e) => {
     e.preventDefault();
     dispatch(login(data.email, data.password)).then(() => {
-      navigate('/')
+      navigate(path)
     })
+  }
+  
+  if(isAuth){
+    return <Navigate to={'/'} />
   }
 
   return (

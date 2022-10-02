@@ -1,9 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 import Footer from './Footer';
 
 const PaymentMethod = () => {
+    const navigate = useNavigate();
     const cartData = useSelector(state => state.AppReducer.cart)
     return (
         <>
@@ -61,7 +63,7 @@ const PaymentMethod = () => {
                             <div>INCLUDING GST</div>
                             <div>* EXCL SHIPPING COST</div>
                         </p>
-                        <button className="checkout-btn">CONTINUE</button>
+                        <button className="checkout-btn" onClick={()=>navigate('/fillcarddetail')}>CONTINUE</button>
                     </div>
                 </div>
             </Container>

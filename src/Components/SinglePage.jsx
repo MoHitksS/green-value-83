@@ -60,7 +60,6 @@ const handleDrawerClose = () => {
     navigate("/cart")
   }
 
-  console.log(single)
   useEffect(() => {
     if (id) {
       let payload = id;

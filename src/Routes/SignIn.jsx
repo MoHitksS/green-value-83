@@ -68,16 +68,16 @@ const SignIn = () => {
               <input name="password" type="password" placeholder="Enter Password" onChange={(e) => setData({ ...data, password: e.target.value })} required /><br /><br />
               <hr />
               <label htmlFor="">NAME</label><br />
-              <input type="text" placeholder='NAME' name="name" onChange={(e) => setData({ ...data, name: e.target.value })} required /><br /><br />
+              <input type="text" placeholder='NAME' name="name" onChange={(e) => setData({ ...data, name: e.target.value })}/><br /><br />
               <hr />
               <label htmlFor="">ADDRESS</label><br />
-              <input type="text" placeholder='ADDRESS' required /><br /><br />
+              <input type="text" placeholder='ADDRESS' /><br /><br />
               <hr />
               <label htmlFor="">LOCALITY</label><br />
-              <input type="text" placeholder='LOCALITY' required /><br /><br />
+              <input type="text" placeholder='LOCALITY' /><br /><br />
               <hr />
               <label htmlFor="">STATE</label><br />
-              <select name="state" required>
+              <select name="state">
                 {/* <select  id="" name="state" onChange={onchnageHandler}> */}
                 <option value="--">---</option>
                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -126,14 +126,14 @@ const SignIn = () => {
                 </div>
                 <div>
                   <label htmlFor="">TELEPHONE</label><br />
-                  <input type="number" placeholder='TELEPHONE' onChange={(e) => setData({ ...data, phone: e.target.value })} required />
+                  <input type="number" placeholder='TELEPHONE' onChange={(e) => setData({ ...data, phone: e.target.value })} />
                   <hr />
                 </div>
               </div>
 
               <div className="checkbox_input">
-                <input required type="checkbox" /><label htmlFor="">I WISH TO RECEIVE ZARA NEWS ON MY E-MAIL</label><br />
-                <input required type="checkbox" /><label htmlFor="">I ACCEPT THE PRIVACY STATEMENT</label>
+                <input type="checkbox" /><label htmlFor="">I WISH TO RECEIVE ZARA NEWS ON MY E-MAIL</label><br />
+                <input type="checkbox" /><label htmlFor="">I ACCEPT THE PRIVACY STATEMENT</label>
               </div>
               <button type="submit" onClick={onclickhandler}>CREATE ACCOUNT</button>
             </form>
@@ -144,23 +144,23 @@ const SignIn = () => {
             <hr className="invisiblehr" /><br /><br />
 
             <label htmlFor="">REPEAT PASSWORD</label><br />
-            <input type="email" placeholder='REPEAT PASSWORD' required /><br /><br />
+            <input type="email" placeholder='REPEAT PASSWORD' /><br /><br />
             <hr />
 
             <label htmlFor="">PINCODE</label><br />
-            <input required type="email" placeholder='PINCODE' /><br /><br />
+            <input type="email" placeholder='PINCODE' /><br /><br />
             <hr />
 
             <label htmlFor="">MORE INFO</label><br />
-            <input required type="email" placeholder='OPTIONAL' /><br /><br />
+            <input type="email" placeholder='OPTIONAL' /><br /><br />
             <hr />
 
             <label htmlFor="">CITY</label><br />
-            <input required type="email" placeholder='CITY' /><br /><br />
+            <input type="email" placeholder='CITY' /><br /><br />
             <hr />
 
             <label htmlFor="">REGION</label><br />
-            <input required type="email" placeholder='INDIA' value="INDIAI" /><br /><br />
+            <input type="email" placeholder='INDIA' value="INDIAI" /><br /><br />
             <hr />
 
           </div>

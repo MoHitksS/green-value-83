@@ -3,15 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components'
 import { getProduct } from '../Redux/App/action';
 import ProductPage from '../Routes/ProductPage';
+import ProductCtard from './Product-Page-Component/ProductCard';
 const Search = () => {
     const [text, setText] = useState('');
     const dispatch = useDispatch();
-    const [val,setVal] = useState(false);
+    const [val, setVal] = useState(false);
     const { products } = useSelector((store) => (store.AppReducer))
     const handleSearch = (e) => {
         if (e.key === 'Enter') {
             if (text) {
-                dispatch(getProduct(`products?q=${text}`)).then(()=>{
+                dispatch(getProduct(`products?q=${text}&`)).then(() => {
                     setVal(true)
                 })
             }
@@ -27,7 +28,14 @@ const Search = () => {
                 </div>
 
                 {val && <div className='productSection'>
-                    <ProductPage />
+                    <ProdContainer>
+                        <div className="gridlayout">
+                            {products.map((item) => {
+                                return (<ProductCtard key={item.id} id={item.id} item={item} />)
+                            })}
+                        </div>
+
+                    </ProdContainer>
                 </div>}
             </Container>
 
@@ -73,6 +81,22 @@ const Container = styled.div`
         margin-top:-40px;
         margin-bottom:100px;
     }
+
+`
+
+const ProdContainer = styled.div`
+    width: 90%;
+    margin: auto;
+    padding-top: 150px;
+    margin-bottom:50px;
+
+    .gridlayout {
+        display: grid;
+        width: 100%;
+        gap: 15px;
+        grid-template-columns: repeat(auto-fit,minmax(200px,max-content));
+    }
+
 
 `
 export default Search

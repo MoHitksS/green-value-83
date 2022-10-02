@@ -13,7 +13,7 @@ const ProductPage = ({limit}) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getProduct(term,limit))
-    }, [dispatch, term,limit]);
+    }, [dispatch,term,limit]);
     return (
         <ProdContainer>
             <div className="gridlayout">

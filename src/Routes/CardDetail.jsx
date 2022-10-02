@@ -33,7 +33,7 @@ const CardDetail = () => {
                 </div>
                 <div className="checkout-place-order">
                     <div><Link to={`/`}>Cancel</Link></div>
-                    <div ><button onClick={()=>navigate('/otp')} className="placeOrder">PLACE ORDER</button></div>
+                    <div><button onClick={()=>navigate('/otp')} className="placeOrder">PLACE ORDER</button></div>
                 </div>
 
             </div>
@@ -143,7 +143,8 @@ z-index:0;
     margin-top: 50px;
     display: flex;
     align-items: center;
-    
+    justify-content:space-around;
+    text-align:center;
 }
 
 .checkout-place-order div:first-child{
@@ -163,8 +164,8 @@ z-index:0;
 }
 
 .checkout-place-order div:last-child button{
-    width: 80%;
-    padding: 20px 0px;
+    width: 70%;
+    padding: 15px 0px;
     color: white;
     background-color: black;
     border-radius: 4px;
@@ -174,6 +175,125 @@ z-index:0;
 .checkout-place-order div:first-child a{
     text-decoration: none;
     color: #4296cb;
+}
+
+@media only screen and (min-width: 769px) and (max-width:1200px){
+    .checkout-payment-proceed-box{
+        width:70%;
+    }
+
+    .checkout-place-order{
+        width:80%;
+    }
+    .checkout-place-order div:last-child button{
+        width:60%;
+        padding: 20px 0px;
+        font-size:11px;
+    }
+    .checkout-place-order div:first-child{
+        width:20%;
+    }
+    
+}
+
+@media only screen and (min-width: 769px) and (max-width:845px){
+    
+    
+    .checkout-payment-proceed-box{
+        width:80%;
+    }
+
+    .checkout-place-order{
+        width:95%;
+    }
+    .checkout-place-order div:last-child button{
+        width: 70%;
+        padding: 20px 0px;
+        font-size:11px;
+    }
+    .checkout-place-order div:first-child{
+        width:50%;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width:768px){
+    .checkout-payment-proceed-box{
+        width:85%;
+    }
+    .checkout-billing-box{
+        width: 90%;
+    }
+
+    .checkout-place-order{
+        width:95%;
+    }
+
+    .checkout-place-order div:last-child button{
+        width: 80%;
+        padding: 20px 10px;
+        font-size:11px;
+    }
+    .checkout-place-order div:first-child{
+        width:50%;
+    }
+}
+
+@media only screen and (min-width:320px) and (max-width:480px){
+    .checkout-payment-proceed-box{
+        width:95%;
+    }
+    .checkout-billing-box{
+        width: 95%;
+    }
+
+    .checkout-place-order{
+        width:100%;
+    }
+
+    .checkout-place-order div:last-child button{
+        width: 90%;
+        padding: 20px 10px;
+        font-size:11px;
+    }
+    .checkout-place-order div:first-child{
+        width:30%;
+    }
+
+    .checkout-payment-proceed-box>div:nth-child(2){
+        width: 90%;
+        padding-left:10px;
+    }
+    
+    
+    .checkout-payment-proceed-box>div:nth-child(3){
+        width: 88%;
+        display: flex;
+        margin-top: 30px; 
+        gap:10px;
+    }
+
+}
+
+@media only screen and (max-width: 320px){
+    .checkout-payment-proceed-box{
+        width:95%;
+    }
+    .checkout-billing-box{
+        width: 95%;
+    }
+    .checkout-place-order{
+        width:95%;
+    }
+    
+    .checkout-place-order div:last-child button{
+        width: 100%;
+        padding: 20px 10px;
+        font-size:11px;
+    }
+
+    .checkout-place-order div:first-child{
+        width: 30%;
+    }
 }
 `
 

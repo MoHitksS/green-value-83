@@ -27,14 +27,14 @@ console.log(cartData)
         </div>
 
         <div className="cart-item-flex">
-          {cartData.length === 0 ?
+          {cartData && cartData.length === 0 ?
            <div>cart data is empty</div> 
            :
            cartData?.map((item) => (
             <div className="cart-item" key={item.id}>
-              <div className="cart-item-header">
+              <div className="cart-item-header" style={{fontSize:'13px',paddingBottom:'10px'}}>
                 {" "}
-                <b>{item.producttitle} </b>{" "}
+                <b >{item.producttitle} </b>{" "}
               </div>
               <div className="cart-item-container">
                 <div >
@@ -52,7 +52,7 @@ console.log(cartData)
                       <span>+</span>
                     </div>
                   </div>
-                  <div className="item-quantity">
+                  <div className="item-quantity" style={{fontSize:'12px'}}>
                     <div>{item.price}</div>
                   </div>
                   <div>

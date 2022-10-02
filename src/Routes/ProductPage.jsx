@@ -6,14 +6,14 @@ import ProductCard from '../Components/Product-Page-Component/ProductCard';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 
-const ProductPage = () => {
+const ProductPage = ({limit}) => {
     const location = useLocation();
     const term = location.state?.query;
     const products = useSelector((state) => state.AppReducer.products)
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getProduct(term))
-    }, [dispatch, term]);
+        dispatch(getProduct(term,limit))
+    }, [dispatch, term,limit]);
     return (
         <ProdContainer>
             <div className="gridlayout">

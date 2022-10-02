@@ -4,13 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { getCart } from '../Redux/App/action';
 
-const Navbar = ({ activeIndexs }) => {
+const Navbar = ({ activeIndexs, setIndex }) => {
     const dispatch = useDispatch();
     const [colorB, setColor] = useState('');
     const [theme, setTheme] = useState("black");
     const [val, setVal] = useState(true)
     const location = useLocation();
-    const { cart } = useSelector((store)=>(store.AppReducer));
+    const { cart } = useSelector((store) => (store.AppReducer));
     const handleChange = (e) => {
         changeVal()
         if (e.target.checked) {
@@ -23,6 +23,7 @@ const Navbar = ({ activeIndexs }) => {
     const changeVal = () => {
         setVal(!val)
     }
+    console.log(cart)
 
     useEffect(() => {
         if (activeIndexs >= 0) {
@@ -40,9 +41,11 @@ const Navbar = ({ activeIndexs }) => {
         }
     }, [activeIndexs, val, location]);
 
-    useEffect(()=>{
-        dispatch(getCart())
-    },[])
+    useEffect(() => {
+        if (cart.length === 0) {
+            dispatch(getCart())
+        }
+    }, [])
     const menuItem = ["NEW", "BEST SELLERS", "BASICS", "JACKETS | OVERSHIRTS", "DRESSES | JUMPSUITS", "BLAZERS", "SHIRTS", "TROUSERS", "TOPS", "JEANS", "KNITWEAR", "SWEATSHIRTS", "T-SHIRTS", "WAISTCOATS | GILETS", "SHORTS | SKORTS", "SKIRTS", "CO-ORD SETS", "SUITS", "COATS | PUFFER JACKETS", "ACCESSORIES", "SHOES", "BAGS", "PERFUMES", "Special Prices", "WEAR TO WORK", "SPECIAL EDITION"]
     return (
         <>
@@ -55,20 +58,28 @@ const Navbar = ({ activeIndexs }) => {
                             <svg viewBox="0 0 132 55" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M105.673.035l19.557 53.338 6.77.002v.383h-21.548v-.383h6.344l-6.431-17.54H97.311v.007l.07.204c.521 1.548.78 3.17.764 4.803v6.575c0 3.382 1.494 6.81 4.347 6.81 1.675 0 3.012-.59 4.604-2.046l.227.211C105.594 54.224 103.5 55 100.36 55c-2.37 0-4.398-.57-6.03-1.693l-.309-.222c-2.148-1.624-3.542-4.278-4.142-7.89l-.096-.583-.1-.882-.01-.152-3.599 9.792h5.107v.384H80.496v-.384h5.162l3.951-10.753v-.023a34.924 34.924 0 0 1-.075-1.906v-4.693c0-5.77-4.29-9.08-11.771-9.08H70.41v26.458h6.371v.383h-24.9v-.383h6.345l-6.431-17.54H33.948l-6.371 17.346.266-.044c8.366-1.442 12.213-7.827 12.265-14.55h.388v15.171H0L30.06 2.185H17.972C7.954 2.185 3.42 9.922 3.35 17.635h-.387V1.8h36.488l-.222.385L9.396 53.373h15.695c.39 0 .778-.019 1.169-.05.26-.018.522-.044.788-.077l.095-.01L46.703 0h.387l.013.035 15.369 41.916V2.185h-6.328v-.39h21.778c10.467 0 17.774 5.372 17.774 13.068 0 5.612-5.005 10.27-12.45 11.595l-1.367.174 1.377.14c4.515.517 8.1 1.906 10.641 4.127l.017.016L105.273 0h.386l.014.035zm-8.552 35.32l.038.094h13.061l-8.773-23.928-7.221 19.67.039.037.367.364a11.876 11.876 0 0 1 2.489 3.762zM70.415 26.53V2.185h5.611c7.496 0 11.454 4.414 11.454 12.76 0 8.877-2.272 11.585-9.717 11.585h-7.348zM42.882 11.521L34.09 35.45h17.565L42.882 11.52z"></path></svg>
                         </div>
                         <div className='menuTop'>
-                            <span>WOMAN</span>
-                            <span>MENS</span>
-                            <span>KIDS</span>
-                            <span>ZARA ORIGINS</span>
+                            <Link to={`/products`} state={{query:'women1'}}>
+                                <span>WOMAN</span>
+                            </Link>
+                            <Link to={`/products`} state={{query:'men1'}}>
+                                <span>MENS</span>
+                            </Link>
+                            <Link to={`/products`} state={{query:'products'}}>
+                                <span>KIDS</span>
+                            </Link>
+                            <Link to={`/products`} state={{query:'products'}}>
+                                <span>ZARA ORIGINS</span>
+                            </Link>
                         </div>
                         <ul className="menu">
                             {menuItem.map((ele, index) => (
-                                <li key={index}><Link to={ele} style={ele === 'Special Prices' ? { color: 'rgb(245, 57, 147)' } : {}}>{ele}</Link></li>
+                                <li key={index}><Link to={`/products`} style={ele === 'Special Prices' ? { color: 'rgb(245, 57, 147)' } : {}}>{ele}</Link></li>
                             ))}
                         </ul>
                     </header>
                     <div className='logo'>
                         <svg viewBox="0 0 132 55" xmlns="http://www.w3.org/2000/svg">
-                            <Link to='/'>
+                            <Link to='/' onClick={() => setIndex(0)}>
                                 <path fill={`${theme}`} fillRule="evenodd" d="M105.673.035l19.557 53.338 6.77.002v.383h-21.548v-.383h6.344l-6.431-17.54H97.311v.007l.07.204c.521 1.548.78 3.17.764 4.803v6.575c0 3.382 1.494 6.81 4.347 6.81 1.675 0 3.012-.59 4.604-2.046l.227.211C105.594 54.224 103.5 55 100.36 55c-2.37 0-4.398-.57-6.03-1.693l-.309-.222c-2.148-1.624-3.542-4.278-4.142-7.89l-.096-.583-.1-.882-.01-.152-3.599 9.792h5.107v.384H80.496v-.384h5.162l3.951-10.753v-.023a34.924 34.924 0 0 1-.075-1.906v-4.693c0-5.77-4.29-9.08-11.771-9.08H70.41v26.458h6.371v.383h-24.9v-.383h6.345l-6.431-17.54H33.948l-6.371 17.346.266-.044c8.366-1.442 12.213-7.827 12.265-14.55h.388v15.171H0L30.06 2.185H17.972C7.954 2.185 3.42 9.922 3.35 17.635h-.387V1.8h36.488l-.222.385L9.396 53.373h15.695c.39 0 .778-.019 1.169-.05.26-.018.522-.044.788-.077l.095-.01L46.703 0h.387l.013.035 15.369 41.916V2.185h-6.328v-.39h21.778c10.467 0 17.774 5.372 17.774 13.068 0 5.612-5.005 10.27-12.45 11.595l-1.367.174 1.377.14c4.515.517 8.1 1.906 10.641 4.127l.017.016L105.273 0h.386l.014.035zm-8.552 35.32l.038.094h13.061l-8.773-23.928-7.221 19.67.039.037.367.364a11.876 11.876 0 0 1 2.489 3.762zM70.415 26.53V2.185h5.611c7.496 0 11.454 4.414 11.454 12.76 0 8.877-2.272 11.585-9.717 11.585h-7.348zM42.882 11.521L34.09 35.45h17.565L42.882 11.52z"></path>
                             </Link>
                         </svg>
@@ -84,11 +95,12 @@ const Navbar = ({ activeIndexs }) => {
                     <div>
                         <Link to='/login'> <span>LOGIN</span></Link>
                         <Link to="/help">
-                            <span>HELP</span>
+                            <span className='help'>HELP</span>
                         </Link>
                         <Link to="/cart">
                             <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="inherit" stroke="inherit"><path fillRule="evenodd" clipRule="evenodd" d="M8.5 4.9V3.3a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.6h4.8V12h-1V5.9H4.7v14H15v1H3.7v-16h4.8zm1-1.6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1.6h-5V3.3z"></path><path fillRule="evenodd" clipRule="evenodd" d="M17.4 23.4v-9h5.4v9l-2.705-2.673L17.4 23.4zm2.694-3.798L22 21.485V15.2h-3.8v6.28l1.894-1.878z"></path></svg>
-                            <span style={{ position: 'fixed', right: cart && cart.length > 9 ? '33px' : '36px', top: "27px", fontSize: '12px' }}>{cart && cart.length}</span>                        </Link>
+                            <span style={{ position: 'relative', right: cart && cart.length > 9 ? '16px' : '18px', top: "-10px", fontSize: '12px' }}>{cart && cart.length}</span>
+                        </Link>
                     </div>
                 </div>
             </Container>
@@ -115,6 +127,7 @@ const Container = styled.div`
         align-items:center;
         justify-content:space-between;
         padding:0px 10px;
+        z-index:10;
     }
 
     .navRightSection>a>div:first-child{
@@ -155,8 +168,6 @@ const Container = styled.div`
     .header {
         position:fixed;
         width:25%;
-        padding-top:10px;
-        padding-bottom:15px;
     }
 
     .header ul {
@@ -177,6 +188,7 @@ const Container = styled.div`
         text-decoration: none;
         text-align:left;
         padding-left:15px;
+        z-index:5;
     }
 
     /* menu */
@@ -247,7 +259,7 @@ const Container = styled.div`
     .header .menu-btn:checked ~ .menu {
         margin-top:40px;
         max-height:100vh;
-        padding-bottom:90px;
+        padding-bottom:200px;
         overflow:auto;
         background-color:white;
         animation: fadeIn 2s;
@@ -269,6 +281,10 @@ const Container = styled.div`
         -o-animation: fadeIn 2s;
         -ms-animation: fadeIn 2s;
     }
+    .header .menu-btn:checked ~ .menuTop a{
+        
+        text-decoration:none;
+    }
 
     .header .menu-btn:checked ~ .menuLogo {
         display:block;
@@ -276,7 +292,8 @@ const Container = styled.div`
         height:250px;
         padding-left:70px;
         padding-top:20px;
-        margin-bottom:-80px;
+        margin-bottom:-120px;
+        cursor:pointer;
     }
 
     .header .menu-btn:checked ~ .menu-icon .navicon {
@@ -307,6 +324,7 @@ const Container = styled.div`
         width:250px;
         padding-left:90px;
         padding-top:20px;
+        
     }
 
     /* 48em = 768px */
@@ -356,6 +374,117 @@ const Container = styled.div`
 
     .navRightSection svg{
         fill:${(props) => (props.theme)};
+    }
+
+    @media only screen and (min-width: 769px) and (max-width:1200px){
+        
+        .header {
+            width:35%;
+            padding:0px;
+        }
+    }
+
+    @media only screen and (min-width: 769px) and (max-width:845px){
+        .navRightSection{
+            flex-direction:column-reverse;
+            align-items:flex-end;
+            margin-top:20px;
+        }
+
+        .header {
+            width:35%;
+            padding:0px;
+            
+        }
+
+        .logo{
+            width:250px;
+            padding-left:90px;
+            padding-top:20px;
+        }
+    }
+
+    @media only screen and (min-width: 481px) and (max-width:768px){
+        .navRightSection{
+            flex-direction:column-reverse;
+            align-items:flex-end;
+            margin-top:20px;
+        }
+
+        .header {
+            width:60%;
+            padding:0px;
+        }
+
+        .logo{
+            width:200px;
+        }
+    }
+
+    @media only screen and (min-width:320px) and (max-width:480px){
+        
+        .navRightSection{
+            flex-direction:column-reverse;
+            align-items:flex-end;
+            margin-top:20px;
+        }
+
+        .header {
+            width:100%;
+            padding:0px;
+        }
+
+        .logo{
+            width:150px;
+            padding-left:50px;
+        }
+
+        .help{
+            display:none;
+        }
+
+        .navRightSection>div:last-child{
+            width:100px;
+            display:flex;
+            gap: 0px;
+        }
+        .menuLogo>svg{
+            padding-left:30px;
+        }
+
+    }
+
+    @media only screen and (max-width: 320px){
+        .navRightSection{
+            flex-direction:column-reverse;
+            align-items:flex-end;
+            margin-top:20px;
+        }
+
+        .header {
+            width:100%;
+            padding:0px;
+            z-index:-1;
+        }
+
+        .logo{
+            width:100px;
+            padding-left:50px;
+        }
+
+        .help{
+            display:none;
+        }
+
+        .navRightSection>div:last-child{
+            width:100px;
+            display:flex;
+            gap: 0px;
+        }
+
+        .menuLogo>svg{
+            width:200px;
+        }
     }
 
 `

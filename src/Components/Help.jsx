@@ -3,7 +3,7 @@ import React from 'react'
 const Help = () => {
   return (
     <>
-      <div style={{ width: "75%", margin: "auto", paddingTop: "120px", cursor: 'pointer' }}>
+      <div style={{ width: "80%", margin: "auto", paddingTop: "120px", cursor: 'pointer' }}>
         <h3>HELP</h3>
         <div className="helppage1">
           <div className="helppage2">

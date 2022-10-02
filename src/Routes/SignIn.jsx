@@ -1,82 +1,47 @@
+
 import React, { useState } from "react";
 import "../CSS/SignIn.css"
 import { useDispatch} from 'react-redux'
 import { useNavigate } from "react-router-dom"
-import { AddData, GetProducts } from "../Redux/Auth/action";
+import { AddData} from "../Redux/Auth/action";
+import Footer from "../Components/Footer";
+
 const SignIn = () => {
+  const navigate = useNavigate()
   const [data, setData] = useState({
     email: "",
-    state: "",
+    phone: "",
     password: "",
     name: ""
   })
   const naviagte = useNavigate()
   const dispatch = useDispatch()
-  //  id, category,imageSrc,price,title
 
-  const onchnageHandler = (e) => {
-    const { name, value } = e.target
-    setData({
-      ...data,
-      [name]: value
-    })
-  }
-  const onclickhandler = () => {
-    dispatch(AddData(data)).then((res) => {
-      dispatch(GetProducts())
-      naviagte("/login")
-    })
+  const onclickhandler = (e) => {
+    e.preventDefault();
+    if (data) {
+      const payload = data
+      dispatch(AddData(payload)).then((res) => {
+        naviagte("/login")
+
+      })
+    }
   }
   return (
-    // <div>
-    //   <h3>Add Product</h3>
-    //   <div>
-    //     <div>
-    //       <label>Product title</label>
-    //       <input data-cy="add-product-title" name="email" type="email" onChange={onchnageHandler}  />
-    //     </div>
-    //     <div>
-    //       <label>Product Category</label>
-    //       <select data-cy="add-product-category" name="state"  onChange={onchnageHandler}>
-    //         <option value="">Select Category</option>
-    //         <option value="Electronics">Electronics</option>
-    //         <option value="Cosmetics">Cosmetics</option>
-    //         <option value="Shoes">Shoes</option>
-    //       </select>
-    //     </div>
-    //     <div>
-    //       <label>Product Image</label>
-    //       <input
-    //         data-cy="add-product-image"
-    //         type="text"
-    //         placeholder="name"
-    //         name="name"
-    //         onChange={onchnageHandler}
-    //       />
-    //     </div>
-    //     <div>
-    //       <label>Product Price</label>
-    //       <input data-cy="add-product-price" name="password" type="password"  onChange={onchnageHandler} />
-    //     </div>
-    //     <div>
-    //       <button data-cy="add-product-button" onClick={onclickhandler}>Add</button>
-    //     </div>
-    //   </div>
-    // </div>
-
-
-
+    
     <>
       <div className='navbar_space'></div>
       <div className='signin_main_box'>
         <h3>PERSONAL DETAILS</h3>
         <div className='personal_company_toggle'>
           <div >
-            <input type="radio" name="sign" />
-            <label htmlFor="">PERSONAL</label>
+            <input type="radio" />
+            <label htmlFor="">PERSONAL </label>
           </div>
           <div>
-            <input type="radio" name="sign" onClick={() => naviagte('/company')} />
+            <input type="radio" onClick={() => {
+              navigate("/company")
+            }} />
             <label htmlFor="">COMPANY</label>
           </div>
         </div>
@@ -86,24 +51,24 @@ const SignIn = () => {
             <form action="">
               <label htmlFor="">E-MAIL</label><br />
               {/* <input type="email" placeholder='Enter Email' name="email" onChange={onchnageHandler}/><br /><br /> */}
-              <input name="email" type="email" onChange={onchnageHandler} placeholder='Enter Email' /><br /><br />
+              <input name="email"  type="email" onChange={(e) => setData({ ...data, email: e.target.value })} placeholder='Enter Email' required/><br /><br />
               <hr />
 
               <label htmlFor="">PASSWORD</label><br />
-              {/* <input type="password" placeholder='Enter Password' name="password" onChange={onchnageHandler} /><br /><br /> */}
-              <input name="password" type="password" placeholder="Enter Password" onChange={onchnageHandler} /><br /><br />
+              {/* <input type="password" placeholder='Enter Password' name="password" onChange={(e)=>setData({...data,name:e.target.value})} /><br /><br /> */}
+              <input name="password" type="password" placeholder="Enter Password" onChange={(e) => setData({ ...data, password: e.target.value })} required/><br /><br />
               <hr />
               <label htmlFor="">NAME</label><br />
-              <input type="text" placeholder='NAME' name="name" onChange={onchnageHandler} /><br /><br />
+              <input type="text" placeholder='NAME' name="name" onChange={(e) => setData({ ...data, name: e.target.value })} required/><br /><br />
               <hr />
               <label htmlFor="">ADDRESS</label><br />
-              <input type="text" placeholder='ADDRESS' /><br /><br />
+              <input type="text" placeholder='ADDRESS' required /><br /><br />
               <hr />
               <label htmlFor="">LOCALITY</label><br />
-              <input type="text" placeholder='LOCALITY' /><br /><br />
+              <input type="text" placeholder='LOCALITY' required /><br /><br />
               <hr />
               <label htmlFor="">STATE</label><br />
-              <select name="state" onChange={onchnageHandler}>
+              <select name="state" required>
                 {/* <select  id="" name="state" onChange={onchnageHandler}> */}
                 <option value="--">---</option>
                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -152,47 +117,52 @@ const SignIn = () => {
                 </div>
                 <div>
                   <label htmlFor="">TELEPHONE</label><br />
-                  <input type="text" placeholder='TELEPHONE' />
+                  <input type="number" placeholder='TELEPHONE' onChange={(e) => setData({ ...data, phone: e.target.value })} required />
                   <hr />
                 </div>
               </div>
 
-              <input type="checkbox" /><label htmlFor="">I WISH TO RECEIVE ZARA NEWS ON MY E-MAIL</label><br />
-              <input type="checkbox" /><label htmlFor="">I ACCEPT THE PRIVACY STATEMENT</label>
-              <button onClick={onclickhandler}>CREATE ACCOUNT</button>
+              <div className="checkbox_input">
+                <input required type="checkbox" /><label htmlFor="">I WISH TO RECEIVE ZARA NEWS ON MY E-MAIL</label><br />
+                <input required type="checkbox" /><label htmlFor="">I ACCEPT THE PRIVACY STATEMENT</label>
+              </div>
+              <button type="submit" onClick={onclickhandler}>CREATE ACCOUNT</button>
             </form>
           </div>
           <div >
             <label htmlFor=""></label><br />
             {/* <input type="email" placeholder=''/><br /><br /> */}
-            <hr /><br /><br />
+            <hr className="invisiblehr" /><br /><br />
 
             <label htmlFor="">REPEAT PASSWORD</label><br />
-            <input required type="email" placeholder='REPEAT PASSWORD' /><br /><br />
+            <input   type="email" placeholder='REPEAT PASSWORD' required/><br /><br />
             <hr />
 
             <label htmlFor="">PINCODE</label><br />
-            <input type="email" placeholder='PINCODE' /><br /><br />
+            <input required type="email" placeholder='PINCODE' /><br /><br />
             <hr />
 
             <label htmlFor="">MORE INFO</label><br />
-            <input type="email" placeholder='OPTIONAL' /><br /><br />
+            <input required type="email" placeholder='OPTIONAL'  /><br /><br />
             <hr />
 
             <label htmlFor="">CITY</label><br />
-            <input type="email" placeholder='CITY' /><br /><br />
+            <input required type="email" placeholder='CITY'  /><br /><br />
             <hr />
 
             <label htmlFor="">REGION</label><br />
-            <input type="email" placeholder='INDIA' value="INDIAI" /><br /><br />
+            <input required type="email" placeholder='INDIA' value="INDIAI" /><br /><br />
             <hr />
 
           </div>
           <div></div>
         </div>
       </div>
+
+      <Footer/>
     </>
   );
 };
 
 export default SignIn;
+

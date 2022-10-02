@@ -1,14 +1,26 @@
 import axios from "axios";
 import * as types from "./actionTypes";
-const getProduct = (payload) => (dispatch) => {
+const getProduct = (payload = 'products',limit='') => (dispatch) => {
     dispatch({ type: types.GET_PRODUCTS_REQUEST });
     return axios
-        .get(`https://zara-mock-server.herokuapp.com/${payload}`)
+        .get(`https://zara-mock-server.herokuapp.com/${payload}?_limit=${limit}`)
         .then((r) => {
            return dispatch({ type: types.GET_PRODUCTS_SUCCESS, payload: r.data });
         })
         .catch((e) => {
             dispatch({ type: types.GET_PRODUCTS_FAILURE});
+        })
+}
+
+const getSingleProduct = (payload) => (dispatch) => {
+    dispatch({ type: types.GET_SINGLE_REQUEST });
+    return axios
+        .get(`https://zara-mock-server.herokuapp.com/products/${payload}`)
+        .then((r) => {
+           return dispatch({ type: types.GET_SINGLE_SUCCESS, payload: r.data });
+        })
+        .catch((e) => {
+            dispatch({ type: types.GET_SINGLE_FAILURE});
         })
 }
 
@@ -50,4 +62,4 @@ const deleteCart = (id) => (dispatch) => {
         })
 }
 
-export { getProduct, getCart, postCart, deleteCart }
+export { getProduct, getCart, postCart, deleteCart,getSingleProduct }

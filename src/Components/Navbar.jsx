@@ -23,7 +23,7 @@ const Navbar = ({ activeIndexs, setIndex }) => {
     const changeVal = () => {
         setVal(!val)
     }
-    console.log(cart)
+    
 
     useEffect(() => {
         if (activeIndexs >= 0) {

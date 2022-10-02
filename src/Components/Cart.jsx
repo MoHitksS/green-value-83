@@ -1,20 +1,33 @@
 
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../CSS/Cart.css";
-import { deleteCart, getCart } from "../Redux/App/action";
+import { deleteCart, getCart, patchCart } from "../Redux/App/action";
 import Footer from "./Footer";
 
 
 const Cart = () => {
+  // const [quantity,setQuantity] = useState({
+  //   quantity:0
+
+  // })
   const cartData = useSelector(state=>state.AppReducer.cart)
   const dispatch=useDispatch()
+ 
+
   const deletehandle=(id)=>{
-dispatch(deleteCart(id)).then((res)=>{
-  dispatch(getCart())
-})
-  }
-console.log(cartData)
+    dispatch(deleteCart(id)).then((res)=>{
+      dispatch(getCart())
+    })
+      }
+    
+        const handleAdd = (id)=>{
+        //   dispatch(patchCart(id)).then((res)=>{
+        //     dispatch(getCart())
+        // })
+      }
+
   return (
     <>
       <div className="container">
@@ -27,7 +40,8 @@ console.log(cartData)
         </div>
 
         <div className="cart-item-flex">
-          {cartData && cartData.length === 0 ?
+          {
+          cartData && cartData.length === 0 ?
            <div>cart data is empty</div> 
            :
            cartData?.map((item) => (
@@ -45,11 +59,10 @@ console.log(cartData)
                     <div>REF. | {item.color ? item.color.split("|")[1] : "453/2"}</div>
                     <div style={{textTransform:"uppercase"}}>{item.color ? item.color.split("|")[0] : "orange"}</div>
                     <div>M (UK M)</div>
-                    <div>
-                      {" "}
-                      <span>-</span>
-                      <span>1</span>
-                      <span>+</span>
+                    <div>               
+                      <span onClick={handleAdd(item.id)}>-</span>
+                      <span>{item.quantity}</span>
+                      <span onClick={handleAdd(item.id)}>+</span>
                     </div>
                   </div>
                   <div className="item-quantity" style={{fontSize:'12px'}}>

@@ -61,5 +61,17 @@ const deleteCart = (id) => (dispatch) => {
             dispatch({ type: types.DELETE_CART_FAILURE });
         })
 }
+const patchCart = (id) => (dispatch) => {
+    dispatch({ type: types.PATCH_CART_REQUEST });
+    console.log(id)
+    return axios
+        .patch(`https://zara-mock-server.herokuapp.com/cart/${id}`)
+        .then((r) => {
+            return dispatch({ type: types.PATCH_CART_SUCCESS,});
+        })
+        .catch((e) => {
+            dispatch({ type: types.PATCH_CART_FAILURE});
+        })
+}
 
-export { getProduct, getCart, postCart, deleteCart,getSingleProduct }
+export { getProduct, getCart, postCart, deleteCart,getSingleProduct,patchCart }

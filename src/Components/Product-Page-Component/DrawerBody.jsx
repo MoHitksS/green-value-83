@@ -94,7 +94,7 @@ const DrawerBody = () => {
             <GotoBasket>
 
             <div className="gotostyle">
-            <Link to = "/cart">GO TO BASKET</Link>
+            <Link to="/cart">GO TO BASKET</Link>
             </div>
 
 

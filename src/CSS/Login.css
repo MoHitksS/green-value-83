@@ -9,7 +9,7 @@
     width: 100%;
     display:flex;
     align-items:flex-start;
-    
+
 }
 
 .Login_second_box {
@@ -63,7 +63,7 @@
 }
 .siginIn{
     display: none;
-    
+
 }
 
 @media only screen and (min-width: 769px) and (max-width:948px){
@@ -78,7 +78,7 @@
    .Login_second_box1{
        width:100%;
        font-size: 20px;
-       
+
     }
 
     .Login_second_box2{
@@ -86,12 +86,12 @@
         font-size: 15px;
         margin-top:50px;
     }
-    
+
     .siginIn{
         display: none;
-        
+
     }
-    
+
 }
 
 @media only screen and (min-width: 769px) and (max-width:845px){
@@ -106,7 +106,7 @@
    .Login_second_box1{
        width:100%;
        font-size: 20px;
-       
+
     }
     .Login_second_box2{
         display: none;
@@ -120,7 +120,7 @@
         width:100%;
         font-size: 20px;
         margin-bottom:50px;
-        
+
      }
 }
 
@@ -136,7 +136,7 @@
    .Login_second_box1{
        width:100%;
        font-size: 20px;
-       
+
     }
     .Login_second_box2{
         display: none;
@@ -150,12 +150,12 @@
         width:100%;
         font-size: 20px;
         margin-bottom:50px;
-        
+
      }
 }
 
 @media only screen and (min-width:320px) and (max-width:480px){
-   
+
     .Login_main_box {
         width: 90%;
         margin: auto;
@@ -167,7 +167,7 @@
    .Login_second_box1{
        width:100%;
        font-size: 20px;
-       
+
     }
     .Login_second_box2{
         display: none;
@@ -181,7 +181,7 @@
         width:100%;
         font-size: 20px;
         margin-bottom:50px;
-        
+
      }
 
 }
@@ -198,7 +198,7 @@
    .Login_second_box1{
        width:100%;
        font-size: 20px;
-       
+
     }
     .Login_second_box2{
         display: none;
@@ -212,6 +212,6 @@
         width:100%;
         font-size: 20px;
         margin-bottom:50px;
-        
+
      }
 }

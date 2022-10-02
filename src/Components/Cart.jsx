@@ -34,7 +34,7 @@ const Cart = () => {
 
         <div className="cart-item-flex">
           {cartData && cartData.length === 0 ?
-            <div>cart data is empty</div>
+            <div style={{marginTop:'10px', fontWeight:'600'}}>CART DATA IS EMPTY</div>
             :
             cartData?.map((item,index) => (
               <div className="cart-item" key={item.id}>

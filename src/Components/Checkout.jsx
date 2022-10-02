@@ -2,7 +2,10 @@ import styled from "styled-components";
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 const Checkout = () => {
+    const cartData = useSelector(state=>state.AppReducer.cart)
     return (
         <>
 
@@ -29,9 +32,13 @@ const Checkout = () => {
 
                         </div>
                         <div className="delivery-group">
+                            
                             <h2>ITEMS</h2>
-                            <img src="https://static.zara.net/photos///2022/I/0/1/p/1023/302/615/32/w/91/1023302615_1_1_1.jpg?ts=1664205140763" alt="" />
+                            {cartData.map((item)=>(
+                            <img src={item.image} alt="" />
 
+                            ))}
+                            
                         </div>
                         <div className="delivery-details">
                             <hr />
@@ -75,7 +82,7 @@ const Container = styled.div`
     height: 100vh;
     position:relative;
     cursor:pointer;
-    padding-top:120px;
+    padding-top:150px;
 .layout-content{
     width:90%;
     height:100vh;

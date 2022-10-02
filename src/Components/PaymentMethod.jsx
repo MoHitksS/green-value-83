@@ -1,8 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import styled from "styled-components";
 import Footer from './Footer';
 
 const PaymentMethod = () => {
+    const cartData = useSelector(state=>state.AppReducer.cart)
   return (
     <>
     <Container>
@@ -52,7 +54,9 @@ const PaymentMethod = () => {
    <div className="bottom-btn">
           <p>
             <div>
-              <b>TOTAL $399.00</b>
+              <b>TOTAL ₹{cartData.reduce((acc, el) => {
+      return acc + el.pricenum;
+    }, 0)}.00 </b>
             </div>
             <div>INCLUDING GST</div>
             <div>* EXCL SHIPPING COST</div>
@@ -72,12 +76,14 @@ const Container = styled.div`
     position:relative;
     cursor:pointer;
     padding-top:120px;
+    padding-bottom:120px;
 .layout-content{
         width:90%;
         height:100vh;
         margin:auto;
         margin-top:50px;
         text-align:left;
+     
     }
 .layout-content>p{
     border:1px solid orange;

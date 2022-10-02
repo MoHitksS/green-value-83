@@ -10,14 +10,11 @@ const Cart = () => {
   const cartData = useSelector(state=>state.AppReducer.cart)
   const dispatch=useDispatch()
   const deletehandle=(id)=>{
-console.log(id)
 dispatch(deleteCart(id)).then((res)=>{
   dispatch(getCart())
 })
-const total = ()=>{
-  
-}
   }
+console.log(cartData)
   return (
     <>
       <div className="container">
@@ -69,7 +66,9 @@ const total = ()=>{
         <div className="bottom-btn">
           <p>
             <div>
-              <b>TOTAL $399.00</b>
+              <b>TOTAL ₹{cartData.reduce((acc, el) => {
+      return acc + el.pricenum;
+    }, 0)}.00 </b>
             </div>
             <div>INCLUDING GST</div>
             <div>* EXCL SHIPPING COST</div>

@@ -1,7 +1,8 @@
-export const GET_Login_REQUEST = "GET_Login_REQUEST";
-export const GET_Login_SUCCESS = "GET_Login_SUCCESS";
-export const GET_Login_FAILURE = "GET_Login_FAILURE";
+export const GET_LOGIN_REQUEST = "GET_LOGIN_REQUEST";
+export const GET_LOGIN_SUCCESS = "GET_LOGIN_SUCCESS";
+export const GET_LOGIN_FAILURE = "GET_LOGIN_FAILURE";
+export const GET_SIGNOUT_SUCCESS = "GET_SIGNOUT_SUCCESS";
 
-export const ADD_Signup_REQUEST = "ADD_Signup_REQUEST";
-export const ADD_Signup_SUCCESS = "ADD_Signup_SUCCESS";
-export const ADD_Signup_FAILURE = "ADD_Signup_FAILURE";
+export const ADD_SIGNUP_REQUEST = "ADD_SIGNUP_REQUEST";
+export const ADD_SIGNUP_SUCCESS = "ADD_SIGNUP_SUCCESS";
+export const ADD_SIGNUP_FAILURE = "ADD_SIGNUP_FAILURE";

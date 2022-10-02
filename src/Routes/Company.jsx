@@ -2,38 +2,38 @@ import React, { useState } from "react";
 import "../CSS/SignIn.css"
 import { useDispatch} from 'react-redux'
 import { useNavigate } from "react-router-dom"
-import { AddData} from "../Redux/Auth/action";
 import Footer from "../Components/Footer";
+import { initializeApp } from "firebase/app";
+import { signin } from '../Redux/Auth/action'
 
 const Companylogin = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     email: "",
-    number: "",
+    gstin: "",
     password: "",
-    name: "",
-    gst: ""
+    name: ""
   })
-  const naviagte = useNavigate()
-  const dispatch = useDispatch()
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCHvdgABXgjtj6C3-55D2colSpVF05NTI",
+    authDomain: "zara-project-adec4.firebaseapp.com",
+    projectId: "zara-project-adec4",
+    storageBucket: "zara-project-adec4.appspot.com",
+    messagingSenderId: "1083442232261",
+    appId: "1:1083442232261:web:24d99e9bc4f6e92e49e9ac",
+    measurementId: "G-JLT9HVM9BX"
+  };
 
-  const onchnageHandler = (e) => {
-    const { name, value } = e.target
-    setData({
-      ...data,
-      [name]: value
-    })
-  }
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
   const onclickhandler = (e) => {
     e.preventDefault();
-    if (data) {
-      const payload = data
-      dispatch(AddData(payload)).then((res) => {
-        naviagte("/login")
-
-      })
-    }
+    dispatch(signin(data.email,data.password)).then(()=>{
+      navigate('/login')
+    })
   }
   return (
     <>
@@ -58,21 +58,21 @@ const Companylogin = () => {
             <form action="">
               <label htmlFor="">E-MAIL</label><br />
               {/* <input type="email" placeholder='Enter Email' name="email" onChange={onchnageHandler}/><br /><br /> */}
-              <input name="email" type="email" onChange={onchnageHandler} placeholder='Enter Email' /><br /><br />
+              <input name="email" type="email" onChange={(e)=>setData({...data,email:e.target.value})} placeholder='Enter Email' /><br /><br />
               <hr />
 
               <label htmlFor="">PASSWORD</label><br />
-              {/* <input type="password" placeholder='Enter Password' name="password" onChange={onchnageHandler} /><br /><br /> */}
-              <input name="password" type="password" placeholder="Enter Password" onChange={onchnageHandler} /><br /><br />
+              {/* <input type="password" placeholder='Enter Password' name="password" onChange={(e)=>setData({...data,name:e.target.value})} /><br /><br /> */}
+              <input name="password" type="password" placeholder="Enter Password" onChange={(e)=>setData({...data,password:e.target.value})} /><br /><br />
               <hr />
 
               <label htmlFor="">GSTIN</label><br />
-              <input type="text" placeholder='GDTIN' name="gst" onChange={onchnageHandler} /><br /><br />
+              <input type="text" placeholder='GDTIN' name="gst" onChange={(e)=>setData({...data,gstin:e.target.value})} /><br /><br />
               <hr />
 
 
               <label htmlFor="">NAME</label><br />
-              <input type="text" placeholder='NAME' name="name" onChange={onchnageHandler} /><br /><br />
+              <input type="text" placeholder='NAME' name="name" onChange={(e)=>setData({...data,name:e.target.value})} /><br /><br />
               <hr />
               <label htmlFor="">ADDRESS</label><br />
               <input type="text" placeholder='ADDRESS' /><br /><br />
@@ -130,7 +130,7 @@ const Companylogin = () => {
                 </div>
                 <div>
                   <label htmlFor="">TELEPHONE</label><br />
-                  <input type="number" placeholder='TELEPHONE' name="number" onChange={onchnageHandler} />
+                  <input type="number" placeholder='TELEPHONE' name="number"/>
                   <hr />
                 </div>
               </div>

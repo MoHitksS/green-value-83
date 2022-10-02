@@ -56,7 +56,7 @@ const Footer = () => {
     )
 }
 const Container = styled.div`
-    width:90%;
+    width:80%;
     margin:auto;
     display:flex;
     flex-direction:column;

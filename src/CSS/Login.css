@@ -61,10 +61,7 @@
     margin-top: -18px;
 
 }
-.siginIn{
-    display: none;
-    
-}
+
 
 @media only screen and (min-width: 769px) and (max-width:948px){
     .Login_main_box {
@@ -87,10 +84,6 @@
         margin-top:50px;
     }
     
-    .siginIn{
-        display: none;
-        
-    }
     
 }
 
@@ -112,9 +105,7 @@
         display: none;
      }
 
-     .siginIn{
-        display:block;
-     }
+
 
      .Login_second_box1{
         width:100%;
@@ -142,9 +133,6 @@
         display: none;
      }
 
-     .siginIn{
-        display:block;
-     }
 
      .Login_second_box1{
         width:100%;
@@ -173,10 +161,6 @@
         display: none;
      }
 
-     .siginIn{
-        display:block;
-     }
-
      .Login_second_box1{
         width:100%;
         font-size: 20px;
@@ -202,10 +186,6 @@
     }
     .Login_second_box2{
         display: none;
-     }
-
-     .siginIn{
-        display:block;
      }
 
      .Login_second_box1{

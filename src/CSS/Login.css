@@ -85,7 +85,12 @@
         width:100%;
         font-size: 15px;
         margin-top:50px;
-     }
+    }
+    
+    .siginIn{
+        display: none;
+        
+    }
     
 }
 

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Checkout = () => {
-    const cartData = useSelector(state=>state.AppReducer.cart)
+    const cartData = useSelector(state => state.AppReducer.cart)
     return (
         <>
 
@@ -32,13 +32,13 @@ const Checkout = () => {
 
                         </div>
                         <div className="delivery-group">
-                            
                             <h2>ITEMS</h2>
-                            {cartData.map((item)=>(
-                            <img src={item.image} alt="" />
+                            <div className="checkoutDeliverypro">
+                                {cartData.map((item) => (
+                                    <img src={item.image} alt="" />
 
-                            ))}
-                            
+                                ))}
+                            </div>
                         </div>
                         <div className="delivery-details">
                             <hr />
@@ -71,29 +71,25 @@ const Checkout = () => {
                     </div>
                 </div>
             </Container>
-            <Footer/>
+            <Footer />
         </>
 
     )
 }
 const Container = styled.div`
- width: 100%;
- padding-top:150px;
- font-size:smaller;
-    height: 100vh;
-    position:relative;
-    cursor:pointer;
-    padding-top:150px;
-    
+width: 100%;
+padding-top:150px;
+font-size:smaller;
+position:relative;
+cursor:pointer;
+padding-top:150px;
 .layout-content{
     width:90%;
-    height:100vh;
     margin:auto;
 }
 .main-content{
     text-align:left;
     margin-top:20px;
-    height:100vh;
 }
 .delivery-group-head{
     display:flex;
@@ -122,16 +118,16 @@ const Container = styled.div`
     font-size:smaller;
     margin-top:20px;
 }
-.delivery-group{
-    margin:64px 0 40px;
-    display:flex;
-    flex-direction:column;
-
+.checkoutDeliverypro{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(100px,max-content));
+    gap:20px;
+    align-items:center;
 }
 .delivery-group>h2{
     margin:0 0 16px;
 }
-.delivery-group>img{
+.delivery-group img{
     height:150px;
     width:100px;
 }

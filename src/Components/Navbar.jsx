@@ -72,7 +72,7 @@ const Navbar = ({ activeIndexs }) => {
                                 <span>ZARA ORIGINS</span>
                             </Link>
                         </div>
-                        <ul className="menu">
+                        <ul className="menu" style={{overflow:"auto"}}>
                             {menuItem.map((ele, index) => (
                                 <li key={index}><Link to={`/products`} style={ele === 'Special Prices' ? { color: 'rgb(245, 57, 147)' } : {}}>{ele}</Link></li>
                             ))}
@@ -87,13 +87,13 @@ const Navbar = ({ activeIndexs }) => {
 
                     </div>
                 </div>
-                <div className='navRightSection'>
+                <div className='navRightSection' style={{zIndex:!val?'0':'10'}}>
                     <Link to="/search" style={{ visibility: location.pathname === '/search' ? 'hidden' : 'visible' }}>
                         <div>
                             <input type="text" placeholder='SEARCH' />
                         </div>
                     </Link>
-                    <div>
+                    <div >
                         {!isAuth ? <Link to='/login' state={{path:'/'}}> <span>LOGIN</span></Link> : <Signout/>}
                         <Link to="/help">
                             <span className='help'>HELP</span>
@@ -128,7 +128,6 @@ const Container = styled.div`
         align-items:center;
         justify-content:space-between;
         padding:0px 10px;
-        z-index:10;
     }
 
     .navRightSection>a>div:first-child{
@@ -168,7 +167,7 @@ const Container = styled.div`
 
     .header {
         position:fixed;
-        width:25%;
+        width:27%;
     }
 
     .header ul {
@@ -176,6 +175,7 @@ const Container = styled.div`
         padding: 0;
         list-style: none;
         overflow: hidden;
+        height:50vh;
     }
 
     .header li a {
@@ -202,6 +202,18 @@ const Container = styled.div`
         color:#343a40;
         padding-left:25px;
     }
+
+    ul::-webkit-scrollbar {
+        width: 7px;
+      }
+    
+    ul::-webkit-scrollbar-track {
+        background-color: rgb(209, 209, 209);
+      }
+    
+   ul::-webkit-scrollbar-thumb {
+        background-color: rgb(40, 39, 39);
+      }
 
     li a{
         color:#343a40;
@@ -260,7 +272,7 @@ const Container = styled.div`
     .header .menu-btn:checked ~ .menu {
         margin-top:40px;
         max-height:100vh;
-        padding-bottom:200px;
+        padding-bottom:100vh;
         overflow:auto;
         background-color:white;
         animation: fadeIn 2s;
@@ -368,8 +380,6 @@ const Container = styled.div`
         color:${(props) => (props.theme)};
     }
 
-    
-
     .navRightSection span{
         text-decortaion:none;
         color:${(props) => (props.theme)};
@@ -389,7 +399,7 @@ const Container = styled.div`
     @media only screen and (min-width: 769px) and (max-width:1200px){
         
         .header {
-            width:35%;
+            width:50%;
             padding:0px;
         }
     }
@@ -402,7 +412,7 @@ const Container = styled.div`
         }
 
         .header {
-            width:35%;
+            width:50%;
             padding:0px;
             
         }
@@ -422,7 +432,7 @@ const Container = styled.div`
         }
 
         .header {
-            width:60%;
+            width:65%;
             padding:0px;
         }
 
@@ -474,7 +484,6 @@ const Container = styled.div`
         .header {
             width:100%;
             padding:0px;
-            z-index:-1;
         }
 
         .logo{
@@ -493,7 +502,7 @@ const Container = styled.div`
         }
 
         .menuLogo>svg{
-            width:200px;
+            width:150px;
         }
     }
 

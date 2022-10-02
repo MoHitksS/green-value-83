@@ -62,7 +62,6 @@ const Container = styled.div`
     flex-direction:column;
     gap:20px;
     font-size:11px;
-    margin-top:100px;
     margin-bottom:50px;
     line-height:20px;
 

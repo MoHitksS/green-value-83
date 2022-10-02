@@ -1,34 +1,43 @@
 
 import React, { useState } from "react";
 import "../CSS/SignIn.css"
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom"
-import { AddData} from "../Redux/Auth/action";
 import Footer from "../Components/Footer";
+import { initializeApp } from "firebase/app";
+import { signin } from '../Redux/Auth/action'
 
 const SignIn = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     email: "",
     phone: "",
     password: "",
     name: ""
   })
-  const naviagte = useNavigate()
-  const dispatch = useDispatch()
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCHvdgABXgjtj6C3-55D2colSpVF05NTI",
+    authDomain: "zara-project-adec4.firebaseapp.com",
+    projectId: "zara-project-adec4",
+    storageBucket: "zara-project-adec4.appspot.com",
+    messagingSenderId: "1083442232261",
+    appId: "1:1083442232261:web:24d99e9bc4f6e92e49e9ac",
+    measurementId: "G-JLT9HVM9BX"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
 
   const onclickhandler = (e) => {
     e.preventDefault();
-    if (data) {
-      const payload = data
-      dispatch(AddData(payload)).then((res) => {
-        naviagte("/login")
-
-      })
-    }
+    dispatch(signin(data.email,data.password)).then(()=>{
+      navigate('/login')
+    })
   }
   return (
-    
+
     <>
       <div className='navbar_space'></div>
       <div className='signin_main_box'>
@@ -51,15 +60,15 @@ const SignIn = () => {
             <form action="">
               <label htmlFor="">E-MAIL</label><br />
               {/* <input type="email" placeholder='Enter Email' name="email" onChange={onchnageHandler}/><br /><br /> */}
-              <input name="email"  type="email" onChange={(e) => setData({ ...data, email: e.target.value })} placeholder='Enter Email' required/><br /><br />
+              <input name="email" type="email" onChange={(e) => setData({ ...data, email: e.target.value })} placeholder='Enter Email' required /><br /><br />
               <hr />
 
               <label htmlFor="">PASSWORD</label><br />
               {/* <input type="password" placeholder='Enter Password' name="password" onChange={(e)=>setData({...data,name:e.target.value})} /><br /><br /> */}
-              <input name="password" type="password" placeholder="Enter Password" onChange={(e) => setData({ ...data, password: e.target.value })} required/><br /><br />
+              <input name="password" type="password" placeholder="Enter Password" onChange={(e) => setData({ ...data, password: e.target.value })} required /><br /><br />
               <hr />
               <label htmlFor="">NAME</label><br />
-              <input type="text" placeholder='NAME' name="name" onChange={(e) => setData({ ...data, name: e.target.value })} required/><br /><br />
+              <input type="text" placeholder='NAME' name="name" onChange={(e) => setData({ ...data, name: e.target.value })} required /><br /><br />
               <hr />
               <label htmlFor="">ADDRESS</label><br />
               <input type="text" placeholder='ADDRESS' required /><br /><br />
@@ -135,7 +144,7 @@ const SignIn = () => {
             <hr className="invisiblehr" /><br /><br />
 
             <label htmlFor="">REPEAT PASSWORD</label><br />
-            <input   type="email" placeholder='REPEAT PASSWORD' required/><br /><br />
+            <input type="email" placeholder='REPEAT PASSWORD' required /><br /><br />
             <hr />
 
             <label htmlFor="">PINCODE</label><br />
@@ -143,11 +152,11 @@ const SignIn = () => {
             <hr />
 
             <label htmlFor="">MORE INFO</label><br />
-            <input required type="email" placeholder='OPTIONAL'  /><br /><br />
+            <input required type="email" placeholder='OPTIONAL' /><br /><br />
             <hr />
 
             <label htmlFor="">CITY</label><br />
-            <input required type="email" placeholder='CITY'  /><br /><br />
+            <input required type="email" placeholder='CITY' /><br /><br />
             <hr />
 
             <label htmlFor="">REGION</label><br />
@@ -159,7 +168,7 @@ const SignIn = () => {
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
     </>
   );
 };

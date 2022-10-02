@@ -1,7 +1,35 @@
 import { useNavigate } from 'react-router-dom'
 import "../CSS/Login.css"
+import { useState } from 'react';
+import { initializeApp } from "firebase/app";
+import { useDispatch } from 'react-redux';
+import { login } from '../Redux/Auth/action'
 const LogIn = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const [data,setData] = useState({
+    email:'',
+    password:''
+  })
+  console.log(data)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCHvdgABXgjtj6C3-55D2colSpVF05NTI",
+    authDomain: "zara-project-adec4.firebaseapp.com",
+    projectId: "zara-project-adec4",
+    storageBucket: "zara-project-adec4.appspot.com",
+    messagingSenderId: "1083442232261",
+    appId: "1:1083442232261:web:24d99e9bc4f6e92e49e9ac",
+    measurementId: "G-JLT9HVM9BX"
+  };
+  const app = initializeApp(firebaseConfig);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(login(data.email,data.password)).then(()=>{
+      navigate('/')
+    })
+  }
+
   return (
     <>
       <div className='navbar_space'></div>
@@ -12,13 +40,13 @@ const LogIn = () => {
             <form action="">
               <label htmlFor="">E-MAIL</label><br />
 
-              <input type="email" placeholder='Enter Email' /><br /><br />
+              <input type="email" placeholder='Enter Email' onChange={(e)=>setData({...data,email:e.target.value})}/><br /><br />
               <hr />
 
               <label htmlFor="">PASSWORD</label><br />
-              <input type="password" placeholder='Enter Password' /><br /><br />
+              <input type="password" placeholder='Enter Password' onChange={(e)=>setData({...data,password:e.target.value})}/><br /><br />
               <hr />
-              <button>LOG IN</button>
+              <button onClick={handleLogin}>LOG IN</button>
             </form>
           </div>
           <div>

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { getCart } from '../Redux/App/action';
-import { getAuth, signOut } from "firebase/auth";
 import Signout from '../Routes/Signout';
 
 const Navbar = ({ activeIndexs, setIndex }) => {

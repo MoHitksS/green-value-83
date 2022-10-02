@@ -1,15 +1,16 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import "../CSS/Login.css"
 import { useState } from 'react';
 import { initializeApp } from "firebase/app";
 import { useDispatch } from 'react-redux';
 import { login } from '../Redux/Auth/action'
+import Footer from '../Components/Footer';
 const LogIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
-  const [data,setData] = useState({
-    email:'',
-    password:''
+  const [data, setData] = useState({
+    email: '',
+    password: ''
   })
   console.log(data)
   const firebaseConfig = {
@@ -25,7 +26,7 @@ const LogIn = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(login(data.email,data.password)).then(()=>{
+    dispatch(login(data.email, data.password)).then(() => {
       navigate('/')
     })
   }
@@ -35,21 +36,18 @@ const LogIn = () => {
       <div className='navbar_space'></div>
       <div className='Login_main_box'>
         <div className='Login_second_box'>
-          <div>
+          <div className='Login_second_box1'>
             <h2>LOG IN</h2>
             <form action="">
               <label htmlFor="">E-MAIL</label><br />
 
-              <input type="email" placeholder='Enter Email' onChange={(e)=>setData({...data,email:e.target.value})}/><br /><br />
-              <hr />
-
+              <input type="email" placeholder='Enter Email' onChange={(e) => setData({ ...data, email: e.target.value })} /><br /><br />
               <label htmlFor="">PASSWORD</label><br />
-              <input type="password" placeholder='Enter Password' onChange={(e)=>setData({...data,password:e.target.value})}/><br /><br />
-              <hr />
+              <input type="password" placeholder='Enter Password' onChange={(e) => setData({ ...data, password: e.target.value })} /><br /><br />
               <button onClick={handleLogin}>LOG IN</button>
             </form>
           </div>
-          <div>
+          <div  className='Login_second_box2'>
 
             <h2>REGISTER</h2>
             <p>IF YOU STILL DON'T HAVE A <span><b>ZARA.COM</b></span> ACCOUNT, USE THIS OPTION TO ACCESS THE REGISTRATION FORM.</p>
@@ -58,9 +56,14 @@ const LogIn = () => {
               navigate("/signin")
             }} >CREATE ACCOUNT</button>
           </div>
+
+          <div classname='siginIn'>
+            <p >DONT HAVE AN ACCOUNT? <Link to={`/signin`}>REGISTER</Link></p>
+          </div>
           <div></div>
         </div>
       </div>
+      <Footer/>
     </>
   )
 }

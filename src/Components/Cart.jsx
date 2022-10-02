@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../CSS/Cart.css";
-import { deleteCart, getCart, patchcart } from "../Redux/App/action";
+import { deleteCart, getCart, patchCart } from "../Redux/App/action";
 import Footer from "./Footer";
 
 
@@ -30,6 +30,7 @@ const Cart = () => {
   cartData && cartData.forEach(element => {
     sum+= element.pricenum * element.quantity;
   });
+
 
   return (
     <>

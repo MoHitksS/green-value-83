@@ -61,15 +61,19 @@ const deleteCart = (id) => (dispatch) => {
             dispatch({ type: types.DELETE_CART_FAILURE });
         })
 }
-const patchcart = ({id,quantity}) => (dispatch) => {
+const patchcart = ({qnty,id}) => (dispatch) => {
     // console.log(id)
+    console.log(qnty);
     dispatch({ type: types.PATCH_CART_REQUEST });
 
     return axios
-        .patch(`https://zara-mock-server.herokuapp.com/cart/${id}`)
+        .patch(`https://zara-mock-server.herokuapp.com/cart/${id}`,{
+            quantity : qnty
+        })
         .then((r) => {
-            console.log(r.data);
-            return dispatch({ type: types.PATCH_CART_SUCCESS});
+            console.log(r.data.quantity)
+            return dispatch({ type: types.PATCH_CART_SUCCESS}
+            );
         })
         .catch((e) => {
             dispatch({ type: types.PATCH_CART_FAILURE });

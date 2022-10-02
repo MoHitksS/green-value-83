@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../CSS/Cart.css";
-import { deleteCart, getCart, patchCart } from "../Redux/App/action";
+import { deleteCart, getCart, patchcart } from "../Redux/App/action";
 import Footer from "./Footer";
 
 
@@ -15,10 +15,20 @@ const Cart = () => {
       dispatch(getCart())
     })
   }
-  
+  const addHandler =({qnty,id})=>{
+    dispatch(patchcart({qnty,id})).then((res)=> {
+      dispatch(getCart())
+    })
+  }
+  const reduceHandler =({qnty,id})=>{
+    dispatch(patchcart({qnty,id})).then((res)=> {
+      dispatch(getCart())
+    })
+  }
+
   let sum = 0;
   cartData && cartData.forEach(element => {
-    sum+= element.pricenum;
+    sum+= element.pricenum * element.quantity;
   });
 
 
@@ -35,27 +45,36 @@ const Cart = () => {
 
         <div className="cart-item-flex">
           {cartData && cartData.length === 0 ?
-           <div>cart data is empty</div> 
-           :
-           cartData?.map((item) => (
-            <div className="cart-item" key={item.id}>
-              <div className="cart-item-header" style={{fontSize:'13px',paddingBottom:'10px'}}>
-                {" "}
-                <b >{item.producttitle} </b>{" "}
-              </div>
-              <div className="cart-item-container">
-                <div >
-                  <img src={item.image} alt="" />
+            <div>cart data is empty</div>
+            :
+            cartData?.map((item,index) => (
+              <div className="cart-item" key={item.id}>
+                <div className="cart-item-header" style={{ fontSize: '13px', paddingBottom: '10px' }}>
+                  {" "}
+                  <b >{item.producttitle} </b>{" "}
                 </div>
-                <div className="cart-item-details">
-                  <div className="cart-item-description">
-                    <div>REF. | {item.color ? item.color.split("|")[1] : "453/2"}</div>
-                    <div style={{textTransform:"uppercase"}}>{item.color ? item.color.split("|")[0] : "orange"}</div>
-                    <div>M (UK M)</div>
-                    <div>               
-                      <span onClick={handleAdd(item.id)}>-</span>
-                      <span>{item.quantity}</span>
-                      <span onClick={handleAdd(item.id)}>+</span>
+                <div className="cart-item-container">
+                  <div >
+                    <img src={item.image} alt="" />
+                  </div>
+                  <div className="cart-item-details">
+                    <div className="cart-item-description">
+                      <div>REF. | {item.color ? item.color.split("|")[1] : "453/2"}</div>
+                      <div style={{ textTransform: "uppercase" }}>{item.color ? item.color.split("|")[0] : "orange"}</div>
+                      <div>M (UK M)</div>
+                      <div>
+                        {" "}
+                        <span style={{ cursor: "pointer" }} onClick={()=>{reduceHandler({qnty:item.quantity-1,id:item.id})}} >-</span>
+                        <span>{item.quantity}</span>
+                        <span style={{ cursor: "pointer" }} onClick={()=>{addHandler({qnty:item.quantity+1,id:item.id})}}>+</span>
+                      </div>
+                    </div>
+                    <div className="item-quantity" style={{ fontSize: '12px' }}>
+                      <div>{item.price}</div>
+                    </div>
+                    <div>
+                      {" "}
+                      <button onClick={() => { deletehandle(item.id) }}>Delete</button>
                     </div>
                   </div>
                 </div>
@@ -70,8 +89,7 @@ const Cart = () => {
             <div>INCLUDING GST</div>
             <div>* EXCL SHIPPING COST</div>
           </div>
-          <Link to="/checkout">
-            <button className="checkout-btn">CONTINUE</button></Link>
+          <Link to="/checkout"><button className="checkout-btn">CONTINUE</button></Link>
         </div>
       </div>
       <Footer />

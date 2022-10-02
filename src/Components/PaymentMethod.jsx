@@ -39,7 +39,7 @@ const PaymentMethod = () => {
                             <p>UNIFIED PAYMENT INTERFACE</p>
                         </div>
                     </div>
-                    <div className="bottom-card">
+                    <div className="bottom-card" style={{display:'grid',gridTemplateColumns: "repeat(auto-fit,minmax(150px,max-content))"}}>
                         <div className="bottom-card-item">
                             <img src="https://static.zara.net/static/images/payment/payment/IcoBank-GiftCard.svg" alt="" />
                             <p>GIFT CARD</p>
@@ -57,7 +57,7 @@ const PaymentMethod = () => {
                         <p>
                             <div>
                                 <b>TOTAL ₹{cartData.reduce((acc, el) => {
-                                    return acc + el.pricenum;
+                                    return acc + el.pricenum*el.quantity;
                                 }, 0)}.00 </b>
                             </div>
                             <div>INCLUDING GST</div>
@@ -107,16 +107,14 @@ const Container = styled.div`
     border:1px solid gray;  
 }
 .bottom-card{
-    display:flex;
-    gap:10px;
-    flex-direction:column; 
     margin-top:20px;
+    gap:8px;
 }
 .bottom-card-item{
-    width:130px;
     text-align:center;
     border:1px solid #e5e5e5;
     padding:10px  
+    
 }
 .bottom-card-item:hover{
     border:1px solid gray;  

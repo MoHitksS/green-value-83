@@ -130,3 +130,58 @@
 .checkbox_input{
     font-size: 13px;
 }
+
+@media only screen and (min-width: 769px) and (max-width:968px){
+    .personal_company_toggle {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* border: 1px solid red; */
+        text-align: left;
+        font-size: 13px;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width:845px){
+    .signin_second_box>div:nth-child(2) {
+         display: none;
+    }
+    .personal_company_toggle {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* border: 1px solid red; */
+        text-align: left;
+        font-size: 13px;
+    }
+}
+@media only screen and (min-width: 481px) and (max-width:768px){
+    .signin_second_box>div:nth-child(2) {
+        display: none;
+    }
+    .signin_second_box>div>form>hr {
+        margin-top: -18px;
+        /* border: 1px solid red; */
+        width: 100%;
+    }
+    .personal_company_toggle {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* border: 1px solid red; */
+        text-align: left;
+        font-size: 13px;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width:480px){
+    .signin_second_box>div:nth-child(2) {
+        /* border: 1px solid red; */
+        display: none;
+    }
+    .signin_second_box>div:nth-child(3) {
+        display: none;
+    }
+    .personal_company_toggle {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* border: 1px solid red; */
+        text-align: left;
+        font-size: 13px;
+    }
+}

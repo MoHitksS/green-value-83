@@ -454,7 +454,7 @@ const Container = styled.div`
         }
 
         .navRightSection>div:last-child{
-            width:100px;
+            width:130px;
             display:flex;
             gap: 0px;
         }

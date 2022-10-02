@@ -11,6 +11,9 @@ import Checkout from '../Components/Checkout'
 import Companylogin from './Company'
 import PaymentMethod from '../Components/PaymentMethod'
 import Search from '../Components/Search'
+import CardDetail from '../Routes/CardDetail'
+import OTP from './OTP'
+import ProtectedRoute from '../Components/ProtectedRoute'
 const AllRoutes = () => {
   return (
     <Routes>
@@ -21,10 +24,12 @@ const AllRoutes = () => {
       <Route path='/login' element={<LogIn />} />
       <Route path='/signin' element={<SignIn />} />
       <Route path='/cart' element={<Cart />}></Route>
-      <Route path='/checkout' element={<Checkout />}></Route>
+      <Route path='/checkout' element={<ProtectedRoute><Checkout /></ProtectedRoute>}></Route>
       <Route path='/paymentMethod' element={<PaymentMethod />}></Route>
       <Route path='/products' element={<ProductPage />}></Route>
       <Route path='/search' element={<Search />}></Route>
+      <Route path='/fillcarddetail' element={<CardDetail />}></Route>
+      <Route path='/otp' element={<OTP />}></Route>
     </Routes>
   )
 }

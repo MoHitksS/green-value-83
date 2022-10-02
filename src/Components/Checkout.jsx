@@ -78,11 +78,13 @@ const Checkout = () => {
 }
 const Container = styled.div`
  width: 100%;
+ padding-top:150px;
  font-size:smaller;
     height: 100vh;
     position:relative;
     cursor:pointer;
     padding-top:150px;
+    
 .layout-content{
     width:90%;
     height:100vh;

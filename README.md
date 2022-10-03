@@ -43,6 +43,8 @@ There are so much categories user can find their products according to their nee
 
 ![pro4](https://user-images.githubusercontent.com/17249211/193624580-17711c48-21c4-4433-8778-0f338b7b37a7.png)
 
+![pro5](https://user-images.githubusercontent.com/17249211/193626675-4484aafb-e221-4f50-bde7-2ffce33f4292.png)
+
 ## Cart Section :
 When we add some products using Add to Bag button, the products you have choosen, will showcase into the Cart Section.
 

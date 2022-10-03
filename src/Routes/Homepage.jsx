@@ -106,7 +106,7 @@ const Homepage = () => {
                     <SwiperSlide className="swiper-slide" key={index}>
                         <Link to={`/products`} state={{ query: ele.path }}>
                             {ele.img ?
-                                <img src={ele.img} alt={ele.img} />
+                                <img src={ele.img} alt={ele.img} className={`main${category[indexNo]}${index}`}/>
                                 :
                                 <video autoPlay loop muted controls={ele.cat === 'kids' ? false : true} >
                                     <source src={ele.video} type="video/mp4" />
@@ -208,6 +208,30 @@ const Container = styled.div`
     @media only screen and (min-width:320px) and (max-width:480px){
         .swiper-slide img{
             object-fit:cover;
+        }
+
+        .swiper-slide  .mainWomen4{
+            transform: rotate(90deg);
+            object-fit: contain;
+            width:100vh;
+            object-position:0px 100%;
+            background-color:#e3edea;
+        }
+
+        .swiper-slide  .mainWomen6{
+            transform: rotate(-90deg);
+            object-fit: contain;
+            width:100vh;
+            object-position:0px 15%;
+            background-color:#c2d5e4;
+        }
+
+        .swiper-slide  .mainMen1{
+            object-position:60% 0%;
+        }
+
+        .swiper-slide  .mainKids2{
+            object-position:71% 0%;
         }
     }
 

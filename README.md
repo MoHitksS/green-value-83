@@ -1,4 +1,4 @@
-# Zara-Clone: [Zara-origins](https://zara-origins.netlify.app/)
+# Zara Clone Deployed Link: [Zara-origins](https://zara-origins.netlify.app/)
 
 This project is a clone of ZARA.com which is well known online shopping store. The company specializes in fast fashion, and products include clothing, accessories, shoes, beauty products and many more things.
 

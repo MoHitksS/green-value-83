@@ -74,7 +74,7 @@ const Navbar = ({ activeIndexs }) => {
                         </div>
                         <ul className="menu" style={{overflow:"auto"}}>
                             {menuItem.map((ele, index) => (
-                                <li key={index}><Link to={`/products`} style={ele === 'Special Prices' ? { color: 'rgb(245, 57, 147)' } : {}}>{ele}</Link></li>
+                                <li key={index} htmlFor="menu-btn"><Link to={`/products`} style={ele === 'Special Prices' ? { color: 'rgb(245, 57, 147)' } : {}}>{ele}</Link></li>
                             ))}
                         </ul>
                     </header>

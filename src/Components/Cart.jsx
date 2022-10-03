@@ -34,7 +34,7 @@ const Cart = () => {
     <>
       <div className="container">
         <div className="heading">
-          <span>CART({cartData && cartData.length})</span>
+          <span>CART({cartData?cartData.length:"0"})</span>
           <span>WISHLIST</span>
         </div>
         <div className="shoping-cart-msg">

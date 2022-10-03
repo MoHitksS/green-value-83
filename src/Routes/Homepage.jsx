@@ -98,6 +98,7 @@ const Homepage = () => {
                 pagination={{
                     "clickable": true,
                 }}
+                onTouchMove={(e) => setactiveIndex(e.activeIndex===0?1:e.activeIndex===1?2:e.activeIndex)}
                 className="mySwiper"
                 onScroll={(e) => setactiveIndex(e.activeIndex)}
             >

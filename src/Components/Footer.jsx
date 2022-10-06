@@ -56,7 +56,7 @@ const Footer = () => {
     )
 }
 const Container = styled.div`
-    width:80%;
+    width:90%;
     margin:auto;
     display:flex;
     flex-direction:column;
@@ -64,7 +64,7 @@ const Container = styled.div`
     font-size:11px;
     margin-bottom:50px;
     line-height:20px;
-
+    margin-top:50px;
     .footer_display{
         display:flex;
         align-items:flex-start;

@@ -35,10 +35,6 @@ const LogIn = () => {
     })
   }
   
-  if(isAuth){
-    return <Navigate to={'/'} />
-  }
-
   return (
     <>
       <div className='navbar_space'></div>

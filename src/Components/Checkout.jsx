@@ -13,7 +13,7 @@ const Checkout = () => {
                 <div className="layout-content">
                     <div className="main-content">
                         <span>WHERE DO YOU WANT TO RECEIVE YOUR ORDER?</span>
-                        <div className="delivery-group-head">
+                        <div className="delivery-group-head" style={{marginTop:'20px'}}>
                             <div>
                                 <p><AccountBalanceIcon /></p>
                                 <div>Home</div>

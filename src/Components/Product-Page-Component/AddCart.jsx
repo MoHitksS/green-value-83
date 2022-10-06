@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Button, Divider} from '@mui/material';
-import {Menu} from '@mui/material';
-import {MenuItem} from '@mui/material';
+import { Button, Divider } from '@mui/material';
+import { Menu } from '@mui/material';
+import { MenuItem } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { styled, useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
@@ -23,8 +23,9 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function AddCart({data}) {
+export default function AddCart({ data }) {
   const dispatch = useDispatch();
+  const [val, setVal] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -33,9 +34,14 @@ export default function AddCart({data}) {
   const handleClose = () => {
     setAnchorEl(null);
     setOpend(true);
-    dispatch(postCart(data)).then(()=>{
+    dispatch(postCart(data)).then(() => {
       dispatch(getCart())
     })
+  };
+
+  const handleCloseButton = () => {
+    setAnchorEl(null);
+    setOpend(true);
   };
   const theme = useTheme();
   const [opend, setOpend] = React.useState(false);
@@ -60,14 +66,16 @@ export default function AddCart({data}) {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        <AddIcon sx={{fontSize: "15px", color:"gray"}} />
+        <AddIcon sx={{ fontSize: "15px", color: "gray" }} />
       </Button>
       <Menu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={handleCloseButton}
+
+
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'center',
@@ -78,48 +86,53 @@ export default function AddCart({data}) {
         }}
       >
         <MenuItem
-
-        color="inherit"
-         aria-label="open drawer"
-         edge="end"
-         sx={{ ...(opend && { display: 'none' }),fontSize:"10px", minWidth:"220px" }}
-        onClick={handleClose}>XS (UK XS)</MenuItem>
-
-        <MenuItem
-        color="inherit"
-         aria-label="open drawer"
-         edge="end"
-         sx={{ ...(opend && { display: 'none' }),fontSize:"10px", minWidth:"220px" }}
-         onClick={handleClose}>S (UK S)</MenuItem>
+          onClick={handleClose}
+          color="inherit"
+          aria-label="open drawer"
+          edge="end"
+          sx={{ ...(opend && { display: 'none' }), fontSize: "10px", minWidth: "220px" }}
+          >XS (UK XS)</MenuItem>
 
         <MenuItem
-       color="inherit"
-         aria-label="open drawer"
-         edge="end"
-         sx={{ ...(opend && { display: 'none' }),fontSize:"10px", minWidth:"220px" }}
-         onClick={handleClose}>M (UK M)</MenuItem>
+          color="inherit"
+          aria-label="open drawer"
+          edge="end"
+          onClick={handleClose}
+          sx={{ ...(opend && { display: 'none' }), fontSize: "10px", minWidth: "220px" }}
+          >S (UK S)</MenuItem>
 
         <MenuItem
-        color="inherit"
-         aria-label="open drawer"
-         edge="end"
-         sx={{ ...(opend && { display: 'none' }),fontSize:"10px", minWidth:"220px" }}
-         onClick={handleClose}>L (UK L)</MenuItem>
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleClose}
+          edge="end"
+          sx={{ ...(opend && { display: 'none' }), fontSize: "10px", minWidth: "220px" }}
+          >M (UK M)</MenuItem>
 
         <MenuItem
-        color="inherit"
-         aria-label="open drawer"
-         edge="end"
-         sx={{ ...(opend && { display: 'none' }),fontSize:"10px", minWidth:"220px" }}
-         onClick={handleClose}>XL (UK XL)</MenuItem>
-        <Divider/>
-        <div style={{display:"flex", justifyContent:"space-between"}}>
+          color="inherit"
+          aria-label="open drawer"
+          edge="end"
+          onClick={handleClose}
+          sx={{ ...(opend && { display: 'none' }), fontSize: "10px", minWidth: "220px" }}
+          >L (UK L)</MenuItem>
+
         <MenuItem
-        sx={{fontSize:"10px"}}
-         onClick={handleClose}>FIND YOUR SIZE</MenuItem><div> </div>
-         <MenuItem
-        sx={{fontSize:"10px"}}
-         onClick={handleClose}>SIZE GUIDE</MenuItem>
+          color="inherit"
+          aria-label="open drawer"
+          edge="end"
+          onClick={handleClose}
+          sx={{ ...(opend && { display: 'none' }), fontSize: "10px", minWidth: "220px" }}
+          >XL (UK XL)</MenuItem>
+        <Divider />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <MenuItem
+            sx={{ fontSize: "10px" }}
+            onClick={handleCloseButton}>FIND YOUR SIZE</MenuItem><div> </div>
+          <MenuItem
+            sx={{ fontSize: "10px" }}
+
+            onClick={handleCloseButton}>SIZE GUIDE</MenuItem>
         </div>
       </Menu>
       <Drawer
@@ -133,15 +146,15 @@ export default function AddCart({data}) {
         variant="temporary"
         anchor="right"
         open={opend}
-        onClose ={ handleDrawerClose}
+        onClose={handleDrawerClose}
       >
-      <DrawerHeader>
+        <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <CloseIcon /> : <CloseIcon />}
           </IconButton>
         </DrawerHeader>
         <List>
-          <DrawerBody key={data.id}/>
+          <DrawerBody key={data.id} />
         </List>
 
       </Drawer>

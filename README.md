@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Zara Clone Deployed Link: [Zara-origins](https://zara-origins.netlify.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a clone of ZARA.com which is well known online shopping store. The company specializes in fast fashion, and products include clothing, accessories, shoes, beauty products and many more things.
 
-## Available Scripts
+## Tech Stack :
 
-In the project directory, you can run:
+The tech Stack we used for creating this website are :-
 
-### `npm start`
+1. HTML 
+2. CSS
+3. Javascript
+4. React
+5. Redux
+6. Material UI
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Landing Page :
+The landing page of ZARA.com displays the navigation bar which contains menu bar , search button , helps , Login Cart.
+In our website, we tried our best to clone same as original website.
+![land2](https://user-images.githubusercontent.com/17249211/193620499-9829a26b-40c0-43a7-aade-0836388b6cec.png)
+</br>
+![Screenshot (1565)](https://user-images.githubusercontent.com/17249211/193619492-e73ae9d7-a769-4c83-bf0a-1f0239b7c25a.png)
+</br>
+![Screenshot (1564)](https://user-images.githubusercontent.com/17249211/193619804-80a7ce0f-9de0-4646-ae83-15cf246b839a.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Menu Section :
+We have added Menu section on the top left corner, if you click on the menu it will show the categories and subcategories of that section.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Screenshot (1566)](https://user-images.githubusercontent.com/17249211/193621412-c3f4c5cd-457e-431c-80e2-23723643f6e2.png)
 
-### `npm run build`
+</br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Screenshot (1567)](https://user-images.githubusercontent.com/17249211/193622010-93d1552f-6495-4dce-b75b-4eafda84a009.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Product Page :
+There are so much categories user can find their products according to their need . We have added products from original website and categorized them into different section.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![pro1](https://user-images.githubusercontent.com/17249211/193624445-19282da7-6eb4-400a-92f2-b30710c41ee9.png)
 
-### `npm run eject`
+![pro2](https://user-images.githubusercontent.com/17249211/193624504-c88b6d3c-9ea3-46eb-808a-9f869787e743.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![pro3](https://user-images.githubusercontent.com/17249211/193624537-f50f40f2-29dd-4a28-844d-ac0f61c4c040.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![pro4](https://user-images.githubusercontent.com/17249211/193624580-17711c48-21c4-4433-8778-0f338b7b37a7.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![pro5](https://user-images.githubusercontent.com/17249211/193626675-4484aafb-e221-4f50-bde7-2ffce33f4292.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Cart Section :
+When we add some products using Add to Bag button, the products you have choosen, will showcase into the Cart Section.
 
-## Learn More
+![cart1](https://user-images.githubusercontent.com/17249211/193625854-6c463225-d066-4040-afba-6f3db1f32e18.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Login and Create Account : 
+You can see Login and Create Account page. We used some NPM packages to authorize and authenticate users. Here user can also login and logout to the website.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![login](https://user-images.githubusercontent.com/17249211/193625914-1ebb68e9-3ec3-4182-9c1b-9e66a7c21f52.png)
 
-### Code Splitting
+![signup](https://user-images.githubusercontent.com/17249211/193625944-4f0475bf-d6ac-4903-bcb5-ac24d515f999.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Payment Page :
+We have added different payment methods, users can choose according to there preference, and after selecting any method it will redirect users to final payment page.
+Users have to provide OTP to verify their order which they received on their registered Email address.
 
-### Analyzing the Bundle Size
+![checkout](https://user-images.githubusercontent.com/17249211/193626095-97c95a0a-fb4e-47fa-96ab-a9a8ecf0d293.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![payment](https://user-images.githubusercontent.com/17249211/193626144-f25ecd6d-a8e7-4a65-8aef-568e8fdcf0be.png)
 
-### Making a Progressive Web App
+![payment2](https://user-images.githubusercontent.com/17249211/193626160-f2ac3af2-638c-4824-a6e0-bf3711d15b0e.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Responsive :
+Our website is responsive as well.
 
-### Advanced Configuration
+## Contributors :
+  - [@MoHitksS](https://github.com/MoHitksS) 
+  - [@Ravindra02Yadav](https://github.com/Ravindra02Yadav)
+  - [@BhruguPrasad](https://github.com/BhruguPrasad)
+  - [@Codex-Swapnil1](https://github.com/Codex-Swapnil1)
+  - [@Ppreedam](https://github.com/Ppreedam)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

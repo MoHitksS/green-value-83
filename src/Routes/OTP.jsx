@@ -10,10 +10,10 @@ const OTP = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {cart} = useSelector((store)=>store.AppReducer);
-  console.log(cart)
 
-
-
+  useEffect(()=>{
+    alert('Your OTP is 12345')
+  },[])
 
   useEffect(()=>{
     if(query==='12345'){

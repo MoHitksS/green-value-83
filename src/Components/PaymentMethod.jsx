@@ -39,7 +39,7 @@ const PaymentMethod = () => {
                             <p>UNIFIED PAYMENT INTERFACE</p>
                         </div>
                     </div>
-                    <div className="bottom-card" style={{display:'grid',gridTemplateColumns: "repeat(auto-fit,minmax(150px,max-content))"}}>
+                    <div className="bottom-card" style={{display:'grid',gridTemplateColumns: "repeat(auto-fit,minmax(130px,max-content))",gap:"10px"}}>
                         <div className="bottom-card-item">
                             <img src="https://static.zara.net/static/images/payment/payment/IcoBank-GiftCard.svg" alt="" />
                             <p>GIFT CARD</p>
@@ -72,21 +72,18 @@ const PaymentMethod = () => {
     )
 }
 const Container = styled.div`
- width: 100%;
- font-size:smaller;
-    height: 100vh;
-    position:relative;
-    cursor:pointer;
-    padding-top:120px;
-    padding-bottom:120px;
+width: 100%;
+font-size:smaller;
+position:relative;
+cursor:pointer;
+padding-top:120px;
+
 .layout-content{
-        width:90%;
-        height:100vh;
-        margin:auto;
-        margin-top:50px;
-        text-align:left;
-     
-    }
+    width:90%;
+    margin:auto;
+    margin-top:50px;
+    text-align:left;
+}
 .layout-content>p{
     border:1px solid orange;
     color:orange;
@@ -94,21 +91,23 @@ const Container = styled.div`
     width:50%;
 }
 .card-description{
-    display:flex;
-    gap:10px;
-    flex-wrap: wrap;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(130px,max-content));
+    gap:15px;
+    align-items:center;
 }
 .card-item{
     width:150px;
+    height:140px;
     text-align:center;
     border:1px solid #e5e5e5;
+    font-size:12px;
 }
 .card-item:hover{
     border:1px solid gray;  
 }
 .bottom-card{
     margin-top:20px;
-    gap:8px;
 }
 .bottom-card-item{
     text-align:center;
@@ -116,6 +115,7 @@ const Container = styled.div`
     padding:10px  
     
 }
+
 .bottom-card-item:hover{
     border:1px solid gray;  
 }
@@ -141,14 +141,7 @@ const Container = styled.div`
     background:black;
     color:white;
 }
-@media only screen and (min-width:320px) and (max-width:480px){
-    padding-bottom:230px;
 
-}
-
-@media only screen and (max-width: 320px){
-    padding-bottom:230px;
-}
 
 `
 export default PaymentMethod

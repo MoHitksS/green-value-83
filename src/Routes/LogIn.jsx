@@ -35,9 +35,9 @@ const LogIn = () => {
       navigate(path)
     })
   }
-
+  
   if(isAuth){
-    return <Navigate to={'/'} />
+    return <Navigate to={`/`}/>
   }
 
   return (

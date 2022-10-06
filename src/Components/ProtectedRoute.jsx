@@ -6,7 +6,7 @@ const ProtectedRoute = ({children}) => {
     const location = useLocation()
     const {isAuth} = useSelector((store)=>(store.AuthReducer));
     if(!isAuth){
-        return <Navigate to='/login' state={{path:location.pathname}}/>
+        return <Navigate to='/login' state={{path:location.pathname}} replace/>
     }
 
   return children

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../CSS/Cart.css";
 import { deleteCart, getCart, patchcart } from "../Redux/App/action";
 import Footer from "./Footer";
@@ -7,7 +7,8 @@ import Footer from "./Footer";
 
 const Cart = () => {
   const cartData = useSelector(state => state.AppReducer.cart);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const deletehandle = (id) => {
     dispatch(deleteCart(id)).then((res) => {
       dispatch(getCart())
@@ -23,6 +24,13 @@ const Cart = () => {
       dispatch(getCart())
     })
   }
+  const handleCheckout = () =>{
+    if(cartData && cartData.length > 0){
+      navigate('/checkout')
+    }else{
+      alert('Please Add Some Items To Your Cart In Order To Proceed')
+    }
+  }
 
   let sum = 0;
   cartData && cartData.forEach(element => {
@@ -34,7 +42,7 @@ const Cart = () => {
     <>
       <div className="container">
         <div className="heading">
-          <span>CART({cartData && cartData.length})</span>
+          <span>CART({cartData?cartData.length:"0"})</span>
           <span>WISHLIST</span>
         </div>
         <div className="shoping-cart-msg">
@@ -43,7 +51,7 @@ const Cart = () => {
 
         <div className="cart-item-flex">
           {cartData && cartData.length === 0 ?
-            <div>cart data is empty</div>
+            <div style={{textTransform:'uppercase'}}>cart data is empty</div>
             :
             cartData?.map((item,index) => (
               <div className="cart-item" key={item.id}>
@@ -87,7 +95,7 @@ const Cart = () => {
             <div>INCLUDING GST</div>
             <div>* EXCL SHIPPING COST</div>
           </div>
-          <Link to="/checkout"><button className="checkout-btn">CONTINUE</button></Link>
+          <button className="checkout-btn" onClick={handleCheckout}>CONTINUE</button>
         </div>
       </div>
       <Footer />

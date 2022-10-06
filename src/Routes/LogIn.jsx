@@ -11,6 +11,7 @@ const LogIn = () => {
   const dispatch = useDispatch()
   const location = useLocation()
   const {isAuth} = useSelector((store)=>(store.AuthReducer))
+  console.log(location)
   const path = location.state?.path;
   const [data, setData] = useState({
     email: '',
@@ -34,6 +35,7 @@ const LogIn = () => {
       navigate(path)
     })
   }
+  
   if(isAuth){
     return <Navigate to={`/`}/>
   }
@@ -84,21 +86,21 @@ const Container = styled.div`
 }
 
 @media only screen and (min-width: 481px) and (max-width:768px){
- 
+
       display:block;
-  
+
 }
 
 @media only screen and (min-width:320px) and (max-width:480px){
- 
+
       display:block;
-  
+
 }
 
 @media only screen and (max-width: 320px){
- 
+
       display:block;
-   
+
 `
 
 export default LogIn;

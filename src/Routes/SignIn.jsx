@@ -44,11 +44,11 @@ const SignIn = () => {
         <h3>PERSONAL DETAILS</h3>
         <div className='personal_company_toggle'>
           <div >
-            <input type="radio" />
+            <input type="radio" name="a" />
             <label htmlFor="">PERSONAL </label>
           </div>
           <div>
-            <input type="radio" onClick={() => {
+            <input type="radio" name="a"onClick={() => {
               navigate("/company")
             }} />
             <label htmlFor="">COMPANY</label>
@@ -60,15 +60,15 @@ const SignIn = () => {
             <form action="">
               <label htmlFor="">E-MAIL</label><br />
               {/* <input type="email" placeholder='Enter Email' name="email" onChange={onchnageHandler}/><br /><br /> */}
-              <input name="email" type="email" onChange={(e) => setData({ ...data, email: e.target.value })} placeholder='Enter Email' required /><br /><br />
+              <input  type="email" onChange={(e) => setData({ ...data, email: e.target.value })} placeholder='Enter Email' required /><br /><br />
               <hr />
 
               <label htmlFor="">PASSWORD</label><br />
               {/* <input type="password" placeholder='Enter Password' name="password" onChange={(e)=>setData({...data,name:e.target.value})} /><br /><br /> */}
-              <input name="password" type="password" placeholder="Enter Password" onChange={(e) => setData({ ...data, password: e.target.value })} required /><br /><br />
+              <input  type="password" placeholder="Enter Password" onChange={(e) => setData({ ...data, password: e.target.value })} required /><br /><br />
               <hr />
               <label htmlFor="">NAME</label><br />
-              <input type="text" placeholder='NAME' name="name" onChange={(e) => setData({ ...data, name: e.target.value })}/><br /><br />
+              <input type="text" placeholder='NAME' onChange={(e) => setData({ ...data, name: e.target.value })}/><br /><br />
               <hr />
               <label htmlFor="">ADDRESS</label><br />
               <input type="text" placeholder='ADDRESS' /><br /><br />
@@ -77,7 +77,7 @@ const SignIn = () => {
               <input type="text" placeholder='LOCALITY' /><br /><br />
               <hr />
               <label htmlFor="">STATE</label><br />
-              <select name="state">
+              <select>
                 {/* <select  id="" name="state" onChange={onchnageHandler}> */}
                 <option value="--">---</option>
                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -160,7 +160,7 @@ const SignIn = () => {
             <hr />
 
             <label htmlFor="">REGION</label><br />
-            <input type="email" placeholder='INDIA' value="INDIAI" /><br /><br />
+            <input type="email" placeholder='INDIA'  /><br /><br />
             <hr />
 
           </div>

@@ -34,7 +34,10 @@ const LogIn = () => {
       navigate(path)
     })
   }
-  
+  if(isAuth){
+    return <Navigate to={`/`}/>
+  }
+
   return (
     <>
       <div className='navbar_space'></div>

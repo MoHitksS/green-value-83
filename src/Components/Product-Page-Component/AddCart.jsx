@@ -46,6 +46,9 @@ export default function AddCart({ data }) {
   const theme = useTheme();
   const [opend, setOpend] = React.useState(false);
 
+  // const combinefunctin =()=>{
+  
+  // }
 
   // const handleDrawerOpen = () => {
   //   setOpend(true);

@@ -14,7 +14,8 @@ const SignIn = () => {
     email: "",
     phone: "",
     password: "",
-    name: ""
+    name: "",
+    repeatpassword: ""
   })
 
   const firebaseConfig = {
@@ -29,12 +30,20 @@ const SignIn = () => {
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-
   const onclickhandler = (e) => {
     e.preventDefault();
-    dispatch(signin(data.email,data.password)).then(()=>{
-      navigate('/login')
-    })
+    if (data.password === data.repeatpassword) {
+      if (data.email && data.password) {
+        dispatch(signin(data.email, data.password)).then(() => {
+          alert("Signup Successfull")
+          navigate('/login')
+        })
+      } else {
+        alert("Please Fill all requires Fields")
+      }
+    } else {
+      alert("Repeat Password Must Be Same")
+    }
   }
   return (
 
@@ -48,7 +57,7 @@ const SignIn = () => {
             <label htmlFor="">PERSONAL </label>
           </div>
           <div>
-            <input type="radio" name="a"onClick={() => {
+            <input type="radio" name="a" onClick={() => {
               navigate("/company")
             }} />
             <label htmlFor="">COMPANY</label>
@@ -60,15 +69,15 @@ const SignIn = () => {
             <form action="">
               <label htmlFor="">E-MAIL</label><br />
               {/* <input type="email" placeholder='Enter Email' name="email" onChange={onchnageHandler}/><br /><br /> */}
-              <input  type="email" onChange={(e) => setData({ ...data, email: e.target.value })} placeholder='Enter Email' required /><br /><br />
+              <input type="email" onChange={(e) => setData({ ...data, email: e.target.value })} placeholder='Enter Email' required /><br /><br />
               <hr />
 
               <label htmlFor="">PASSWORD</label><br />
               {/* <input type="password" placeholder='Enter Password' name="password" onChange={(e)=>setData({...data,name:e.target.value})} /><br /><br /> */}
-              <input  type="password" placeholder="Enter Password" onChange={(e) => setData({ ...data, password: e.target.value })} required /><br /><br />
+              <input type="password" placeholder="Enter Password" onChange={(e) => setData({ ...data, password: e.target.value })} required /><br /><br />
               <hr />
               <label htmlFor="">NAME</label><br />
-              <input type="text" placeholder='NAME' onChange={(e) => setData({ ...data, name: e.target.value })}/><br /><br />
+              <input type="text" placeholder='NAME' onChange={(e) => setData({ ...data, name: e.target.value })} /><br /><br />
               <hr />
               <label htmlFor="">ADDRESS</label><br />
               <input type="text" placeholder='ADDRESS' /><br /><br />
@@ -118,33 +127,15 @@ const SignIn = () => {
                 <option value="West Bengal">West Bengal</option>
               </select> <br /><br />
               <hr />
-
-              <div className='prefix_telephone'>
-                <div>
-                  PREFIX <br />
-                  +91
-                </div>
-                <div>
-                  <label htmlFor="">TELEPHONE</label><br />
-                  <input type="number" placeholder='TELEPHONE' onChange={(e) => setData({ ...data, phone: e.target.value })} />
-                  <hr />
-                </div>
-              </div>
-
-              <div className="checkbox_input">
-                <input type="checkbox" /><label htmlFor="">I WISH TO RECEIVE ZARA NEWS ON MY E-MAIL</label><br />
-                <input type="checkbox" /><label htmlFor="">I ACCEPT THE PRIVACY STATEMENT</label>
-              </div>
-              <button type="submit" onClick={onclickhandler}>CREATE ACCOUNT</button>
+              
             </form>
           </div>
           <div >
             <label htmlFor=""></label><br />
             {/* <input type="email" placeholder=''/><br /><br /> */}
-            <hr className="invisiblehr" /><br /><br />
 
             <label htmlFor="">REPEAT PASSWORD</label><br />
-            <input type="email" placeholder='REPEAT PASSWORD' /><br /><br />
+            <input type="email" placeholder='REPEAT PASSWORD' onChange={(e) => setData({ ...data, repeatpassword: e.target.value })} /><br /><br />
             <hr />
 
             <label htmlFor="">PINCODE</label><br />
@@ -160,12 +151,31 @@ const SignIn = () => {
             <hr />
 
             <label htmlFor="">REGION</label><br />
-            <input type="email" placeholder='INDIA'  /><br /><br />
+            <input type="email" placeholder='INDIA' /><br /><br />
             <hr />
 
           </div>
           <div></div>
         </div>
+        <div className="submitSection">
+                <div className='prefix_telephone'>
+                  <div>
+                    PREFIX <br />
+                    +91
+                  </div>
+                  <div>
+                    <label htmlFor="">TELEPHONE</label><br />
+                    <input type="number" placeholder='TELEPHONE' onChange={(e) => setData({ ...data, phone: e.target.value })} />
+                    <hr />
+                  </div>
+                </div>
+                <div className="checkbox_input">
+                  <input type="checkbox" /><label htmlFor="">I WISH TO RECEIVE ZARA NEWS ON MY E-MAIL</label><br />
+                  <input type="checkbox" /><label htmlFor="">I ACCEPT THE PRIVACY STATEMENT</label>
+                </div>
+                <button type="submit" onClick={onclickhandler}>CREATE ACCOUNT</button>
+              </div>
+
       </div>
 
       <Footer />

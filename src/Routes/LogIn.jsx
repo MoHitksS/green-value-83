@@ -10,7 +10,7 @@ const LogIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
   const location = useLocation()
-  const {isAuth} = useSelector((store)=>(store.AuthReducer))
+  const { isAuth } = useSelector((store) => (store.AuthReducer))
   console.log(location)
   const path = location.state?.path;
   const [data, setData] = useState({
@@ -31,13 +31,21 @@ const LogIn = () => {
   const app = initializeApp(firebaseConfig);
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(login(data.email, data.password)).then(() => {
-      navigate(path)
-    })
+    if (data.email && data.password) {
+      dispatch(login(data.email, data.password)).then((res) => {
+        if(!res){
+          alert("You have entered wrong credentials or please Signup first")
+        }else{
+          navigate(path)
+        } 
+      })
+    }else{
+      alert("You Have entered Wrong Credentials")
+    }
   }
-  
-  if(isAuth){
-    return <Navigate to={`/`}/>
+
+  if (isAuth) {
+    return <Navigate to={`/`} />
   }
 
   return (
@@ -56,7 +64,7 @@ const LogIn = () => {
               <button onClick={handleLogin}>LOG IN</button>
             </form>
           </div>
-          <div  className='Login_second_box2'>
+          <div className='Login_second_box2'>
 
             <h2>REGISTER</h2>
             <p>IF YOU STILL DON'T HAVE A <span><b>ZARA.COM</b></span> ACCOUNT, USE THIS OPTION TO ACCESS THE REGISTRATION FORM.</p>
@@ -72,7 +80,7 @@ const LogIn = () => {
           <div></div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   )
 }

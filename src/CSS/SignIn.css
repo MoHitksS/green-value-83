@@ -23,16 +23,14 @@
 }
 
 .signin_second_box {
-    margin-top: 30px;
     /* border: 1px solid black; */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 20px;
 }
 
 .signin_second_box>div:nth-child(1) {
     /* border: 1px solid red; */
-    width: 530px;
+    width: 400px;
     text-align: left;
 }
 
@@ -61,7 +59,7 @@
 
 }
 
-.signin_second_box>div>form>button {
+.submitSection>button {
     background-color: #0c0c0c;
     border: none;
     color: white;
@@ -71,9 +69,9 @@
     margin-top: 30px;
 }
 
+
 .prefix_telephone {
     display: flex;
-    /* border: 1px solid red; */
     font-size: 10px;
     margin-bottom: 10px;
 }
@@ -102,10 +100,9 @@
 /* ***************box2********* */
 
 .signin_second_box>div:nth-child(2) {
-    /* border: 1px solid red; */
-    width: 530px;
     text-align: left;
     width: 400px;
+    margin-top:-22px;
 }
 
 .signin_second_box>div:nth-child(2)>input {
@@ -115,7 +112,8 @@
     letter-spacing: 1px;
     width: 100%;
 }
-.invisiblehr{
+
+.invisiblehr {
     border: 1px solid white;
 }
 
@@ -124,14 +122,14 @@
 }
 
 .signin_second_box>div:nth-child(2)>label {
-
     font-size: 10px;
 }
-.checkbox_input{
+
+.checkbox_input {
     font-size: 13px;
 }
 
-@media only screen and (min-width: 769px) and (max-width:968px){
+@media only screen and (min-width: 769px) and (max-width:968px) {
     .personal_company_toggle {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -139,49 +137,96 @@
         text-align: left;
         font-size: 13px;
     }
-}
-@media only screen and (min-width: 769px) and (max-width:845px){
-    .signin_second_box>div:nth-child(2) {
-         display: none;
+
+    
+    .signin_second_box {
+        flex-direction: column;
+        gap:0px;
     }
-    .personal_company_toggle {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        /* border: 1px solid red; */
-        text-align: left;
-        font-size: 13px;
-    }
-}
-@media only screen and (min-width: 481px) and (max-width:768px){
-    .signin_second_box>div:nth-child(2) {
-        display: none;
-    }
-    .signin_second_box>div>form>hr {
-        margin-top: -18px;
+
+    .signin_second_box>div:nth-child(1),.signin_second_box>div:nth-child(2) {
         /* border: 1px solid red; */
         width: 100%;
     }
+}
+
+@media only screen and (min-width: 769px) and (max-width:845px) {
+
     .personal_company_toggle {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         /* border: 1px solid red; */
         text-align: left;
         font-size: 13px;
+    }
+
+    .signin_second_box {
+        flex-direction: column;
+        gap:0px;
+    }
+
+    .signin_second_box>div:nth-child(1),.signin_second_box>div:nth-child(2) {
+        /* border: 1px solid red; */
+        width: 100%;
+    }
+
+    
+}
+
+@media only screen and (min-width: 481px) and (max-width:768px) {
+
+    .personal_company_toggle {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* border: 1px solid red; */
+        text-align: left;
+        font-size: 13px;
+        gap:20px;
+    }
+    .signin_second_box {
+        flex-direction: column;
+        gap:0px;
+    }
+
+    .signin_second_box>div:nth-child(1),.signin_second_box>div:nth-child(2) {
+        /* border: 1px solid red; */
+        width: 100%;
     }
 }
-@media only screen and (min-width: 320px) and (max-width:480px){
-    .signin_second_box>div:nth-child(2) {
-        /* border: 1px solid red; */
-        display: none;
-    }
-    .signin_second_box>div:nth-child(3) {
-        display: none;
-    }
+
+@media only screen and (min-width: 320px) and (max-width:480px) {
+
     .personal_company_toggle {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         /* border: 1px solid red; */
         text-align: left;
         font-size: 13px;
+        gap:20px;
     }
+    .signin_second_box {
+        flex-direction: column;
+        gap:0px;
+    }
+
+    .signin_second_box>div:nth-child(1),.signin_second_box>div:nth-child(2) {
+        /* border: 1px solid red; */
+        width: 100%;
+    }
+    /* .signin_main_box{
+        width:90%;
+        margin:auto;
+        border: 1px solid red;
+    }
+
+    .signin_second_box {
+        width:100%;
+        flex-direction: column;
+        gap:0px;
+    }
+
+    .signin_second_box>div:nth-child(1),.signin_second_box>div:nth-child(2){
+        border: 1px solid red;
+        width: 100%;
+    } */
 }

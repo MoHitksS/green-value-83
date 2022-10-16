@@ -421,6 +421,13 @@ const Container = styled.div`
             padding-left:90px;
             padding-top:20px;
         }
+
+        .navRightSection>div:last-child{
+            display:flex;
+            gap:30px;
+            justify-content:right;
+            
+        }
     }
 
     @media only screen and (min-width: 481px) and (max-width:768px){
@@ -428,6 +435,7 @@ const Container = styled.div`
             flex-direction:column-reverse;
             align-items:flex-end;
             margin-top:20px;
+            
         }
 
         .header {
@@ -438,6 +446,13 @@ const Container = styled.div`
         .logo{
             width:200px;
         }
+
+        .navRightSection>div:last-child{
+            display:flex;
+            gap:30px;
+            justify-content:right;
+            
+        }
     }
 
     @media only screen and (min-width:320px) and (max-width:480px){
@@ -446,6 +461,7 @@ const Container = styled.div`
             flex-direction:column-reverse;
             align-items:flex-end;
             margin-top:20px;
+            
         }
 
         .header {
@@ -463,9 +479,11 @@ const Container = styled.div`
         }
 
         .navRightSection>div:last-child{
-            width:130px;
+            width:150px;
             display:flex;
-            gap: 0px;
+            gap:10px;
+            justify-content:right;
+            
         }
         .menuLogo>svg{
             padding-left:30px;
